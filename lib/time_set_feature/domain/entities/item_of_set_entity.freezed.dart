@@ -172,7 +172,7 @@ class __$$_ItemOfSetEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ItemOfSetEntity implements _ItemOfSetEntity {
+class _$_ItemOfSetEntity extends _ItemOfSetEntity {
   _$_ItemOfSetEntity(
       {this.titleItem,
       final List<String>? chipsItem,
@@ -181,7 +181,8 @@ class _$_ItemOfSetEntity implements _ItemOfSetEntity {
       this.isPicture,
       this.isVerse,
       this.isTable})
-      : _chipsItem = chipsItem;
+      : _chipsItem = chipsItem,
+        super._();
 
   @override
   final String? titleItem;
@@ -252,7 +253,7 @@ class _$_ItemOfSetEntity implements _ItemOfSetEntity {
       __$$_ItemOfSetEntityCopyWithImpl<_$_ItemOfSetEntity>(this, _$identity);
 }
 
-abstract class _ItemOfSetEntity implements ItemOfSetEntity {
+abstract class _ItemOfSetEntity extends ItemOfSetEntity {
   factory _ItemOfSetEntity(
       {final String? titleItem,
       final List<String>? chipsItem,
@@ -261,6 +262,7 @@ abstract class _ItemOfSetEntity implements ItemOfSetEntity {
       final bool? isPicture,
       final bool? isVerse,
       final bool? isTable}) = _$_ItemOfSetEntity;
+  _ItemOfSetEntity._() : super._();
 
   @override
   String? get titleItem;

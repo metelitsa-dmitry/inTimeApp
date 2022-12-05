@@ -158,7 +158,7 @@ class __$$_TimeSetEntityCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TimeSetEntity implements _TimeSetEntity {
+class _$_TimeSetEntity extends _TimeSetEntity {
   _$_TimeSetEntity(
       {this.dateTimeSaved,
       final List<ItemOfSetEntity>? itemsOfSet,
@@ -167,7 +167,8 @@ class _$_TimeSetEntity implements _TimeSetEntity {
       required this.startTimeSet,
       required this.durationTimeSet})
       : _itemsOfSet = itemsOfSet,
-        _numberChips = numberChips;
+        _numberChips = numberChips,
+        super._();
 
   @override
   final DateTime? dateTimeSaved;
@@ -238,7 +239,7 @@ class _$_TimeSetEntity implements _TimeSetEntity {
       __$$_TimeSetEntityCopyWithImpl<_$_TimeSetEntity>(this, _$identity);
 }
 
-abstract class _TimeSetEntity implements TimeSetEntity {
+abstract class _TimeSetEntity extends TimeSetEntity {
   factory _TimeSetEntity(
       {final DateTime? dateTimeSaved,
       final List<ItemOfSetEntity>? itemsOfSet,
@@ -246,6 +247,7 @@ abstract class _TimeSetEntity implements TimeSetEntity {
       required final String title,
       required final DateTime startTimeSet,
       required final DateTime durationTimeSet}) = _$_TimeSetEntity;
+  _TimeSetEntity._() : super._();
 
   @override
   DateTime? get dateTimeSaved;
