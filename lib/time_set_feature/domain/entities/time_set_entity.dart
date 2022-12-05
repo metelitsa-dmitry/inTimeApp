@@ -1,31 +1,20 @@
-import 'package:equatable/equatable.dart';
+
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart';
 import 'number_chips_data.dart';
 
-class TimeSetEntity extends Equatable {
-  final String title;
-  final DateTime? dateTimeSaved;
-  final DateTime startTimeSet;
-  final DateTime durationTimeSet;
-  final List<ItemOfSetEntity>? itemsOfSet;
-  final List<NumberChipsData>? numberChips;
+part 'time_set_entity.freezed.dart';
 
-  const TimeSetEntity({
-    this.dateTimeSaved,
-    this.itemsOfSet,
-    this.numberChips,
-    required this.title,
-    required this.startTimeSet,
-    required this.durationTimeSet,
-  });
+@freezed
+class TimeSetEntity with _$TimeSetEntity{
 
-  @override
-  List<Object?> get props => [
-        title,
-        dateTimeSaved,
-        startTimeSet,
-        durationTimeSet,
-        itemsOfSet,
-        numberChips,
-      ];
+  factory TimeSetEntity({
+    DateTime? dateTimeSaved,
+    List<ItemOfSetEntity>? itemsOfSet,
+    List<NumberChipsData>? numberChips,
+    required String title,
+    required DateTime startTimeSet,
+    required DateTime durationTimeSet,
+  }) = _TimeSetEntity;
+
 }

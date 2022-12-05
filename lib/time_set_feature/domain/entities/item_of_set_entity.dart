@@ -1,41 +1,28 @@
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class ItemOfSetEntity extends Equatable {
-  final String? titleItem; // text in item
-  final List<String>? chipsItem;
+part 'item_of_set_entity.freezed.dart';
 
-  final DateTime durationOfItemSet;
-  // final int durationHours;
-  // final int durationMinutes;
-  // final int durationSeconds;
+@freezed
+class ItemOfSetEntity with _$ItemOfSetEntity {
 
-  final DateTime startItemOfSet;
-  // final int startTimeItemHours; // hours of item's start time
-  // final int startTimeItemMinutes; // minutes of item's start time
-  // final int startTimeItemSeconds; // seconds of item's start time
+  factory ItemOfSetEntity ({
+    String? titleItem, // text in item
+    List<String>? chipsItem,
+    required DateTime durationOfItemSet,
+    required DateTime startItemOfSet,
+    bool? isPicture, // need to discuss picture
+    bool? isVerse, // need to read verse
+    bool? isTable, // ne
+  }) = _ItemOfSetEntity;
 
-  final bool? isPicture; // need to discuss picture
-  final bool? isVerse; // need to read verse
-  final bool? isTable; // ne
+// final int durationHours;
+// final int durationMinutes;
+// final int durationSeconds;
 
-  const ItemOfSetEntity({
-    this.titleItem,
-    this.chipsItem,
-    this.isPicture,
-    this.isVerse,
-    this.isTable,
-    required this.startItemOfSet,
-    required this.durationOfItemSet,
-  });
 
-  @override
-  List<Object?> get props => [
-        startItemOfSet,
-        durationOfItemSet,
-        isPicture,
-        isVerse,
-        isTable,
-        titleItem,
-        chipsItem
-      ];
+// final int startTimeItemHours; // hours of item's start time
+// final int startTimeItemMinutes; // minutes of item's start time
+// final int startTimeItemSeconds; // seconds of item's start time
+
+
 }

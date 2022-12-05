@@ -1,15 +1,16 @@
-import 'package:equatable/equatable.dart';
 
-class TextChoiceChipData extends Equatable {
-  final String label;
-  final bool isSelected;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  const TextChoiceChipData({
-    required this.label,
-    required this.isSelected,
-  });
+part 'text_chips_data.freezed.dart';
 
-  @override
-  List<Object?> get props => [label, isSelected];
+@freezed
+class TextChoiceChipData with _$TextChoiceChipData {
+
+ // TextChoiceChipData._(); If will be added some methods
+
+  const factory TextChoiceChipData({
+    required String label,
+    required bool isSelected,
+  }) = _TextChoiceChipData;
 
 }

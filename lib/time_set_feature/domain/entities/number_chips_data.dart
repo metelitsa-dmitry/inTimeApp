@@ -1,13 +1,13 @@
 
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class NumberChipsData extends Equatable{
-  final int number;
-  final bool isSelected;
+part 'number_chips_data.freezed.dart';
 
-  const NumberChipsData({ required this.number, required this.isSelected});
+@freezed
+class NumberChipsData with _$NumberChipsData {
 
-  @override
-  List<Object?> get props => [number, isSelected];
+   const factory NumberChipsData({
+    required int number,
+    required bool isSelected,
+  }) = _NumberChipsData;
 }
-
