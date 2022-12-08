@@ -1,8 +1,13 @@
 import 'package:equatable/equatable.dart';
 
-abstract class Failure extends Equatable {
+abstract class Error extends Equatable {
   @override
   List<Object?> get props => [];
 }
 
-class HiveFailure extends Failure{}
+class TimeSetError extends Error{
+  final String errorMessage;
+
+  TimeSetError({required this.errorMessage});
+
+}

@@ -38,6 +38,8 @@ dependencies:
   hive_generator: ^2.0.0
   freezed_annotation: ^2.2.0
   intl: ^0.17.0
+  speed_dial: ^0.0.1
+  flutter_speed_dial: ^6.2.0
 
 
 dev_dependencies:
