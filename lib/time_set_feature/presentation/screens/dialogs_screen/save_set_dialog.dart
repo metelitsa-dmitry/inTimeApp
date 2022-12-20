@@ -8,7 +8,7 @@ class DialogSaveTimeSetAs extends StatefulWidget {
 }
 
 class _DialogSaveTimeSetAsState extends State<DialogSaveTimeSetAs> {
-  var _controller = TextEditingController();
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +16,6 @@ class _DialogSaveTimeSetAsState extends State<DialogSaveTimeSetAs> {
       title: const Text('Сохранить'),
       content: TextField(
         controller: _controller,
-        // onChanged: (value){
-        //   setState(() {
-        //   });
-        // },
       ),
       actions: <Widget>[
         TextButton(
@@ -28,8 +24,7 @@ class _DialogSaveTimeSetAsState extends State<DialogSaveTimeSetAs> {
         ),
         TextButton(
           onPressed: () {
-            //context.read<TimeSetModule>().saveNewTimeSetAs(_controller.text);
-            Navigator.pop(context);
+            Navigator.pop(context, _controller.text);
           },
           child: const Text('Ok'),
         ),

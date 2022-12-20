@@ -1,13 +1,13 @@
 
-
 import 'package:in_time/time_set_feature/data/models/time_set_dto.dart';
-import 'package:in_time/time_set_feature/domain/data_base/data_base_domain.dart';
 import 'package:in_time/time_set_feature/domain/repositories/time_set_repository.dart';
 
-class TimSetRepositoryImpl implements TimeSetRepository{
+import '../../domain/data_source/data_base_domain.dart';
+
+class TimeSetRepositoryImpl implements TimeSetRepository{
   final DataBase _dataBase;
 
-  TimSetRepositoryImpl(this._dataBase);
+  TimeSetRepositoryImpl(this._dataBase);
 
   @override
   List<TimeSetDto> getAllTimeSets() {

@@ -12,7 +12,7 @@ class TimeSetDto {
   final String title;
 
   @HiveField(1)
-  final DateTime? dateTimeSaved;
+  final DateTime dateTimeSaved;
 
   @HiveField(2)
   final DateTime startTimeSet;
@@ -29,7 +29,7 @@ class TimeSetDto {
   TimeSetDto({
     this.itemsOfSet,
     this.numberChips,
-    this.dateTimeSaved,
+    required this.dateTimeSaved,
     required this.title,
     required this.startTimeSet,
     required this.durationTimeSet,

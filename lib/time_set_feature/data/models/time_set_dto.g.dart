@@ -19,7 +19,7 @@ class TimeSetDtoAdapter extends TypeAdapter<TimeSetDto> {
     return TimeSetDto(
       itemsOfSet: (fields[4] as List?)?.cast<ItemOfSetDto>(),
       numberChips: (fields[5] as List?)?.cast<NumberChipsDataDto>(),
-      dateTimeSaved: fields[1] as DateTime?,
+      dateTimeSaved: fields[1] as DateTime,
       title: fields[0] as String,
       startTimeSet: fields[2] as DateTime,
       durationTimeSet: fields[3] as DateTime,

@@ -1,21 +1,20 @@
 
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:in_time/core/error/exceptions.dart';
-import 'package:in_time/time_set_feature/domain/data_base/data_base_domain.dart';
 
-class DataBaseHiveImpl implements DataBase{
+import '../../../core/constants.dart';
+import '../../domain/data_source/data_base_domain.dart';
 
-  final String database;
+class DataBaseTimeSetImpl implements DataBase{
 
-  DataBaseHiveImpl({required this.database});
-
-  @override
-  Box get box => Hive.box(database);
 
   @override
-  Future addUpdate<T>(String id, T item) async {
+  Box get box => Hive.box(constTimeSetsBox);
+
+  @override
+  Future addUpdate<TimeSetDto>(String id, TimeSetDto timeSetDto) async {
     try {
-      await box.put(id, item);
+      await box.put(id, timeSetDto);
     } catch (_) {
       rethrow;
     }
@@ -40,30 +39,24 @@ class DataBaseHiveImpl implements DataBase{
   }
 
   @override
-  T get<T>(String id) {
-    try {
+  timeSetDto get<timeSetDto>(String id) {
+   try {
       final data = box.get(id);
       if (data == null) {
         throw TimeSetAppException.noRecords();
       }
       return data;
     } catch (_) {
-      rethrow;
+     rethrow;
     }
   }
 
   @override
-  List<T> getAll<T>() {
-    try {
+  List<timeSetDto> getAll<timeSetDto>() {
+
       final data = box.toMap().values;
-      if (data.isEmpty) {
-        throw  TimeSetAppException.noRecords();
-      }
-      return data.toList().cast<T>();
-    } catch (_) {
-      rethrow;
-    }
-  }
+      return data.toList().cast<timeSetDto>();
+     }
 
 
 }

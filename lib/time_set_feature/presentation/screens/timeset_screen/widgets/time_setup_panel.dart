@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../bloc_time_set/bloc_time_set_bloc.dart';
 
 class TimeSetupPanel extends StatelessWidget {
   const TimeSetupPanel({
@@ -30,7 +33,8 @@ class StartTimeSet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final startSet = TimeOfDay.now().format(context);
+    final state = BlocProvider.of<TimeSetBloc>(context).state;
+
     return Flexible(
       flex: 1,
       child: Padding(
@@ -39,10 +43,12 @@ class StartTimeSet extends StatelessWidget {
           child: Row(
             children: [
               Icon(Icons.hourglass_top),
-              Text(
-                startSet,
+          state.when(
+              initial: () => const Text('--:--'),
+              loading: () => const CircularProgressIndicator(),
+              loadedTimeSet: (timeSet)=> Text(timeSet.startTimeSetFormat,
                 style: const TextStyle(
-                  fontSize: 22,
+                  fontSize: 22,),
                 ),
               ),
             ],
@@ -61,7 +67,7 @@ class DurationTimeSet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    final state = BlocProvider.of<TimeSetBloc>(context).state;
     return Flexible(
       flex: 1,
       child: Padding(
@@ -71,10 +77,12 @@ class DurationTimeSet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.hourglass_empty),
-              Text(
-                '01:00',
-                style: const TextStyle(
-                  fontSize: 22,
+              state.when(
+                initial: () => const Text('--:--'),
+                loading: () => const CircularProgressIndicator(),
+                loadedTimeSet: (timeSet)=> Text(timeSet.durationFormat,
+                  style: const TextStyle(
+                    fontSize: 22,),
                 ),
               ),
             ],

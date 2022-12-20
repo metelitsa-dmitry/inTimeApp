@@ -1,6 +1,4 @@
 
-enum Database{
-  boxTimeSets,
-  boxItemOfSet,
-  boxNumberChips,
-  boxTextChips}
+
+
+ const String constTimeSetsBox = 'timeSetsBox';

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TimeSetEntity {
-  DateTime? get dateTimeSaved => throw _privateConstructorUsedError;
+  DateTime get dateTimeSaved => throw _privateConstructorUsedError;
   List<ItemOfSetEntity>? get itemsOfSet => throw _privateConstructorUsedError;
   List<NumberChipsData>? get numberChips => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $TimeSetEntityCopyWith<$Res> {
       _$TimeSetEntityCopyWithImpl<$Res, TimeSetEntity>;
   @useResult
   $Res call(
-      {DateTime? dateTimeSaved,
+      {DateTime dateTimeSaved,
       List<ItemOfSetEntity>? itemsOfSet,
       List<NumberChipsData>? numberChips,
       String title,
@@ -56,7 +56,7 @@ class _$TimeSetEntityCopyWithImpl<$Res, $Val extends TimeSetEntity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dateTimeSaved = freezed,
+    Object? dateTimeSaved = null,
     Object? itemsOfSet = freezed,
     Object? numberChips = freezed,
     Object? title = null,
@@ -64,10 +64,10 @@ class _$TimeSetEntityCopyWithImpl<$Res, $Val extends TimeSetEntity>
     Object? durationTimeSet = null,
   }) {
     return _then(_value.copyWith(
-      dateTimeSaved: freezed == dateTimeSaved
+      dateTimeSaved: null == dateTimeSaved
           ? _value.dateTimeSaved
           : dateTimeSaved // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       itemsOfSet: freezed == itemsOfSet
           ? _value.itemsOfSet
           : itemsOfSet // ignore: cast_nullable_to_non_nullable
@@ -101,7 +101,7 @@ abstract class _$$_TimeSetEntityCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {DateTime? dateTimeSaved,
+      {DateTime dateTimeSaved,
       List<ItemOfSetEntity>? itemsOfSet,
       List<NumberChipsData>? numberChips,
       String title,
@@ -120,7 +120,7 @@ class __$$_TimeSetEntityCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? dateTimeSaved = freezed,
+    Object? dateTimeSaved = null,
     Object? itemsOfSet = freezed,
     Object? numberChips = freezed,
     Object? title = null,
@@ -128,10 +128,10 @@ class __$$_TimeSetEntityCopyWithImpl<$Res>
     Object? durationTimeSet = null,
   }) {
     return _then(_$_TimeSetEntity(
-      dateTimeSaved: freezed == dateTimeSaved
+      dateTimeSaved: null == dateTimeSaved
           ? _value.dateTimeSaved
           : dateTimeSaved // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as DateTime,
       itemsOfSet: freezed == itemsOfSet
           ? _value._itemsOfSet
           : itemsOfSet // ignore: cast_nullable_to_non_nullable
@@ -160,7 +160,7 @@ class __$$_TimeSetEntityCopyWithImpl<$Res>
 
 class _$_TimeSetEntity extends _TimeSetEntity {
   _$_TimeSetEntity(
-      {this.dateTimeSaved,
+      {required this.dateTimeSaved,
       final List<ItemOfSetEntity>? itemsOfSet,
       final List<NumberChipsData>? numberChips,
       required this.title,
@@ -171,7 +171,7 @@ class _$_TimeSetEntity extends _TimeSetEntity {
         super._();
 
   @override
-  final DateTime? dateTimeSaved;
+  final DateTime dateTimeSaved;
   final List<ItemOfSetEntity>? _itemsOfSet;
   @override
   List<ItemOfSetEntity>? get itemsOfSet {
@@ -241,7 +241,7 @@ class _$_TimeSetEntity extends _TimeSetEntity {
 
 abstract class _TimeSetEntity extends TimeSetEntity {
   factory _TimeSetEntity(
-      {final DateTime? dateTimeSaved,
+      {required final DateTime dateTimeSaved,
       final List<ItemOfSetEntity>? itemsOfSet,
       final List<NumberChipsData>? numberChips,
       required final String title,
@@ -250,7 +250,7 @@ abstract class _TimeSetEntity extends TimeSetEntity {
   _TimeSetEntity._() : super._();
 
   @override
-  DateTime? get dateTimeSaved;
+  DateTime get dateTimeSaved;
   @override
   List<ItemOfSetEntity>? get itemsOfSet;
   @override

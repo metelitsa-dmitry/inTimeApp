@@ -11,7 +11,7 @@ class TimeSetEntity with _$TimeSetEntity{
   TimeSetEntity._();
 
   factory TimeSetEntity({
-    DateTime? dateTimeSaved,
+    required DateTime dateTimeSaved,
     List<ItemOfSetEntity>? itemsOfSet,
     List<NumberChipsData>? numberChips,
     required String title,
@@ -21,6 +21,8 @@ class TimeSetEntity with _$TimeSetEntity{
 
   final DateFormat _formatter1 = DateFormat('hh:mm a');
   final DateFormat _formatter2 = DateFormat('hh:mm');
+  final DateFormat _formatter3 = DateFormat('yyyy-MM-dd, hh:mm a');
   String get startTimeSetFormat => _formatter1.format(startTimeSet);
-  String get durationFormat => _formatter2.format(startTimeSet);
+  String get durationFormat => _formatter2.format(durationTimeSet);
+  String get dateTimeSavedFormat => _formatter3.format(dateTimeSaved) ;
 }
