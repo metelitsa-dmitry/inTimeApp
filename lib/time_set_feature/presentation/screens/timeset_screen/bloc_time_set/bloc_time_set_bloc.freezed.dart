@@ -21,6 +21,9 @@ mixin _$TimeSetEvent {
     required TResult Function() initial,
     required TResult Function(String id) getTimeSet,
     required TResult Function(String id) saveAsTimeSet,
+    required TResult Function(DateTime newStatTime) changeStartTimeSet,
+    required TResult Function(DateTime newDuration) changeDurationTimeSet,
+    required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +31,9 @@ mixin _$TimeSetEvent {
     TResult? Function()? initial,
     TResult? Function(String id)? getTimeSet,
     TResult? Function(String id)? saveAsTimeSet,
+    TResult? Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult? Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +41,9 @@ mixin _$TimeSetEvent {
     TResult Function()? initial,
     TResult Function(String id)? getTimeSet,
     TResult Function(String id)? saveAsTimeSet,
+    TResult Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +52,11 @@ mixin _$TimeSetEvent {
     required TResult Function(TimeSetInitialEvent value) initial,
     required TResult Function(GetTimeSetEvent value) getTimeSet,
     required TResult Function(SaveAsTimeSetEvent value) saveAsTimeSet,
+    required TResult Function(ChangeStartTimeSetEvent value) changeStartTimeSet,
+    required TResult Function(ChangeDurationTimeSetEvent value)
+        changeDurationTimeSet,
+    required TResult Function(ChangeFinishTimeSetEvent value)
+        changeFinishTimeSet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +64,9 @@ mixin _$TimeSetEvent {
     TResult? Function(TimeSetInitialEvent value)? initial,
     TResult? Function(GetTimeSetEvent value)? getTimeSet,
     TResult? Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult? Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +74,9 @@ mixin _$TimeSetEvent {
     TResult Function(TimeSetInitialEvent value)? initial,
     TResult Function(GetTimeSetEvent value)? getTimeSet,
     TResult Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +141,9 @@ class _$TimeSetInitialEvent implements TimeSetInitialEvent {
     required TResult Function() initial,
     required TResult Function(String id) getTimeSet,
     required TResult Function(String id) saveAsTimeSet,
+    required TResult Function(DateTime newStatTime) changeStartTimeSet,
+    required TResult Function(DateTime newDuration) changeDurationTimeSet,
+    required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
   }) {
     return initial();
   }
@@ -131,6 +154,9 @@ class _$TimeSetInitialEvent implements TimeSetInitialEvent {
     TResult? Function()? initial,
     TResult? Function(String id)? getTimeSet,
     TResult? Function(String id)? saveAsTimeSet,
+    TResult? Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult? Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
   }) {
     return initial?.call();
   }
@@ -141,6 +167,9 @@ class _$TimeSetInitialEvent implements TimeSetInitialEvent {
     TResult Function()? initial,
     TResult Function(String id)? getTimeSet,
     TResult Function(String id)? saveAsTimeSet,
+    TResult Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -155,6 +184,11 @@ class _$TimeSetInitialEvent implements TimeSetInitialEvent {
     required TResult Function(TimeSetInitialEvent value) initial,
     required TResult Function(GetTimeSetEvent value) getTimeSet,
     required TResult Function(SaveAsTimeSetEvent value) saveAsTimeSet,
+    required TResult Function(ChangeStartTimeSetEvent value) changeStartTimeSet,
+    required TResult Function(ChangeDurationTimeSetEvent value)
+        changeDurationTimeSet,
+    required TResult Function(ChangeFinishTimeSetEvent value)
+        changeFinishTimeSet,
   }) {
     return initial(this);
   }
@@ -165,6 +199,9 @@ class _$TimeSetInitialEvent implements TimeSetInitialEvent {
     TResult? Function(TimeSetInitialEvent value)? initial,
     TResult? Function(GetTimeSetEvent value)? getTimeSet,
     TResult? Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult? Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
   }) {
     return initial?.call(this);
   }
@@ -175,6 +212,9 @@ class _$TimeSetInitialEvent implements TimeSetInitialEvent {
     TResult Function(TimeSetInitialEvent value)? initial,
     TResult Function(GetTimeSetEvent value)? getTimeSet,
     TResult Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -255,6 +295,9 @@ class _$GetTimeSetEvent implements GetTimeSetEvent {
     required TResult Function() initial,
     required TResult Function(String id) getTimeSet,
     required TResult Function(String id) saveAsTimeSet,
+    required TResult Function(DateTime newStatTime) changeStartTimeSet,
+    required TResult Function(DateTime newDuration) changeDurationTimeSet,
+    required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
   }) {
     return getTimeSet(id);
   }
@@ -265,6 +308,9 @@ class _$GetTimeSetEvent implements GetTimeSetEvent {
     TResult? Function()? initial,
     TResult? Function(String id)? getTimeSet,
     TResult? Function(String id)? saveAsTimeSet,
+    TResult? Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult? Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
   }) {
     return getTimeSet?.call(id);
   }
@@ -275,6 +321,9 @@ class _$GetTimeSetEvent implements GetTimeSetEvent {
     TResult Function()? initial,
     TResult Function(String id)? getTimeSet,
     TResult Function(String id)? saveAsTimeSet,
+    TResult Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     required TResult orElse(),
   }) {
     if (getTimeSet != null) {
@@ -289,6 +338,11 @@ class _$GetTimeSetEvent implements GetTimeSetEvent {
     required TResult Function(TimeSetInitialEvent value) initial,
     required TResult Function(GetTimeSetEvent value) getTimeSet,
     required TResult Function(SaveAsTimeSetEvent value) saveAsTimeSet,
+    required TResult Function(ChangeStartTimeSetEvent value) changeStartTimeSet,
+    required TResult Function(ChangeDurationTimeSetEvent value)
+        changeDurationTimeSet,
+    required TResult Function(ChangeFinishTimeSetEvent value)
+        changeFinishTimeSet,
   }) {
     return getTimeSet(this);
   }
@@ -299,6 +353,9 @@ class _$GetTimeSetEvent implements GetTimeSetEvent {
     TResult? Function(TimeSetInitialEvent value)? initial,
     TResult? Function(GetTimeSetEvent value)? getTimeSet,
     TResult? Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult? Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
   }) {
     return getTimeSet?.call(this);
   }
@@ -309,6 +366,9 @@ class _$GetTimeSetEvent implements GetTimeSetEvent {
     TResult Function(TimeSetInitialEvent value)? initial,
     TResult Function(GetTimeSetEvent value)? getTimeSet,
     TResult Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     required TResult orElse(),
   }) {
     if (getTimeSet != null) {
@@ -395,6 +455,9 @@ class _$SaveAsTimeSetEvent implements SaveAsTimeSetEvent {
     required TResult Function() initial,
     required TResult Function(String id) getTimeSet,
     required TResult Function(String id) saveAsTimeSet,
+    required TResult Function(DateTime newStatTime) changeStartTimeSet,
+    required TResult Function(DateTime newDuration) changeDurationTimeSet,
+    required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
   }) {
     return saveAsTimeSet(id);
   }
@@ -405,6 +468,9 @@ class _$SaveAsTimeSetEvent implements SaveAsTimeSetEvent {
     TResult? Function()? initial,
     TResult? Function(String id)? getTimeSet,
     TResult? Function(String id)? saveAsTimeSet,
+    TResult? Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult? Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
   }) {
     return saveAsTimeSet?.call(id);
   }
@@ -415,6 +481,9 @@ class _$SaveAsTimeSetEvent implements SaveAsTimeSetEvent {
     TResult Function()? initial,
     TResult Function(String id)? getTimeSet,
     TResult Function(String id)? saveAsTimeSet,
+    TResult Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     required TResult orElse(),
   }) {
     if (saveAsTimeSet != null) {
@@ -429,6 +498,11 @@ class _$SaveAsTimeSetEvent implements SaveAsTimeSetEvent {
     required TResult Function(TimeSetInitialEvent value) initial,
     required TResult Function(GetTimeSetEvent value) getTimeSet,
     required TResult Function(SaveAsTimeSetEvent value) saveAsTimeSet,
+    required TResult Function(ChangeStartTimeSetEvent value) changeStartTimeSet,
+    required TResult Function(ChangeDurationTimeSetEvent value)
+        changeDurationTimeSet,
+    required TResult Function(ChangeFinishTimeSetEvent value)
+        changeFinishTimeSet,
   }) {
     return saveAsTimeSet(this);
   }
@@ -439,6 +513,9 @@ class _$SaveAsTimeSetEvent implements SaveAsTimeSetEvent {
     TResult? Function(TimeSetInitialEvent value)? initial,
     TResult? Function(GetTimeSetEvent value)? getTimeSet,
     TResult? Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult? Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
   }) {
     return saveAsTimeSet?.call(this);
   }
@@ -449,6 +526,9 @@ class _$SaveAsTimeSetEvent implements SaveAsTimeSetEvent {
     TResult Function(TimeSetInitialEvent value)? initial,
     TResult Function(GetTimeSetEvent value)? getTimeSet,
     TResult Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     required TResult orElse(),
   }) {
     if (saveAsTimeSet != null) {
@@ -466,6 +546,495 @@ abstract class SaveAsTimeSetEvent implements TimeSetEvent {
   @JsonKey(ignore: true)
   _$$SaveAsTimeSetEventCopyWith<_$SaveAsTimeSetEvent> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeStartTimeSetEventCopyWith<$Res> {
+  factory _$$ChangeStartTimeSetEventCopyWith(_$ChangeStartTimeSetEvent value,
+          $Res Function(_$ChangeStartTimeSetEvent) then) =
+      __$$ChangeStartTimeSetEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime newStatTime});
+}
+
+/// @nodoc
+class __$$ChangeStartTimeSetEventCopyWithImpl<$Res>
+    extends _$TimeSetEventCopyWithImpl<$Res, _$ChangeStartTimeSetEvent>
+    implements _$$ChangeStartTimeSetEventCopyWith<$Res> {
+  __$$ChangeStartTimeSetEventCopyWithImpl(_$ChangeStartTimeSetEvent _value,
+      $Res Function(_$ChangeStartTimeSetEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newStatTime = null,
+  }) {
+    return _then(_$ChangeStartTimeSetEvent(
+      newStatTime: null == newStatTime
+          ? _value.newStatTime
+          : newStatTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeStartTimeSetEvent implements ChangeStartTimeSetEvent {
+  const _$ChangeStartTimeSetEvent({required this.newStatTime});
+
+  @override
+  final DateTime newStatTime;
+
+  @override
+  String toString() {
+    return 'TimeSetEvent.changeStartTimeSet(newStatTime: $newStatTime)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeStartTimeSetEvent &&
+            (identical(other.newStatTime, newStatTime) ||
+                other.newStatTime == newStatTime));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, newStatTime);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeStartTimeSetEventCopyWith<_$ChangeStartTimeSetEvent> get copyWith =>
+      __$$ChangeStartTimeSetEventCopyWithImpl<_$ChangeStartTimeSetEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String id) getTimeSet,
+    required TResult Function(String id) saveAsTimeSet,
+    required TResult Function(DateTime newStatTime) changeStartTimeSet,
+    required TResult Function(DateTime newDuration) changeDurationTimeSet,
+    required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
+  }) {
+    return changeStartTimeSet(newStatTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String id)? getTimeSet,
+    TResult? Function(String id)? saveAsTimeSet,
+    TResult? Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult? Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
+  }) {
+    return changeStartTimeSet?.call(newStatTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String id)? getTimeSet,
+    TResult Function(String id)? saveAsTimeSet,
+    TResult Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
+    required TResult orElse(),
+  }) {
+    if (changeStartTimeSet != null) {
+      return changeStartTimeSet(newStatTime);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TimeSetInitialEvent value) initial,
+    required TResult Function(GetTimeSetEvent value) getTimeSet,
+    required TResult Function(SaveAsTimeSetEvent value) saveAsTimeSet,
+    required TResult Function(ChangeStartTimeSetEvent value) changeStartTimeSet,
+    required TResult Function(ChangeDurationTimeSetEvent value)
+        changeDurationTimeSet,
+    required TResult Function(ChangeFinishTimeSetEvent value)
+        changeFinishTimeSet,
+  }) {
+    return changeStartTimeSet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TimeSetInitialEvent value)? initial,
+    TResult? Function(GetTimeSetEvent value)? getTimeSet,
+    TResult? Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult? Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
+  }) {
+    return changeStartTimeSet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TimeSetInitialEvent value)? initial,
+    TResult Function(GetTimeSetEvent value)? getTimeSet,
+    TResult Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
+    required TResult orElse(),
+  }) {
+    if (changeStartTimeSet != null) {
+      return changeStartTimeSet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeStartTimeSetEvent implements TimeSetEvent {
+  const factory ChangeStartTimeSetEvent({required final DateTime newStatTime}) =
+      _$ChangeStartTimeSetEvent;
+
+  DateTime get newStatTime;
+  @JsonKey(ignore: true)
+  _$$ChangeStartTimeSetEventCopyWith<_$ChangeStartTimeSetEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeDurationTimeSetEventCopyWith<$Res> {
+  factory _$$ChangeDurationTimeSetEventCopyWith(
+          _$ChangeDurationTimeSetEvent value,
+          $Res Function(_$ChangeDurationTimeSetEvent) then) =
+      __$$ChangeDurationTimeSetEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime newDuration});
+}
+
+/// @nodoc
+class __$$ChangeDurationTimeSetEventCopyWithImpl<$Res>
+    extends _$TimeSetEventCopyWithImpl<$Res, _$ChangeDurationTimeSetEvent>
+    implements _$$ChangeDurationTimeSetEventCopyWith<$Res> {
+  __$$ChangeDurationTimeSetEventCopyWithImpl(
+      _$ChangeDurationTimeSetEvent _value,
+      $Res Function(_$ChangeDurationTimeSetEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newDuration = null,
+  }) {
+    return _then(_$ChangeDurationTimeSetEvent(
+      newDuration: null == newDuration
+          ? _value.newDuration
+          : newDuration // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeDurationTimeSetEvent implements ChangeDurationTimeSetEvent {
+  const _$ChangeDurationTimeSetEvent({required this.newDuration});
+
+  @override
+  final DateTime newDuration;
+
+  @override
+  String toString() {
+    return 'TimeSetEvent.changeDurationTimeSet(newDuration: $newDuration)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeDurationTimeSetEvent &&
+            (identical(other.newDuration, newDuration) ||
+                other.newDuration == newDuration));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, newDuration);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeDurationTimeSetEventCopyWith<_$ChangeDurationTimeSetEvent>
+      get copyWith => __$$ChangeDurationTimeSetEventCopyWithImpl<
+          _$ChangeDurationTimeSetEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String id) getTimeSet,
+    required TResult Function(String id) saveAsTimeSet,
+    required TResult Function(DateTime newStatTime) changeStartTimeSet,
+    required TResult Function(DateTime newDuration) changeDurationTimeSet,
+    required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
+  }) {
+    return changeDurationTimeSet(newDuration);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String id)? getTimeSet,
+    TResult? Function(String id)? saveAsTimeSet,
+    TResult? Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult? Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
+  }) {
+    return changeDurationTimeSet?.call(newDuration);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String id)? getTimeSet,
+    TResult Function(String id)? saveAsTimeSet,
+    TResult Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
+    required TResult orElse(),
+  }) {
+    if (changeDurationTimeSet != null) {
+      return changeDurationTimeSet(newDuration);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TimeSetInitialEvent value) initial,
+    required TResult Function(GetTimeSetEvent value) getTimeSet,
+    required TResult Function(SaveAsTimeSetEvent value) saveAsTimeSet,
+    required TResult Function(ChangeStartTimeSetEvent value) changeStartTimeSet,
+    required TResult Function(ChangeDurationTimeSetEvent value)
+        changeDurationTimeSet,
+    required TResult Function(ChangeFinishTimeSetEvent value)
+        changeFinishTimeSet,
+  }) {
+    return changeDurationTimeSet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TimeSetInitialEvent value)? initial,
+    TResult? Function(GetTimeSetEvent value)? getTimeSet,
+    TResult? Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult? Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
+  }) {
+    return changeDurationTimeSet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TimeSetInitialEvent value)? initial,
+    TResult Function(GetTimeSetEvent value)? getTimeSet,
+    TResult Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
+    required TResult orElse(),
+  }) {
+    if (changeDurationTimeSet != null) {
+      return changeDurationTimeSet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeDurationTimeSetEvent implements TimeSetEvent {
+  const factory ChangeDurationTimeSetEvent(
+      {required final DateTime newDuration}) = _$ChangeDurationTimeSetEvent;
+
+  DateTime get newDuration;
+  @JsonKey(ignore: true)
+  _$$ChangeDurationTimeSetEventCopyWith<_$ChangeDurationTimeSetEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeFinishTimeSetEventCopyWith<$Res> {
+  factory _$$ChangeFinishTimeSetEventCopyWith(_$ChangeFinishTimeSetEvent value,
+          $Res Function(_$ChangeFinishTimeSetEvent) then) =
+      __$$ChangeFinishTimeSetEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime newFinishTime});
+}
+
+/// @nodoc
+class __$$ChangeFinishTimeSetEventCopyWithImpl<$Res>
+    extends _$TimeSetEventCopyWithImpl<$Res, _$ChangeFinishTimeSetEvent>
+    implements _$$ChangeFinishTimeSetEventCopyWith<$Res> {
+  __$$ChangeFinishTimeSetEventCopyWithImpl(_$ChangeFinishTimeSetEvent _value,
+      $Res Function(_$ChangeFinishTimeSetEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newFinishTime = null,
+  }) {
+    return _then(_$ChangeFinishTimeSetEvent(
+      newFinishTime: null == newFinishTime
+          ? _value.newFinishTime
+          : newFinishTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeFinishTimeSetEvent implements ChangeFinishTimeSetEvent {
+  const _$ChangeFinishTimeSetEvent({required this.newFinishTime});
+
+  @override
+  final DateTime newFinishTime;
+
+  @override
+  String toString() {
+    return 'TimeSetEvent.changeFinishTimeSet(newFinishTime: $newFinishTime)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeFinishTimeSetEvent &&
+            (identical(other.newFinishTime, newFinishTime) ||
+                other.newFinishTime == newFinishTime));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, newFinishTime);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeFinishTimeSetEventCopyWith<_$ChangeFinishTimeSetEvent>
+      get copyWith =>
+          __$$ChangeFinishTimeSetEventCopyWithImpl<_$ChangeFinishTimeSetEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String id) getTimeSet,
+    required TResult Function(String id) saveAsTimeSet,
+    required TResult Function(DateTime newStatTime) changeStartTimeSet,
+    required TResult Function(DateTime newDuration) changeDurationTimeSet,
+    required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
+  }) {
+    return changeFinishTimeSet(newFinishTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String id)? getTimeSet,
+    TResult? Function(String id)? saveAsTimeSet,
+    TResult? Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult? Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
+  }) {
+    return changeFinishTimeSet?.call(newFinishTime);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String id)? getTimeSet,
+    TResult Function(String id)? saveAsTimeSet,
+    TResult Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
+    required TResult orElse(),
+  }) {
+    if (changeFinishTimeSet != null) {
+      return changeFinishTimeSet(newFinishTime);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TimeSetInitialEvent value) initial,
+    required TResult Function(GetTimeSetEvent value) getTimeSet,
+    required TResult Function(SaveAsTimeSetEvent value) saveAsTimeSet,
+    required TResult Function(ChangeStartTimeSetEvent value) changeStartTimeSet,
+    required TResult Function(ChangeDurationTimeSetEvent value)
+        changeDurationTimeSet,
+    required TResult Function(ChangeFinishTimeSetEvent value)
+        changeFinishTimeSet,
+  }) {
+    return changeFinishTimeSet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TimeSetInitialEvent value)? initial,
+    TResult? Function(GetTimeSetEvent value)? getTimeSet,
+    TResult? Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult? Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
+  }) {
+    return changeFinishTimeSet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TimeSetInitialEvent value)? initial,
+    TResult Function(GetTimeSetEvent value)? getTimeSet,
+    TResult Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
+    required TResult orElse(),
+  }) {
+    if (changeFinishTimeSet != null) {
+      return changeFinishTimeSet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChangeFinishTimeSetEvent implements TimeSetEvent {
+  const factory ChangeFinishTimeSetEvent(
+      {required final DateTime newFinishTime}) = _$ChangeFinishTimeSetEvent;
+
+  DateTime get newFinishTime;
+  @JsonKey(ignore: true)
+  _$$ChangeFinishTimeSetEventCopyWith<_$ChangeFinishTimeSetEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

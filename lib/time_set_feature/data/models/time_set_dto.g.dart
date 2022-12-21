@@ -23,13 +23,14 @@ class TimeSetDtoAdapter extends TypeAdapter<TimeSetDto> {
       title: fields[0] as String,
       startTimeSet: fields[2] as DateTime,
       durationTimeSet: fields[3] as DateTime,
+      finishTimeSet: fields[6] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, TimeSetDto obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -38,6 +39,8 @@ class TimeSetDtoAdapter extends TypeAdapter<TimeSetDto> {
       ..write(obj.startTimeSet)
       ..writeByte(3)
       ..write(obj.durationTimeSet)
+      ..writeByte(6)
+      ..write(obj.finishTimeSet)
       ..writeByte(4)
       ..write(obj.itemsOfSet)
       ..writeByte(5)

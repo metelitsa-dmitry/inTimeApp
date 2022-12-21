@@ -17,6 +17,7 @@ class TimeSetEntity with _$TimeSetEntity{
     required String title,
     required DateTime startTimeSet,
     required DateTime durationTimeSet,
+    required DateTime finishTimeSet,
   }) = _TimeSetEntity;
 
   final DateFormat _formatter1 = DateFormat('hh:mm a');
@@ -24,5 +25,6 @@ class TimeSetEntity with _$TimeSetEntity{
   final DateFormat _formatter3 = DateFormat('yyyy-MM-dd, hh:mm a');
   String get startTimeSetFormat => _formatter1.format(startTimeSet);
   String get durationFormat => _formatter2.format(durationTimeSet);
+  String get finishTimeSetFormat => _formatter1.format(finishTimeSet);
   String get dateTimeSavedFormat => _formatter3.format(dateTimeSaved) ;
 }

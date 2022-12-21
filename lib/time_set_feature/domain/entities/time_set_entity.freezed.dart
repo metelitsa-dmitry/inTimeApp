@@ -22,6 +22,7 @@ mixin _$TimeSetEntity {
   String get title => throw _privateConstructorUsedError;
   DateTime get startTimeSet => throw _privateConstructorUsedError;
   DateTime get durationTimeSet => throw _privateConstructorUsedError;
+  DateTime get finishTimeSet => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TimeSetEntityCopyWith<TimeSetEntity> get copyWith =>
@@ -40,7 +41,8 @@ abstract class $TimeSetEntityCopyWith<$Res> {
       List<NumberChipsData>? numberChips,
       String title,
       DateTime startTimeSet,
-      DateTime durationTimeSet});
+      DateTime durationTimeSet,
+      DateTime finishTimeSet});
 }
 
 /// @nodoc
@@ -62,6 +64,7 @@ class _$TimeSetEntityCopyWithImpl<$Res, $Val extends TimeSetEntity>
     Object? title = null,
     Object? startTimeSet = null,
     Object? durationTimeSet = null,
+    Object? finishTimeSet = null,
   }) {
     return _then(_value.copyWith(
       dateTimeSaved: null == dateTimeSaved
@@ -88,6 +91,10 @@ class _$TimeSetEntityCopyWithImpl<$Res, $Val extends TimeSetEntity>
           ? _value.durationTimeSet
           : durationTimeSet // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      finishTimeSet: null == finishTimeSet
+          ? _value.finishTimeSet
+          : finishTimeSet // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
@@ -106,7 +113,8 @@ abstract class _$$_TimeSetEntityCopyWith<$Res>
       List<NumberChipsData>? numberChips,
       String title,
       DateTime startTimeSet,
-      DateTime durationTimeSet});
+      DateTime durationTimeSet,
+      DateTime finishTimeSet});
 }
 
 /// @nodoc
@@ -126,6 +134,7 @@ class __$$_TimeSetEntityCopyWithImpl<$Res>
     Object? title = null,
     Object? startTimeSet = null,
     Object? durationTimeSet = null,
+    Object? finishTimeSet = null,
   }) {
     return _then(_$_TimeSetEntity(
       dateTimeSaved: null == dateTimeSaved
@@ -152,6 +161,10 @@ class __$$_TimeSetEntityCopyWithImpl<$Res>
           ? _value.durationTimeSet
           : durationTimeSet // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      finishTimeSet: null == finishTimeSet
+          ? _value.finishTimeSet
+          : finishTimeSet // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -165,7 +178,8 @@ class _$_TimeSetEntity extends _TimeSetEntity {
       final List<NumberChipsData>? numberChips,
       required this.title,
       required this.startTimeSet,
-      required this.durationTimeSet})
+      required this.durationTimeSet,
+      required this.finishTimeSet})
       : _itemsOfSet = itemsOfSet,
         _numberChips = numberChips,
         super._();
@@ -198,10 +212,12 @@ class _$_TimeSetEntity extends _TimeSetEntity {
   final DateTime startTimeSet;
   @override
   final DateTime durationTimeSet;
+  @override
+  final DateTime finishTimeSet;
 
   @override
   String toString() {
-    return 'TimeSetEntity(dateTimeSaved: $dateTimeSaved, itemsOfSet: $itemsOfSet, numberChips: $numberChips, title: $title, startTimeSet: $startTimeSet, durationTimeSet: $durationTimeSet)';
+    return 'TimeSetEntity(dateTimeSaved: $dateTimeSaved, itemsOfSet: $itemsOfSet, numberChips: $numberChips, title: $title, startTimeSet: $startTimeSet, durationTimeSet: $durationTimeSet, finishTimeSet: $finishTimeSet)';
   }
 
   @override
@@ -219,7 +235,9 @@ class _$_TimeSetEntity extends _TimeSetEntity {
             (identical(other.startTimeSet, startTimeSet) ||
                 other.startTimeSet == startTimeSet) &&
             (identical(other.durationTimeSet, durationTimeSet) ||
-                other.durationTimeSet == durationTimeSet));
+                other.durationTimeSet == durationTimeSet) &&
+            (identical(other.finishTimeSet, finishTimeSet) ||
+                other.finishTimeSet == finishTimeSet));
   }
 
   @override
@@ -230,7 +248,8 @@ class _$_TimeSetEntity extends _TimeSetEntity {
       const DeepCollectionEquality().hash(_numberChips),
       title,
       startTimeSet,
-      durationTimeSet);
+      durationTimeSet,
+      finishTimeSet);
 
   @JsonKey(ignore: true)
   @override
@@ -246,7 +265,8 @@ abstract class _TimeSetEntity extends TimeSetEntity {
       final List<NumberChipsData>? numberChips,
       required final String title,
       required final DateTime startTimeSet,
-      required final DateTime durationTimeSet}) = _$_TimeSetEntity;
+      required final DateTime durationTimeSet,
+      required final DateTime finishTimeSet}) = _$_TimeSetEntity;
   _TimeSetEntity._() : super._();
 
   @override
@@ -261,6 +281,8 @@ abstract class _TimeSetEntity extends TimeSetEntity {
   DateTime get startTimeSet;
   @override
   DateTime get durationTimeSet;
+  @override
+  DateTime get finishTimeSet;
   @override
   @JsonKey(ignore: true)
   _$$_TimeSetEntityCopyWith<_$_TimeSetEntity> get copyWith =>

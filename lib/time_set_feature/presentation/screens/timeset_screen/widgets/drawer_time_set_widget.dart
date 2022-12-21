@@ -59,6 +59,8 @@ class TimeSetItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final blocTimeSet = context.read<TimeSetBloc>();
+    final blocListTimeSets = context.read<ListTimeSetsBloc>();
+
     return Container(
       color: Colors.blueGrey[100],
       child: ListTile(
@@ -73,11 +75,13 @@ class TimeSetItem extends StatelessWidget {
         ),
         onTap: () {
           blocTimeSet.add(GetTimeSetEvent(id: timeSet.title));
-          Navigator.pop(context);
+         Navigator.pop(context);
         },
         trailing: IconButton(
           icon: const Icon(Icons.delete),
-          onPressed: () {},
+          onPressed: () {
+            blocListTimeSets.add(Delete(id: timeSet.title));
+          },
         ),
       ),
     );

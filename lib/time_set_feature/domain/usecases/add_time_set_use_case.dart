@@ -4,11 +4,9 @@ import 'package:in_time/time_set_feature/domain/repositories/time_set_repository
 
 class AddTimeSetUseCase {
   final TimeSetRepository _timeSetRepository;
-
   AddTimeSetUseCase(this._timeSetRepository);
 
   void call(String id, TimeSetEntity timeSet){
-
    final  timeSetDto = TimeSetDto.fromDomain(timeSet);
     _timeSetRepository.saveTimeSetAs(id, timeSetDto);
   }

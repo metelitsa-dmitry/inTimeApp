@@ -5,5 +5,9 @@ class TimeSetEvent with _$TimeSetEvent {
   const factory TimeSetEvent.initial() = TimeSetInitialEvent;
   const factory TimeSetEvent.getTimeSet({required String id}) = GetTimeSetEvent;
   const factory TimeSetEvent.saveAsTimeSet({required String id}) = SaveAsTimeSetEvent;
+  const factory TimeSetEvent.changeStartTimeSet({required DateTime newStatTime}) = ChangeStartTimeSetEvent;
+  const factory TimeSetEvent.changeDurationTimeSet({required DateTime newDuration}) = ChangeDurationTimeSetEvent;
+  const factory TimeSetEvent.changeFinishTimeSet({required DateTime newFinishTime}) = ChangeFinishTimeSetEvent;
+
 
 }

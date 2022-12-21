@@ -20,18 +20,21 @@ mixin _$ListTimeSetsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loaded,
+    required TResult Function(String id) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loaded,
+    TResult? Function(String id)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loaded,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$ListTimeSetsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Loaded value) loaded,
+    required TResult Function(Delete value) delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(Loaded value)? loaded,
+    TResult? Function(Delete value)? delete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Loaded value)? loaded,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -112,6 +118,7 @@ class _$Initial implements Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loaded,
+    required TResult Function(String id) delete,
   }) {
     return initial();
   }
@@ -121,6 +128,7 @@ class _$Initial implements Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loaded,
+    TResult? Function(String id)? delete,
   }) {
     return initial?.call();
   }
@@ -130,6 +138,7 @@ class _$Initial implements Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loaded,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -143,6 +152,7 @@ class _$Initial implements Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Loaded value) loaded,
+    required TResult Function(Delete value) delete,
   }) {
     return initial(this);
   }
@@ -152,6 +162,7 @@ class _$Initial implements Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(Loaded value)? loaded,
+    TResult? Function(Delete value)? delete,
   }) {
     return initial?.call(this);
   }
@@ -161,6 +172,7 @@ class _$Initial implements Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Loaded value)? loaded,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -212,6 +224,7 @@ class _$Loaded implements Loaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loaded,
+    required TResult Function(String id) delete,
   }) {
     return loaded();
   }
@@ -221,6 +234,7 @@ class _$Loaded implements Loaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loaded,
+    TResult? Function(String id)? delete,
   }) {
     return loaded?.call();
   }
@@ -230,6 +244,7 @@ class _$Loaded implements Loaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loaded,
+    TResult Function(String id)? delete,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -243,6 +258,7 @@ class _$Loaded implements Loaded {
   TResult map<TResult extends Object?>({
     required TResult Function(Initial value) initial,
     required TResult Function(Loaded value) loaded,
+    required TResult Function(Delete value) delete,
   }) {
     return loaded(this);
   }
@@ -252,6 +268,7 @@ class _$Loaded implements Loaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Initial value)? initial,
     TResult? Function(Loaded value)? loaded,
+    TResult? Function(Delete value)? delete,
   }) {
     return loaded?.call(this);
   }
@@ -261,6 +278,7 @@ class _$Loaded implements Loaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Initial value)? initial,
     TResult Function(Loaded value)? loaded,
+    TResult Function(Delete value)? delete,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -272,6 +290,143 @@ class _$Loaded implements Loaded {
 
 abstract class Loaded implements ListTimeSetsEvent {
   const factory Loaded() = _$Loaded;
+}
+
+/// @nodoc
+abstract class _$$DeleteCopyWith<$Res> {
+  factory _$$DeleteCopyWith(_$Delete value, $Res Function(_$Delete) then) =
+      __$$DeleteCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$DeleteCopyWithImpl<$Res>
+    extends _$ListTimeSetsEventCopyWithImpl<$Res, _$Delete>
+    implements _$$DeleteCopyWith<$Res> {
+  __$$DeleteCopyWithImpl(_$Delete _value, $Res Function(_$Delete) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$Delete(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$Delete implements Delete {
+  const _$Delete({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ListTimeSetsEvent.delete(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$Delete &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteCopyWith<_$Delete> get copyWith =>
+      __$$DeleteCopyWithImpl<_$Delete>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loaded,
+    required TResult Function(String id) delete,
+  }) {
+    return delete(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loaded,
+    TResult? Function(String id)? delete,
+  }) {
+    return delete?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loaded,
+    TResult Function(String id)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Loaded value) loaded,
+    required TResult Function(Delete value) delete,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Loaded value)? loaded,
+    TResult? Function(Delete value)? delete,
+  }) {
+    return delete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Loaded value)? loaded,
+    TResult Function(Delete value)? delete,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Delete implements ListTimeSetsEvent {
+  const factory Delete({required final String id}) = _$Delete;
+
+  String get id;
+  @JsonKey(ignore: true)
+  _$$DeleteCopyWith<_$Delete> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
