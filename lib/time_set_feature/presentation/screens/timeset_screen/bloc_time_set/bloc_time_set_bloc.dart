@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart';
 import 'package:in_time/time_set_feature/domain/usecases/add_time_set_use_case.dart';
 
 import '../../../../domain/entities/time_set_entity.dart';
@@ -27,6 +28,8 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       durationTimeSet: DateTime(0, 0, 0, 1, 0),
       finishTimeSet: DateTime.now().add(const Duration(hours: 1)),
       dateTimeSaved: DateTime.now());
+  var listItem = <ItemOfSetEntity>[];
+
 
   TimeSetBloc(
       this._getAllTimeSets,
@@ -100,5 +103,25 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
 
       emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
     });
+
+    on<AddItemOfSetEvent>((event, emit) {
+      listItem = _currentTimeSet.itemsOfSet?.toList() ?? [] ;
+      final itemOfSet = ItemOfSetEntity(durationOfItemSet: DateTime(0,0,0, 1,0), startItemOfSet: _currentTimeSet.startTimeSet);
+     listItem.add(itemOfSet);
+      _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem);
+           _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
+      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
+    });
+
+    on<RemoveItemOfSetEvent>((event, emit) {
+      listItem = _currentTimeSet.itemsOfSet?.toList() ?? [] ;
+      listItem.removeAt(event.id);
+      _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem);
+      _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
+      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
+    });
+
+
+
   }
 }

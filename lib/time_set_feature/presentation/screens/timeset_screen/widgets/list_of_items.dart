@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart';
+import 'package:in_time/time_set_feature/domain/entities/time_set_entity.dart';
 import 'package:in_time/time_set_feature/presentation/screens/new_item_screen/new_item_screen.dart';
+import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
 import 'item_widget.dart';
 import 'time_setup_panel.dart';
 
 class ListOfItems extends StatelessWidget {
   const ListOfItems({
-    Key? key,
+    Key? key, required this.timeSet,
   }) : super(key: key);
+  final TimeSetEntity timeSet;
 
   @override
   Widget build(BuildContext context) {
-    final items = [];
+    final items = timeSet.itemsOfSet ?? [];
 
 
     return NotificationListener<UserScrollNotification>(
@@ -35,7 +40,7 @@ class ListOfItems extends StatelessWidget {
             floating: true,
             snap: true,
           ),
-          ListOfItemWidgets(),
+          ListOfItemWidgets(items: items),
         ],
       ),
     );
@@ -43,16 +48,16 @@ class ListOfItems extends StatelessWidget {
 }
 
 class ListOfItemWidgets extends StatelessWidget {
-   ListOfItemWidgets({Key? key,}) : super(key: key);
+    ListOfItemWidgets({Key? key, required this.items,}) : super(key: key);
+  final List<ItemOfSetEntity> items;
 
   @override
   Widget build(BuildContext context) {
-    final listOfItems = [];
-
+    final blocTimeSet = context.watch<TimeSetBloc>();
     return SliverList(
       delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int index) {
-          final item = listOfItems[index];
+            (BuildContext context, int index) {
+          final item = items[index];
           return GestureDetector(
             child: Dismissible(
                 key: UniqueKey(),
@@ -60,21 +65,23 @@ class ListOfItemWidgets extends StatelessWidget {
                   color: Colors.red,
                 ),
                 onDismissed: (direction) {
-                  //context.read<TimeSetModule>().deleteItemFromList(index);
+                  blocTimeSet.add(RemoveItemOfSetEvent(id: index));
                 },
                 child: ItemWidget(
-                    index: index)),
+                    item: item)) ?? Container(),
             onTap: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => NewItemScreen()));
-
+                      builder: (context) => const NewItemScreen()));
             },
           );
         },
-        childCount: listOfItems.length,
+        childCount: items.length,
       ),
     );
+
+
+
   }
 }

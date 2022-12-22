@@ -35,7 +35,11 @@ class _TimeSetScreenState extends State<TimeSetScreen> {
         actions: listOfActionButtons(context),
       ),
       drawer: const DrawerTimeSetScreen(),
-      body: const ListOfItems(),
+      body: state.when(
+          initial: () => const Text(''),
+          loading: () => const Center(child: CircularProgressIndicator(),),
+          loadedTimeSet: (timeSet) => ListOfItems(timeSet: timeSet,))
+      ,
       floatingActionButton: fabVisible ? const MenuFab() : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

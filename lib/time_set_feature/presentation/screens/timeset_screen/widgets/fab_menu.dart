@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
 
 
 class MenuFab extends StatelessWidget {
@@ -8,6 +10,7 @@ class MenuFab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final blocTimeSet = context.read<TimeSetBloc>();
     return SpeedDial(
       animatedIcon: AnimatedIcons.menu_close,
       overlayOpacity: 0.5,
@@ -15,7 +18,7 @@ class MenuFab extends StatelessWidget {
       children: [
         SpeedDialChild(
           label: 'Один',
-          onTap: () { },
+          onTap: () {blocTimeSet.add(const AddItemOfSetEvent()); },
         ),
         SpeedDialChild(
           label: 'Несколько',

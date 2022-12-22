@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:in_time/core/constants.dart';
+import 'package:in_time/time_set_feature/data/models/item_of_set_dto.dart';
 import 'package:in_time/time_set_feature/data/models/time_set_dto.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_list_time_sets/bloc_list_time_sets_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
@@ -18,6 +19,7 @@ void main() async {
   //* hive local database setup
   await Hive.initFlutter();
   Hive.registerAdapter(TimeSetDtoAdapter());
+  Hive.registerAdapter(ItemOfSetDtoAdapter());
   await Hive.openBox(constTimeSetsBox);
 
   runApp(const MyApp());

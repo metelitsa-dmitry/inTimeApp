@@ -3,15 +3,13 @@ import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart
 import 'package:intl/intl.dart';
 
 class ItemWidget extends StatelessWidget {
-  const ItemWidget({Key? key, required this.index}) : super(key: key);
+  const ItemWidget({Key? key, required this.item}) : super(key: key);
+  final ItemOfSetEntity item;
 
-  final int index;
 
   @override
   Widget build(BuildContext context) {
-    final item = ItemOfSetEntity(
-        durationOfItemSet: DateTime.now(),
-        startItemOfSet: DateTime.now());
+
     return Container(
       margin: const EdgeInsets.only(left: 5.0, right: 5.0, bottom: 5.0),
       // padding:
@@ -26,24 +24,24 @@ class ItemWidget extends StatelessWidget {
         leading: StartTime(item: item),
         title: Wrap(
           children: [
-            Wrap(
-              alignment: WrapAlignment.start,
-              children: item.chipsItem!
-                  .map((value) => InputChip(
-                        label: Text(value),
-                        labelStyle:
-                            const TextStyle(fontSize: 16, color: Colors.black),
-                        disabledColor: Colors.white,
-                      ))
-                  .toList(),
-            ),
-            if (false) IsPictureButton(item: item),
-            if (false) IsVerseButton(item: item),
-            if (false) IsTableButton(item: item),
+            // Wrap(
+            //   alignment: WrapAlignment.start,
+            //   children: item.chipsItem!
+            //       .map((value) => InputChip(
+            //             label: Text(value),
+            //             labelStyle:
+            //                 const TextStyle(fontSize: 16, color: Colors.black),
+            //             disabledColor: Colors.white,
+            //           ))
+            //       .toList(),
+            // ),
+            if (item.isPicture ?? false) IsPictureButton(item: item),
+            if (item.isVerse ?? false) IsVerseButton(item: item),
+            if (item.isTable ?? false) IsTableButton(item: item),
           ],
         ),
         subtitle: item.titleItem != '' ? ItemTitle(item: item) : null,
-        trailing: MyPopupMenuButton(item: item, index: index),
+        trailing: MyPopupMenuButton(item: item),
       ),
     );
   }
@@ -52,11 +50,10 @@ class ItemWidget extends StatelessWidget {
 class MyPopupMenuButton extends StatelessWidget {
   const MyPopupMenuButton({
     Key? key,
-    required this.index,
     required this.item,
   }) : super(key: key);
 
-  final int index;
+
   final ItemOfSetEntity item;
 
   @override
@@ -90,8 +87,8 @@ class MyPopupMenuButton extends StatelessWidget {
               PopupMenuItem(
                 value: 1,
                 child: Row(
-                  children: [
-                    const Icon(Icons.arrow_upward),
+                  children: const [
+                    Icon(Icons.arrow_upward),
                     SizedBox(width:8),
                     Text('local.add'),
                   ],
@@ -100,8 +97,8 @@ class MyPopupMenuButton extends StatelessWidget {
               PopupMenuItem(
                 value: 2,
                 child: Row(
-                  children: [
-                    const Icon(Icons.arrow_downward),
+                  children: const [
+                    Icon(Icons.arrow_downward),
                     SizedBox(width:8),
                     Text('local.add'),
                   ],
@@ -110,8 +107,8 @@ class MyPopupMenuButton extends StatelessWidget {
               PopupMenuItem(
                 value: 4,
                 child: Row(
-                  children: [
-                    const Icon(Icons.menu_book),
+                  children: const [
+                    Icon(Icons.menu_book),
                     SizedBox(width:8),
                     Text('{local.quote} '),
                   ],
@@ -120,8 +117,8 @@ class MyPopupMenuButton extends StatelessWidget {
               PopupMenuItem(
                 value: 5,
                 child: Row(
-                  children: [
-                    const Icon(Icons.photo_album),
+                  children: const [
+                    Icon(Icons.photo_album),
                     SizedBox(width:8),
                     Text('{local.illustration} '),
                   ],
@@ -130,8 +127,8 @@ class MyPopupMenuButton extends StatelessWidget {
               PopupMenuItem(
                 value: 6,
                 child: Row(
-                  children: [
-                    const Icon(Icons.table_rows_outlined),
+                  children: const [
+                    Icon(Icons.table_rows_outlined),
                     SizedBox(width:8),
                     Text('{local.table} '),
                   ],
@@ -140,8 +137,8 @@ class MyPopupMenuButton extends StatelessWidget {
               PopupMenuItem(
                 value: 3,
                 child: Row(
-                  children: [
-                    const Icon(Icons.delete_forever),
+                  children: const [
+                    Icon(Icons.delete_forever),
                     SizedBox(width:8),
                     Text('{local.delete} '),
                   ],
@@ -197,7 +194,7 @@ class ItemTitle extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: Text(
-        item.titleItem!,
+        item.titleItem ?? '',
         style: const TextStyle(
           fontSize: 16.0,
         ),
@@ -260,7 +257,7 @@ class IsPictureButton extends StatelessWidget {
     return IconButton(
       icon:
           Icon(Icons.photo_album_outlined),
-     // color: item.isPicture ? Colors.black : Colors.grey,
+     //color: item.isPicture ? Colors.black : Colors.grey,
       onPressed: () {
         //context.read<TimeSetModule>().changeIsPicture(item);
       },
