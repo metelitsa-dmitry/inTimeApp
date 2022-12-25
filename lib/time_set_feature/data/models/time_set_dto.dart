@@ -18,24 +18,28 @@ class TimeSetDto {
   final DateTime startTimeSet;
 
   @HiveField(3)
-  final DateTime durationTimeSet;
-
-  @HiveField(6)
-  final DateTime finishTimeSet;
+  final int durationHourTimeSet;
 
   @HiveField(4)
-  final List<ItemOfSetDto>? itemsOfSet;
+  final int durationMinutesTimeSet;
 
   @HiveField(5)
+  final DateTime finishTimeSet;
+
+  @HiveField(6)
+  final List<ItemOfSetDto>? itemsOfSet;
+
+  @HiveField(7)
   final List<NumberChipsDataDto>? numberChips;
 
-  TimeSetDto( {
+  TimeSetDto({
     this.itemsOfSet,
     this.numberChips,
     required this.dateTimeSaved,
     required this.title,
     required this.startTimeSet,
-    required this.durationTimeSet,
+    required this.durationHourTimeSet,
+    required this.durationMinutesTimeSet,
     required this.finishTimeSet,
   });
 
@@ -47,7 +51,8 @@ class TimeSetDto {
         dateTimeSaved: timeSet.dateTimeSaved,
         title: timeSet.title,
         startTimeSet: timeSet.startTimeSet,
-        durationTimeSet: timeSet.durationTimeSet,
+        durationHourTimeSet: timeSet.durationHourTimeSet,
+        durationMinutesTimeSet: timeSet.durationMinutesTimeSet,
       finishTimeSet: timeSet.finishTimeSet,
     );
 
@@ -58,7 +63,8 @@ class TimeSetDto {
       title: title,
       dateTimeSaved: dateTimeSaved,
       startTimeSet: startTimeSet,
-      durationTimeSet: durationTimeSet,
+      durationHourTimeSet: durationHourTimeSet,
+      durationMinutesTimeSet: durationMinutesTimeSet,
       finishTimeSet: finishTimeSet,
       itemsOfSet: itemsOfSet?.map((item) => item.toDomain()).toList() ?? [],
       numberChips: numberChips?.map((chip) => chip.toDomain()).toList() ?? [],

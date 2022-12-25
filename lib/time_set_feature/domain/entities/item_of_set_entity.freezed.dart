@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ItemOfSetEntity {
   String? get titleItem => throw _privateConstructorUsedError; // text in item
   List<String>? get chipsItem => throw _privateConstructorUsedError;
-  DateTime get durationOfItemSet => throw _privateConstructorUsedError;
+  int get durationHourOfItemSet => throw _privateConstructorUsedError;
+  int get durationMinutesOfItemSet => throw _privateConstructorUsedError;
+  int get durationSecondsOfItemSet => throw _privateConstructorUsedError;
   DateTime get startItemOfSet => throw _privateConstructorUsedError;
   bool? get isPicture =>
       throw _privateConstructorUsedError; // need to discuss picture
@@ -39,7 +41,9 @@ abstract class $ItemOfSetEntityCopyWith<$Res> {
   $Res call(
       {String? titleItem,
       List<String>? chipsItem,
-      DateTime durationOfItemSet,
+      int durationHourOfItemSet,
+      int durationMinutesOfItemSet,
+      int durationSecondsOfItemSet,
       DateTime startItemOfSet,
       bool? isPicture,
       bool? isVerse,
@@ -61,7 +65,9 @@ class _$ItemOfSetEntityCopyWithImpl<$Res, $Val extends ItemOfSetEntity>
   $Res call({
     Object? titleItem = freezed,
     Object? chipsItem = freezed,
-    Object? durationOfItemSet = null,
+    Object? durationHourOfItemSet = null,
+    Object? durationMinutesOfItemSet = null,
+    Object? durationSecondsOfItemSet = null,
     Object? startItemOfSet = null,
     Object? isPicture = freezed,
     Object? isVerse = freezed,
@@ -76,10 +82,18 @@ class _$ItemOfSetEntityCopyWithImpl<$Res, $Val extends ItemOfSetEntity>
           ? _value.chipsItem
           : chipsItem // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      durationOfItemSet: null == durationOfItemSet
-          ? _value.durationOfItemSet
-          : durationOfItemSet // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      durationHourOfItemSet: null == durationHourOfItemSet
+          ? _value.durationHourOfItemSet
+          : durationHourOfItemSet // ignore: cast_nullable_to_non_nullable
+              as int,
+      durationMinutesOfItemSet: null == durationMinutesOfItemSet
+          ? _value.durationMinutesOfItemSet
+          : durationMinutesOfItemSet // ignore: cast_nullable_to_non_nullable
+              as int,
+      durationSecondsOfItemSet: null == durationSecondsOfItemSet
+          ? _value.durationSecondsOfItemSet
+          : durationSecondsOfItemSet // ignore: cast_nullable_to_non_nullable
+              as int,
       startItemOfSet: null == startItemOfSet
           ? _value.startItemOfSet
           : startItemOfSet // ignore: cast_nullable_to_non_nullable
@@ -111,7 +125,9 @@ abstract class _$$_ItemOfSetEntityCopyWith<$Res>
   $Res call(
       {String? titleItem,
       List<String>? chipsItem,
-      DateTime durationOfItemSet,
+      int durationHourOfItemSet,
+      int durationMinutesOfItemSet,
+      int durationSecondsOfItemSet,
       DateTime startItemOfSet,
       bool? isPicture,
       bool? isVerse,
@@ -131,7 +147,9 @@ class __$$_ItemOfSetEntityCopyWithImpl<$Res>
   $Res call({
     Object? titleItem = freezed,
     Object? chipsItem = freezed,
-    Object? durationOfItemSet = null,
+    Object? durationHourOfItemSet = null,
+    Object? durationMinutesOfItemSet = null,
+    Object? durationSecondsOfItemSet = null,
     Object? startItemOfSet = null,
     Object? isPicture = freezed,
     Object? isVerse = freezed,
@@ -146,10 +164,18 @@ class __$$_ItemOfSetEntityCopyWithImpl<$Res>
           ? _value._chipsItem
           : chipsItem // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      durationOfItemSet: null == durationOfItemSet
-          ? _value.durationOfItemSet
-          : durationOfItemSet // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+      durationHourOfItemSet: null == durationHourOfItemSet
+          ? _value.durationHourOfItemSet
+          : durationHourOfItemSet // ignore: cast_nullable_to_non_nullable
+              as int,
+      durationMinutesOfItemSet: null == durationMinutesOfItemSet
+          ? _value.durationMinutesOfItemSet
+          : durationMinutesOfItemSet // ignore: cast_nullable_to_non_nullable
+              as int,
+      durationSecondsOfItemSet: null == durationSecondsOfItemSet
+          ? _value.durationSecondsOfItemSet
+          : durationSecondsOfItemSet // ignore: cast_nullable_to_non_nullable
+              as int,
       startItemOfSet: null == startItemOfSet
           ? _value.startItemOfSet
           : startItemOfSet // ignore: cast_nullable_to_non_nullable
@@ -176,7 +202,9 @@ class _$_ItemOfSetEntity extends _ItemOfSetEntity {
   _$_ItemOfSetEntity(
       {this.titleItem,
       final List<String>? chipsItem,
-      required this.durationOfItemSet,
+      required this.durationHourOfItemSet,
+      required this.durationMinutesOfItemSet,
+      required this.durationSecondsOfItemSet,
       required this.startItemOfSet,
       this.isPicture,
       this.isVerse,
@@ -199,7 +227,11 @@ class _$_ItemOfSetEntity extends _ItemOfSetEntity {
   }
 
   @override
-  final DateTime durationOfItemSet;
+  final int durationHourOfItemSet;
+  @override
+  final int durationMinutesOfItemSet;
+  @override
+  final int durationSecondsOfItemSet;
   @override
   final DateTime startItemOfSet;
   @override
@@ -213,7 +245,7 @@ class _$_ItemOfSetEntity extends _ItemOfSetEntity {
 
   @override
   String toString() {
-    return 'ItemOfSetEntity(titleItem: $titleItem, chipsItem: $chipsItem, durationOfItemSet: $durationOfItemSet, startItemOfSet: $startItemOfSet, isPicture: $isPicture, isVerse: $isVerse, isTable: $isTable)';
+    return 'ItemOfSetEntity(titleItem: $titleItem, chipsItem: $chipsItem, durationHourOfItemSet: $durationHourOfItemSet, durationMinutesOfItemSet: $durationMinutesOfItemSet, durationSecondsOfItemSet: $durationSecondsOfItemSet, startItemOfSet: $startItemOfSet, isPicture: $isPicture, isVerse: $isVerse, isTable: $isTable)';
   }
 
   @override
@@ -225,8 +257,14 @@ class _$_ItemOfSetEntity extends _ItemOfSetEntity {
                 other.titleItem == titleItem) &&
             const DeepCollectionEquality()
                 .equals(other._chipsItem, _chipsItem) &&
-            (identical(other.durationOfItemSet, durationOfItemSet) ||
-                other.durationOfItemSet == durationOfItemSet) &&
+            (identical(other.durationHourOfItemSet, durationHourOfItemSet) ||
+                other.durationHourOfItemSet == durationHourOfItemSet) &&
+            (identical(
+                    other.durationMinutesOfItemSet, durationMinutesOfItemSet) ||
+                other.durationMinutesOfItemSet == durationMinutesOfItemSet) &&
+            (identical(
+                    other.durationSecondsOfItemSet, durationSecondsOfItemSet) ||
+                other.durationSecondsOfItemSet == durationSecondsOfItemSet) &&
             (identical(other.startItemOfSet, startItemOfSet) ||
                 other.startItemOfSet == startItemOfSet) &&
             (identical(other.isPicture, isPicture) ||
@@ -240,7 +278,9 @@ class _$_ItemOfSetEntity extends _ItemOfSetEntity {
       runtimeType,
       titleItem,
       const DeepCollectionEquality().hash(_chipsItem),
-      durationOfItemSet,
+      durationHourOfItemSet,
+      durationMinutesOfItemSet,
+      durationSecondsOfItemSet,
       startItemOfSet,
       isPicture,
       isVerse,
@@ -257,7 +297,9 @@ abstract class _ItemOfSetEntity extends ItemOfSetEntity {
   factory _ItemOfSetEntity(
       {final String? titleItem,
       final List<String>? chipsItem,
-      required final DateTime durationOfItemSet,
+      required final int durationHourOfItemSet,
+      required final int durationMinutesOfItemSet,
+      required final int durationSecondsOfItemSet,
       required final DateTime startItemOfSet,
       final bool? isPicture,
       final bool? isVerse,
@@ -269,7 +311,11 @@ abstract class _ItemOfSetEntity extends ItemOfSetEntity {
   @override // text in item
   List<String>? get chipsItem;
   @override
-  DateTime get durationOfItemSet;
+  int get durationHourOfItemSet;
+  @override
+  int get durationMinutesOfItemSet;
+  @override
+  int get durationSecondsOfItemSet;
   @override
   DateTime get startItemOfSet;
   @override

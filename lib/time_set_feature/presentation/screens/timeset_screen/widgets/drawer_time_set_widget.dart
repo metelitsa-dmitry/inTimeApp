@@ -69,7 +69,7 @@ class TimeSetItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Start: ${timeSet.startTimeSetFormat}'),
-            Text('Duration: ${timeSet.durationFormat}'),
+            Text('Duration: ${timeSet.durationHourTimeSet}:${timeSet.durationMinutesTimeSet}'),
             Text('Saved: ${timeSet.dateTimeSavedFormat}')
           ],
         ),

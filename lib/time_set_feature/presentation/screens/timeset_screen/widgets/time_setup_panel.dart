@@ -85,7 +85,7 @@ class DurationTimeSet extends StatelessWidget {
               state.when(
                 initial: () => const Text('--:--'),
                 loading: () => const CircularProgressIndicator(),
-                loadedTimeSet: (timeSet)=> Text(timeSet.durationFormat,
+                loadedTimeSet: (timeSet)=> Text('${timeSet.durationHourTimeSet}:${timeSet.durationMinutesTimeSet}',
                   style: const TextStyle(
                     fontSize: 16,),
                 ),
@@ -93,7 +93,9 @@ class DurationTimeSet extends StatelessWidget {
             ],
           ),
           onTap: ()async {
-            final currentDuration = state.whenOrNull(loadedTimeSet: (timeSet) => timeSet.durationTimeSet) ?? DateTime.now();
+            final currentTimeSet = state.whenOrNull(loadedTimeSet: (timeSet) => timeSet);
+            final currentDuration = DateTime(0, 0, 0, currentTimeSet!.durationHourTimeSet, currentTimeSet.durationMinutesTimeSet);
+
             final newTime = await _changeTime(context: context, dateTime: currentDuration );
             blocTimeSet.add(ChangeDurationTimeSetEvent(newDuration: newTime));
           },

@@ -19,31 +19,37 @@ class ItemOfSetDtoAdapter extends TypeAdapter<ItemOfSetDto> {
     return ItemOfSetDto(
       titleItem: fields[0] as String?,
       chipsItem: (fields[1] as List?)?.cast<String>(),
-      isPicture: fields[4] as bool?,
-      isVerse: fields[5] as bool?,
-      isTable: fields[6] as bool?,
-      durationOfItemSet: fields[2] as DateTime,
-      startItemOfSet: fields[3] as DateTime,
+      isPicture: fields[6] as bool?,
+      isVerse: fields[7] as bool?,
+      isTable: fields[8] as bool?,
+      durationHourOfItemSet: fields[2] as int,
+      durationMinutesOfItemSet: fields[3] as int,
+      durationSecondsOfItemSet: fields[4] as int,
+      startItemOfSet: fields[5] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, ItemOfSetDto obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(9)
       ..writeByte(0)
       ..write(obj.titleItem)
       ..writeByte(1)
       ..write(obj.chipsItem)
       ..writeByte(2)
-      ..write(obj.durationOfItemSet)
+      ..write(obj.durationHourOfItemSet)
       ..writeByte(3)
-      ..write(obj.startItemOfSet)
+      ..write(obj.durationMinutesOfItemSet)
       ..writeByte(4)
-      ..write(obj.isPicture)
+      ..write(obj.durationSecondsOfItemSet)
       ..writeByte(5)
-      ..write(obj.isVerse)
+      ..write(obj.startItemOfSet)
       ..writeByte(6)
+      ..write(obj.isPicture)
+      ..writeByte(7)
+      ..write(obj.isVerse)
+      ..writeByte(8)
       ..write(obj.isTable);
   }
 

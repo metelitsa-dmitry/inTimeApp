@@ -12,27 +12,35 @@ class ItemOfSetDto {
   final List<String>? chipsItem;
 
   @HiveField(2)
-  final DateTime durationOfItemSet;
+  final int durationHourOfItemSet;
 
   @HiveField(3)
-  final DateTime startItemOfSet;
+  final int durationMinutesOfItemSet;
 
   @HiveField(4)
-  final bool? isPicture;
+  final int durationSecondsOfItemSet;
 
   @HiveField(5)
-  final bool? isVerse;
+  final DateTime startItemOfSet;
 
   @HiveField(6)
+  final bool? isPicture;
+
+  @HiveField(7)
+  final bool? isVerse;
+
+  @HiveField(8)
   final bool? isTable;
 
-  ItemOfSetDto({
+  ItemOfSetDto( {
     this.titleItem,
     this.chipsItem,
     this.isPicture,
     this.isVerse,
     this.isTable,
-    required this.durationOfItemSet,
+    required this.durationHourOfItemSet,
+    required this.durationMinutesOfItemSet,
+    required this.durationSecondsOfItemSet,
     required this.startItemOfSet,
   });
 
@@ -43,7 +51,9 @@ class ItemOfSetDto {
         isPicture: itemOfSet.isPicture,
         isVerse: itemOfSet.isVerse,
         isTable: itemOfSet.isTable,
-        durationOfItemSet:itemOfSet. durationOfItemSet,
+        durationHourOfItemSet: itemOfSet.durationHourOfItemSet,
+        durationMinutesOfItemSet: itemOfSet.durationMinutesOfItemSet,
+        durationSecondsOfItemSet: itemOfSet.durationSecondsOfItemSet,
         startItemOfSet: itemOfSet.startItemOfSet);
   }
 
@@ -55,7 +65,10 @@ class ItemOfSetDto {
         isVerse: isVerse,
         isTable: isTable,
         startItemOfSet: startItemOfSet,
-        durationOfItemSet: durationOfItemSet);
+      durationHourOfItemSet: durationHourOfItemSet,
+      durationMinutesOfItemSet: durationMinutesOfItemSet,
+      durationSecondsOfItemSet: durationSecondsOfItemSet,
+    );
   }
 
 }

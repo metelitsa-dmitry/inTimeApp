@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart';
-import 'package:intl/intl.dart';
+
 
 class ItemWidget extends StatelessWidget {
   const ItemWidget({Key? key, required this.item}) : super(key: key);
@@ -158,22 +158,16 @@ class StartTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final startTime = DateTime.now();
-
-    final formatStartTime = DateFormat('HH:mm:ss').format(startTime);
-
-    final durationDateFormat = DateTime.now();
-    final duration = DateFormat('HH:mm:ss').format(durationDateFormat);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          formatStartTime,
+          item.startItemOfSetFormat,
           style: const TextStyle(fontSize: 18),
         ),
         Text(
-          duration,
+          '${item.durationHourOfItemSet}:${item.durationMinutesOfItemSet}:${item.durationSecondsOfItemSet}',
           style: const TextStyle(fontSize: 14, color: Colors.black38),
         ),
       ],

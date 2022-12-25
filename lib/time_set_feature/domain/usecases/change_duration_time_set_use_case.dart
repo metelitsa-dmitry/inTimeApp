@@ -7,11 +7,15 @@ class ChangeDurationTimeUseCase {
 
   ChangeDurationTimeUseCase(this._timeSetRepository);
 
-  Future<TimeSetEntity> call(DateTime newDuration, TimeSetEntity timeSet) async{
-    final updatedTimeSetDto = timeSet.copyWith(durationTimeSet: newDuration);
+  Future<TimeSetEntity> call(
+      DateTime newDuration, TimeSetEntity timeSet) async {
+    final updatedTimeSetDto = timeSet.copyWith(
+        durationHourTimeSet: newDuration.hour,
+        durationMinutesTimeSet: newDuration.minute);
     final timeSetDto = TimeSetDto.fromDomain(updatedTimeSetDto);
     _timeSetRepository.saveTimeSetAs(timeSetDto.title, timeSetDto);
-    final updatedTimeSet = (await _timeSetRepository.getTimeSet(timeSet.title)).toDomain();
-    return updatedTimeSet ;
+    final updatedTimeSet =
+        (await _timeSetRepository.getTimeSet(timeSet.title)).toDomain();
+    return updatedTimeSet;
   }
 }

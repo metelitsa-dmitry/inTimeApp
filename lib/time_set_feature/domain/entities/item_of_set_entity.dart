@@ -10,7 +10,9 @@ class ItemOfSetEntity with _$ItemOfSetEntity {
   factory ItemOfSetEntity ({
     String? titleItem, // text in item
     List<String>? chipsItem,
-    required DateTime durationOfItemSet,
+    required int durationHourOfItemSet,
+    required int durationMinutesOfItemSet,
+    required int durationSecondsOfItemSet,
     required DateTime startItemOfSet,
     bool? isPicture, // need to discuss picture
     bool? isVerse, // need to read verse
@@ -18,9 +20,8 @@ class ItemOfSetEntity with _$ItemOfSetEntity {
   }) = _ItemOfSetEntity;
 
   final DateFormat _formatter1 = DateFormat('hh:mm:ss a');
-  final DateFormat _formatter2 = DateFormat('hh:mm:ss');
   String get startItemOfSetFormat => _formatter1.format(startItemOfSet);
-  String get durationOfItemSetFormat => _formatter2.format(durationOfItemSet);
+
 
 // final int durationHours;
 // final int durationMinutes;

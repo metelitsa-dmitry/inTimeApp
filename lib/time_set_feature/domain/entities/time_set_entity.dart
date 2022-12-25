@@ -16,15 +16,15 @@ class TimeSetEntity with _$TimeSetEntity{
     List<NumberChipsData>? numberChips,
     required String title,
     required DateTime startTimeSet,
-    required DateTime durationTimeSet,
+    required int durationHourTimeSet,
+    required int durationMinutesTimeSet,
+
     required DateTime finishTimeSet,
   }) = _TimeSetEntity;
 
   final DateFormat _formatter1 = DateFormat('hh:mm a');
-  final DateFormat _formatter2 = DateFormat('hh:mm');
-  final DateFormat _formatter3 = DateFormat('yyyy-MM-dd, hh:mm a');
+  final DateFormat _formatter2 = DateFormat('yyyy-MM-dd, hh:mm a');
   String get startTimeSetFormat => _formatter1.format(startTimeSet);
-  String get durationFormat => _formatter2.format(durationTimeSet);
   String get finishTimeSetFormat => _formatter1.format(finishTimeSet);
-  String get dateTimeSavedFormat => _formatter3.format(dateTimeSaved) ;
+  String get dateTimeSavedFormat => _formatter2.format(dateTimeSaved) ;
 }

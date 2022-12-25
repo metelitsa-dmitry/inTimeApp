@@ -1,7 +1,7 @@
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 
 class NumeralItemDialog extends StatefulWidget {
   const NumeralItemDialog({Key? key}) : super(key: key);
@@ -10,26 +10,21 @@ class NumeralItemDialog extends StatefulWidget {
 }
 
 class _NumeralItemDialogState extends State<NumeralItemDialog> {
-
-  final _controller = TextEditingController();
+  final _controllerCounter = TextEditingController();
   final _controllerStartNumber = TextEditingController();
+  var startNumber = 1;
+  var counter = 20;
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controllerCounter.dispose();
     _controllerStartNumber.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-   // final _modelWatch = context.watch<CounterModel>();
-   // final _modelRead = context.read<CounterModel>();
-
-    int startNumber = 1;
-    int counter = 20;
-
-    _controller.text = counter.toString();
+    _controllerCounter.text = counter.toString();
     _controllerStartNumber.text = startNumber.toString();
 
     return AlertDialog(
@@ -49,12 +44,16 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
                 children: [
                   IconButton(
                     icon: const Icon(Icons.remove),
-                    onPressed: (){},
+                    onPressed: () {
+                      setState(() {
+                        counter = max(1, counter - 1);
+                      });
+                    },
                   ),
                   SizedBox(
                     width: 63.0,
                     child: TextField(
-                      controller: _controller,
+                      controller: _controllerCounter,
                       readOnly: true,
                       // keyboardType: TextInputType.number,
                       // maxLines: 1,
@@ -81,7 +80,11 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.add),
-                    onPressed: (){},
+                    onPressed: () {
+                      setState(() {
+                        counter = counter + 1;
+                      });
+                    },
                   ),
                 ],
               ),
@@ -89,56 +92,64 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
             const Divider(
               height: 16.0,
             ),
-             Text("AppLocalizations.of(context)!.starting_digit"),
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.grey[300],
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.remove),
-                  onPressed: (){},
-                ),
-                SizedBox(
-                  width: 63.0,
-                  child: TextField(
-                    controller: _controllerStartNumber,
-                    readOnly: true,
-                    // keyboardType: TextInputType.number,
-                    // maxLines: 1,
-                    //autofocus: true,
-                    //inputFormatters: [MyInputTextFormatter()],
-                    //scrollPadding: EdgeInsets.all(8),
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 20,
-                    ),
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      isCollapsed: true,
-                      contentPadding: const EdgeInsets.all(8),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    onChanged: (value) {
+            Text("AppLocalizations.of(context)!.starting_digit"),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.remove),
+                    onPressed: () {
                       setState(() {
-                        startNumber = int.parse(value);
+                        startNumber = max(1, startNumber - 1);
                       });
                     },
                   ),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.add),
-                  onPressed: (){},
-                ),
-              ],
+                  SizedBox(
+                    width: 63.0,
+                    child: TextField(
+                      controller: _controllerStartNumber,
+                      readOnly: true,
+                      // keyboardType: TextInputType.number,
+                      // maxLines: 1,
+                      //autofocus: true,
+                      //inputFormatters: [MyInputTextFormatter()],
+                      //scrollPadding: EdgeInsets.all(8),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 20,
+                      ),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Colors.white,
+                        isCollapsed: true,
+                        contentPadding: const EdgeInsets.all(8),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                      ),
+                      onChanged: (value) {
+                        setState(() {
+                          startNumber = int.parse(value);
+                        });
+                      },
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.add),
+                    onPressed: () {
+                      setState(() {
+                        startNumber = startNumber + 1;
+                      });
+                    },
+                  ),
+                ],
+              ),
             ),
-        ),
           ],
         ),
       ),
@@ -147,10 +158,7 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
           elevation: 5.0,
           child: Text("Ok"),
           onPressed: () {
-           // context.read<TimeSetModule>().addItemsInList(counter, startNumber);
-          //  _modelRead.startNumber = startNumber + counter;
-
-            Navigator.of(context).pop();
+            Navigator.of(context).pop(counter);
           },
         ),
         MaterialButton(

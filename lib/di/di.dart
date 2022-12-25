@@ -12,8 +12,8 @@ import '../time_set_feature/domain/repositories/time_set_repository.dart';
 import '../time_set_feature/domain/usecases/add_time_set_use_case.dart';
 import '../time_set_feature/domain/usecases/change_duration_time_set_use_case.dart';
 import '../time_set_feature/domain/usecases/change_finish_time_set_use_case.dart';
-import '../time_set_feature/domain/usecases/change_start_time_use_case.dart';
 import '../time_set_feature/domain/usecases/delete_time_set_use_case.dart';
+import '../time_set_feature/domain/usecases/recalculate_item_of_set_use_case.dart';
 import '../time_set_feature/presentation/screens/timeset_screen/bloc_list_time_sets/bloc_list_time_sets_bloc.dart';
 
 
@@ -29,9 +29,9 @@ init() async {
   sl.registerLazySingleton(() => GetTimeSetUseCase(sl()));
   sl.registerLazySingleton(() => AddTimeSetUseCase(sl()));
   sl.registerLazySingleton(() => DeleteTimeSetUseCase(sl()));
-  sl.registerLazySingleton(() => ChangeStartTimeUseCase(sl()));
   sl.registerLazySingleton(() => ChangeDurationTimeUseCase(sl()));
   sl.registerLazySingleton(() => ChangeFinishTimeSetUseCase(sl()));
+  sl.registerLazySingleton(() => RecalculateItemOfSet());
 
 
   ///Repository

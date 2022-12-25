@@ -17,20 +17,21 @@ class TimeSetDtoAdapter extends TypeAdapter<TimeSetDto> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return TimeSetDto(
-      itemsOfSet: (fields[4] as List?)?.cast<ItemOfSetDto>(),
-      numberChips: (fields[5] as List?)?.cast<NumberChipsDataDto>(),
+      itemsOfSet: (fields[6] as List?)?.cast<ItemOfSetDto>(),
+      numberChips: (fields[7] as List?)?.cast<NumberChipsDataDto>(),
       dateTimeSaved: fields[1] as DateTime,
       title: fields[0] as String,
       startTimeSet: fields[2] as DateTime,
-      durationTimeSet: fields[3] as DateTime,
-      finishTimeSet: fields[6] as DateTime,
+      durationHourTimeSet: fields[3] as int,
+      durationMinutesTimeSet: fields[4] as int,
+      finishTimeSet: fields[5] as DateTime,
     );
   }
 
   @override
   void write(BinaryWriter writer, TimeSetDto obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -38,12 +39,14 @@ class TimeSetDtoAdapter extends TypeAdapter<TimeSetDto> {
       ..writeByte(2)
       ..write(obj.startTimeSet)
       ..writeByte(3)
-      ..write(obj.durationTimeSet)
-      ..writeByte(6)
-      ..write(obj.finishTimeSet)
+      ..write(obj.durationHourTimeSet)
       ..writeByte(4)
-      ..write(obj.itemsOfSet)
+      ..write(obj.durationMinutesTimeSet)
       ..writeByte(5)
+      ..write(obj.finishTimeSet)
+      ..writeByte(6)
+      ..write(obj.itemsOfSet)
+      ..writeByte(7)
       ..write(obj.numberChips);
   }
 

@@ -9,6 +9,7 @@ class TimeSetEvent with _$TimeSetEvent {
   const factory TimeSetEvent.changeDurationTimeSet({required DateTime newDuration}) = ChangeDurationTimeSetEvent;
   const factory TimeSetEvent.changeFinishTimeSet({required DateTime newFinishTime}) = ChangeFinishTimeSetEvent;
   const factory TimeSetEvent.addItemOfSet() = AddItemOfSetEvent;
+  const factory TimeSetEvent.addSeveralItemOfSet({required int count}) = addSeveralItemOfSetEvent;
   const factory TimeSetEvent.removeItemOfSet({required int id}) = RemoveItemOfSetEvent;
 
 
