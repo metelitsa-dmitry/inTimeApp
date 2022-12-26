@@ -1,7 +1,9 @@
+
 import 'package:get_it/get_it.dart';
 import 'package:in_time/time_set_feature/domain/usecases/get_all_time_sets.dart';
 import 'package:in_time/time_set_feature/domain/usecases/get_time_set_use_case.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/cubit_fab_visibility/bloc_fab_visibility_bloc.dart';
 
 
 
@@ -14,13 +16,13 @@ import '../time_set_feature/domain/usecases/delete_time_set_use_case.dart';
 import '../time_set_feature/domain/usecases/recalculate_item_of_set_use_case.dart';
 import '../time_set_feature/presentation/screens/timeset_screen/bloc_list_time_sets/bloc_list_time_sets_bloc.dart';
 
-
 final sl = GetIt.instance;
 
 init() async {
   ///Bloc
   sl.registerFactory(() => TimeSetBloc(sl(), sl(), sl(), sl()));
   sl.registerFactory(() => ListTimeSetsBloc(sl(), sl()));
+  sl.registerFactory(() => FabVisibilityBloc());
 
   ///UseCases
   sl.registerLazySingleton(() => GetAllTimeSetsUseCase(sl()));

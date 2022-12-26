@@ -197,13 +197,15 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
           hours: _currentTimeSet.durationHourTimeSet,
           minutes: _currentTimeSet.durationHourTimeSet);
       listItem.removeAt(event.id);
-      averageDuration = _timeCalculator.calcAverageDurationOfItem(
-          duration: durationTimeSet,
-          countOfItems: (listItem.length));
-      listItem = _recalculateItemOfSet(
-          listOfItems: listItem,
-          averageDuration: averageDuration,
-          startOfTimeSet: start);
+      if(listItem.isNotEmpty){
+        averageDuration = _timeCalculator.calcAverageDurationOfItem(
+            duration: durationTimeSet,
+            countOfItems: (listItem.length));
+        listItem = _recalculateItemOfSet(
+            listOfItems: listItem,
+            averageDuration: averageDuration,
+            startOfTimeSet: start);
+      }
       _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem);
       _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
       emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));

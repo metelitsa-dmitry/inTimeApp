@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/cubit_fab_visibility/bloc_fab_visibility_bloc.dart';
 
 import '../dialogs_screen/save_set_dialog.dart';
 import 'bloc_time_set/bloc_time_set_bloc.dart';
@@ -20,7 +21,7 @@ class _TimeSetScreenState extends State<TimeSetScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final fabVisible = true;
+    final fabVisible = context.watch<FabVisibilityBloc>().state;
     final state = context.watch<TimeSetBloc>().state;
 
     return Scaffold(

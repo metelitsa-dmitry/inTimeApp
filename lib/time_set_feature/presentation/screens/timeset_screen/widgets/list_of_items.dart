@@ -5,6 +5,7 @@ import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart
 import 'package:in_time/time_set_feature/domain/entities/time_set_entity.dart';
 import 'package:in_time/time_set_feature/presentation/screens/new_item_screen/new_item_screen.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/cubit_fab_visibility/bloc_fab_visibility_bloc.dart';
 import 'item_widget.dart';
 import 'time_setup_panel.dart';
 
@@ -17,17 +18,15 @@ class ListOfItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = timeSet.itemsOfSet ?? [];
-
+    final fabVisibility = context.read<FabVisibilityBloc>();
 
     return NotificationListener<UserScrollNotification>(
       onNotification: (notification) {
         if (notification.direction == ScrollDirection.forward) {
-        //  bool visibility = true;
-          //context.read<TimeSetModule>().changeFabVisible(visibility);
+          fabVisibility.add(FabVisible());
         } else if (notification.direction == ScrollDirection.reverse &&
             items.isNotEmpty) {
-         //// bool visibility = false;
-         // context.read<TimeSetModule>().changeFabVisible(visibility);
+          fabVisibility.add(FabInVisible());
         }
         return true;
       },
@@ -48,7 +47,7 @@ class ListOfItems extends StatelessWidget {
 }
 
 class ListOfItemWidgets extends StatelessWidget {
-    ListOfItemWidgets({Key? key, required this.items,}) : super(key: key);
+    const ListOfItemWidgets({Key? key, required this.items,}) : super(key: key);
   final List<ItemOfSetEntity> items;
 
   @override
@@ -68,7 +67,7 @@ class ListOfItemWidgets extends StatelessWidget {
                   blocTimeSet.add(RemoveItemOfSetEvent(id: index));
                 },
                 child: ItemWidget(
-                    item: item)) ?? Container(),
+                    item: item)),
             onTap: () {
               Navigator.push(
                   context,
