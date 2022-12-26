@@ -5,8 +5,6 @@ import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart
 import 'package:in_time/time_set_feature/domain/usecases/add_time_set_use_case.dart';
 
 import '../../../../domain/entities/time_set_entity.dart';
-import '../../../../domain/usecases/change_duration_time_set_use_case.dart';
-import '../../../../domain/usecases/change_finish_time_set_use_case.dart';
 import '../../../../domain/usecases/get_all_time_sets.dart';
 import '../../../../domain/usecases/get_time_set_use_case.dart';
 import '../../../../domain/usecases/recalculate_item_of_set_use_case.dart';
@@ -19,8 +17,6 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
   final GetAllTimeSetsUseCase _getAllTimeSets;
   final GetTimeSetUseCase _getTimeSetUseCase;
   final AddTimeSetUseCase _addTimeSetUseCase;
-  final ChangeDurationTimeUseCase _changeDurationTimeUseCase;
-  final ChangeFinishTimeSetUseCase _changeFinishTimeSetUseCase;
   final RecalculateItemOfSet _recalculateItemOfSet;
   final _timeCalculator = TimeCalculator();
 
@@ -39,8 +35,6 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       this._getAllTimeSets,
       this._getTimeSetUseCase,
       this._addTimeSetUseCase,
-      this._changeDurationTimeUseCase,
-      this._changeFinishTimeSetUseCase,
       this._recalculateItemOfSet)
       : super(const TimeSetState.initial()) {
     on<TimeSetInitialEvent>((event, emit) async {
@@ -113,21 +107,31 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
 
     ///TODO fix recalculate
     on<ChangeFinishTimeSetEvent>((event, emit) async {
-      emit(const TimeSetState.loading());
+      listItem = _currentTimeSet.itemsOfSet?.toList() ?? [];
+
       final startTime = _currentTimeSet.startTimeSet;
       final newFinishTime = event.newFinishTime;
-      _currentTimeSet =
-          await _changeFinishTimeSetUseCase(newFinishTime, _currentTimeSet);
+      // _currentTimeSet =
+      //     await _changeFinishTimeSetUseCase(newFinishTime, _currentTimeSet);
 
       final newDuration = newFinishTime.difference(startTime);
       final newDurationInHours = (newDuration.inMinutes / 60).floor();
       final newDurationInMinutes =
           (newDuration.inMinutes).floor() - (newDurationInHours * 60);
+      averageDuration = _timeCalculator.calcAverageDurationOfItem(
+          duration: newDuration, countOfItems: listItem.length);
 
-      _currentTimeSet = await _changeDurationTimeUseCase(
-          DateTime(0, 0, 0, newDurationInHours, newDurationInMinutes),
-          _currentTimeSet);
-
+      listItem = _recalculateItemOfSet(
+          listOfItems: listItem,
+          averageDuration: averageDuration,
+          startOfTimeSet: startTime);
+      _currentTimeSet = _currentTimeSet.copyWith(
+          startTimeSet: startTime,
+          durationHourTimeSet: newDurationInHours,
+          durationMinutesTimeSet:newDurationInMinutes ,
+          finishTimeSet: newFinishTime,
+          itemsOfSet: listItem);
+      _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
       emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
     });
 
@@ -162,9 +166,7 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       final durationTimeSet = Duration(
           hours: _currentTimeSet.durationHourTimeSet,
           minutes: _currentTimeSet.durationHourTimeSet);
-      averageDuration = _timeCalculator.calcAverageDurationOfItem(
-          duration: durationTimeSet,
-          countOfItems: (listItem.length + event.count));
+
       final itemOfSet = ItemOfSetEntity(
           durationHourOfItemSet: averageDuration.hour,
           durationMinutesOfItemSet: averageDuration.minute,
@@ -174,23 +176,13 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       for (int i = 0; i < event.count; i++) {
         listItem.add(itemOfSet);
       }
+      averageDuration = _timeCalculator.calcAverageDurationOfItem(
+          duration: durationTimeSet,
+          countOfItems: (listItem.length));
       listItem = _recalculateItemOfSet(
           listOfItems: listItem,
           averageDuration: averageDuration,
           startOfTimeSet: start);
-      // for (int i = 0; i < listItem.length; i++) {
-      //   listItem[i] = itemOfSet.copyWith(startItemOfSet: start);
-      //   start = start.add(Duration(
-      //       hours: averageDuration.hour,
-      //       minutes: averageDuration.minute,
-      //       seconds: averageDuration.second));
-      // }
-      // final savedList = listItem.map((item) {
-      //   return item.copyWith(durationHourOfItemSet: averageDuration.hour,
-      //     durationMinutesOfItemSet: averageDuration.minute,
-      //     durationSecondsOfItemSet: averageDuration.second,
-      //   startItemOfSet: start);
-      // }).toList();
 
       _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem);
       _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);

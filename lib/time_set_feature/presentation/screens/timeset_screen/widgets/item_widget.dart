@@ -229,7 +229,7 @@ class IsVerseButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Icon(Icons.menu_book_outlined),
+      icon: const Icon(Icons.menu_book_outlined),
       //color: item.isVerse ? Colors.black : Colors.grey,
       onPressed: () {
        // context.read<TimeSetModule>().changeIsVerse(item);
@@ -250,7 +250,7 @@ class IsPictureButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       icon:
-          Icon(Icons.photo_album_outlined),
+          const Icon(Icons.photo_album_outlined),
      //color: item.isPicture ? Colors.black : Colors.grey,
       onPressed: () {
         //context.read<TimeSetModule>().changeIsPicture(item);
