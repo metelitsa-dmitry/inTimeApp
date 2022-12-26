@@ -5,7 +5,7 @@ import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart
 import 'package:in_time/time_set_feature/domain/entities/time_set_entity.dart';
 import 'package:in_time/time_set_feature/presentation/screens/new_item_screen/new_item_screen.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
-import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/cubit_fab_visibility/bloc_fab_visibility_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_fab_visibility/bloc_fab_visibility_bloc.dart';
 import 'item_widget.dart';
 import 'time_setup_panel.dart';
 

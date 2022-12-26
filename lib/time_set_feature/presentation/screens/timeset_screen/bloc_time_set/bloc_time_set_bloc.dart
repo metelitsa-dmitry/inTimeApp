@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:in_time/core/time_calculator.dart';
 import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart';
 import 'package:in_time/time_set_feature/domain/usecases/add_time_set_use_case.dart';
+import 'package:in_time/time_set_feature/domain/usecases/get_last_session_use_case.dart';
 
 import '../../../../domain/entities/time_set_entity.dart';
 import '../../../../domain/usecases/get_all_time_sets.dart';
@@ -18,6 +19,9 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
   final GetTimeSetUseCase _getTimeSetUseCase;
   final AddTimeSetUseCase _addTimeSetUseCase;
   final RecalculateItemOfSet _recalculateItemOfSet;
+  final GetLastSessionUseCase _getLastSessionUseCase;
+
+  String? lastSession;
   final _timeCalculator = TimeCalculator();
 
   var _currentTimeSet = TimeSetEntity(
@@ -27,6 +31,8 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       durationMinutesTimeSet: 0,
       finishTimeSet: DateTime.now().add(const Duration(hours: 1)),
       dateTimeSaved: DateTime.now());
+  String get currentTimeSetTitle => _currentTimeSet.title;
+
   var listItem = <ItemOfSetEntity>[];
   var averageDuration = DateTime(0, 0, 0, 1, 0);
 
@@ -34,7 +40,7 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       this._getAllTimeSets,
       this._getTimeSetUseCase,
       this._addTimeSetUseCase,
-      this._recalculateItemOfSet)
+      this._recalculateItemOfSet, this._getLastSessionUseCase)
       : super(const TimeSetState.initial()) {
 
     on<TimeSetInitialEvent>((event, emit) async {
@@ -42,8 +48,10 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       final list = _getAllTimeSets();
       if (list.isEmpty) {
         _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
+        lastSession = _currentTimeSet.title;
       }
-      _currentTimeSet = await _getTimeSetUseCase(_currentTimeSet.title);
+      lastSession = await _getLastSessionUseCase();
+      _currentTimeSet = await _getTimeSetUseCase(lastSession ?? _currentTimeSet.title);
 
       emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
     });
@@ -51,6 +59,7 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
     on<GetTimeSetEvent>((event, emit) async {
       emit(const TimeSetState.loading());
       _currentTimeSet = await _getTimeSetUseCase(event.id);
+      lastSession = _currentTimeSet.title;
       emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
     });
 

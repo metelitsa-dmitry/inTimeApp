@@ -60,9 +60,10 @@ class TimeSetItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final blocTimeSet = context.read<TimeSetBloc>();
     final blocListTimeSets = context.read<ListTimeSetsBloc>();
+    final lastSession = context.read<TimeSetBloc>().lastSession;
 
     return Container(
-      color: Colors.blueGrey[100],
+      color: (timeSet.title == lastSession) ? Colors.blueGrey[100]: null,
       child: ListTile(
         title: Text(timeSet.title),
         subtitle: Column(
