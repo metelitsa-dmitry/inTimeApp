@@ -26,7 +26,7 @@ class MenuFab extends StatelessWidget {
           label: 'Несколько',
           onTap: () async {
             final count = await showDialogAddNumeralItems(context);
-            blocTimeSet.add(addSeveralItemOfSetEvent(count: count));
+            blocTimeSet.add(AddSeveralItemOfSetEvent(count: count));
           },
         )
       ],

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/cubit_fab_visibility/bloc_fab_visibility_bloc.dart';
-
 import '../dialogs_screen/save_set_dialog.dart';
 import 'bloc_time_set/bloc_time_set_bloc.dart';
 import 'widgets/drawer_time_set_widget.dart';
@@ -61,8 +60,11 @@ List<Widget> listOfActionButtons(BuildContext context) {
       icon: const Icon(Icons.settings),
     ),
     IconButton(
-      onPressed: () {
-        showDialogDeleteAll(context);
+      onPressed: () async{
+        final isDelete = await showDialogDeleteAll(context) ?? false;
+        if (isDelete) {
+          blocTimeSet.add(const CleanListItemOfSetEvent());
+        };
       },
       icon: const Icon(Icons.delete),
     ),
@@ -77,23 +79,23 @@ Future<String> showDialogSaveTimeSetAs(BuildContext context) async {
   );
 }
 
-Future<void> showDialogDeleteAll(BuildContext context) {
+Future<bool?> showDialogDeleteAll(BuildContext context) {
   return showDialog(
     context: context,
     builder: (BuildContext context) =>
         AlertDialog(
-          title: Text('Удалить'),
-          content: Text('Вы хотите удалить?'),
+          title: const Text('Удалить'),
+          content: const Text('Вы хотите удалить?'),
           actions: <Widget>[
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: Text('Отмена'),
+              child: const Text('Отмена'),
             ),
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(true);
               },
-              child: Text('Ok'),
+              child: const Text('Ok'),
             ),
           ],
         ),

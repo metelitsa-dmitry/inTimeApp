@@ -28,7 +28,6 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       finishTimeSet: DateTime.now().add(const Duration(hours: 1)),
       dateTimeSaved: DateTime.now());
   var listItem = <ItemOfSetEntity>[];
-
   var averageDuration = DateTime(0, 0, 0, 1, 0);
 
   TimeSetBloc(
@@ -37,6 +36,7 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       this._addTimeSetUseCase,
       this._recalculateItemOfSet)
       : super(const TimeSetState.initial()) {
+
     on<TimeSetInitialEvent>((event, emit) async {
       emit(const TimeSetState.loading());
       final list = _getAllTimeSets();
@@ -105,14 +105,11 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
     });
 
-    ///TODO fix recalculate
     on<ChangeFinishTimeSetEvent>((event, emit) async {
       listItem = _currentTimeSet.itemsOfSet?.toList() ?? [];
 
       final startTime = _currentTimeSet.startTimeSet;
       final newFinishTime = event.newFinishTime;
-      // _currentTimeSet =
-      //     await _changeFinishTimeSetUseCase(newFinishTime, _currentTimeSet);
 
       final newDuration = newFinishTime.difference(startTime);
       final newDurationInHours = (newDuration.inMinutes / 60).floor();
@@ -160,7 +157,7 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
     });
 
-    on<addSeveralItemOfSetEvent>((event, emit) {
+    on<AddSeveralItemOfSetEvent>((event, emit) {
       listItem = _currentTimeSet.itemsOfSet?.toList() ?? [];
       var start = _currentTimeSet.startTimeSet;
       final durationTimeSet = Duration(
@@ -206,6 +203,13 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
             averageDuration: averageDuration,
             startOfTimeSet: start);
       }
+      _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem);
+      _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
+      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
+    });
+
+    on<CleanListItemOfSetEvent>((event, emit) {
+      listItem = [];
       _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem);
       _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
       emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
