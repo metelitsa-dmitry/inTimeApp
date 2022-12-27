@@ -24,17 +24,17 @@ class ItemWidget extends StatelessWidget {
         leading: StartTime(item: item),
         title: Wrap(
           children: [
-            // Wrap(
-            //   alignment: WrapAlignment.start,
-            //   children: item.chipsItem!
-            //       .map((value) => InputChip(
-            //             label: Text(value),
-            //             labelStyle:
-            //                 const TextStyle(fontSize: 16, color: Colors.black),
-            //             disabledColor: Colors.white,
-            //           ))
-            //       .toList(),
-            // ),
+            Wrap(
+              alignment: WrapAlignment.start,
+              children: item.chipsItem!
+                  .map((value) => InputChip(
+                        label: Text(value),
+                        labelStyle:
+                            const TextStyle(fontSize: 16, color: Colors.black),
+                        disabledColor: Colors.white,
+                      ))
+                  .toList(),
+            ),
             if (item.isPicture ?? false) IsPictureButton(item: item),
             if (item.isVerse ?? false) IsVerseButton(item: item),
             if (item.isTable ?? false) IsTableButton(item: item),

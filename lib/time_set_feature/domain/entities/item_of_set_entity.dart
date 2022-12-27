@@ -23,14 +23,4 @@ class ItemOfSetEntity with _$ItemOfSetEntity {
   String get startItemOfSetFormat => _formatter1.format(startItemOfSet);
 
 
-// final int durationHours;
-// final int durationMinutes;
-// final int durationSeconds;
-
-
-// final int startTimeItemHours; // hours of item's start time
-// final int startTimeItemMinutes; // minutes of item's start time
-// final int startTimeItemSeconds; // seconds of item's start time
-
-
 }

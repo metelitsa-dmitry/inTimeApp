@@ -1,7 +1,7 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../../../domain/entities/result_add_dialog.dart';
 
 class NumeralItemDialog extends StatefulWidget {
   const NumeralItemDialog({Key? key}) : super(key: key);
@@ -12,8 +12,7 @@ class NumeralItemDialog extends StatefulWidget {
 class _NumeralItemDialogState extends State<NumeralItemDialog> {
   final _controllerCounter = TextEditingController();
   final _controllerStartNumber = TextEditingController();
-  var startNumber = 1;
-  var counter = 20;
+  var resultDialog = ResultAddDialog(counter: 20, startNumber: 1);
 
   @override
   void dispose() {
@@ -24,8 +23,8 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
 
   @override
   Widget build(BuildContext context) {
-    _controllerCounter.text = counter.toString();
-    _controllerStartNumber.text = startNumber.toString();
+    _controllerCounter.text = resultDialog.counter.toString();
+    _controllerStartNumber.text = resultDialog.startNumber.toString();
 
     return AlertDialog(
       // title: const Text('Добавить несколько'),
@@ -46,7 +45,7 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
                     icon: const Icon(Icons.remove),
                     onPressed: () {
                       setState(() {
-                        counter = max(1, counter - 1);
+                       resultDialog = resultDialog.copyWith(counter: max(1, resultDialog.counter -1));
                       });
                     },
                   ),
@@ -82,7 +81,7 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
                     icon: const Icon(Icons.add),
                     onPressed: () {
                       setState(() {
-                        counter = counter + 1;
+                        resultDialog = resultDialog.copyWith(counter: resultDialog.counter +1);
                       });
                     },
                   ),
@@ -105,7 +104,9 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
                     icon: const Icon(Icons.remove),
                     onPressed: () {
                       setState(() {
-                        startNumber = max(1, startNumber - 1);
+
+                        resultDialog = resultDialog.copyWith(
+                            startNumber: max(1, resultDialog.startNumber -1));
                       });
                     },
                   ),
@@ -134,7 +135,7 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
                       ),
                       onChanged: (value) {
                         setState(() {
-                          startNumber = int.parse(value);
+
                         });
                       },
                     ),
@@ -143,7 +144,8 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
                     icon: const Icon(Icons.add),
                     onPressed: () {
                       setState(() {
-                        startNumber = startNumber + 1;
+                        resultDialog =
+                            resultDialog.copyWith(counter: resultDialog.counter +1);
                       });
                     },
                   ),
@@ -158,7 +160,7 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
           elevation: 5.0,
           child: Text("Ok"),
           onPressed: () {
-            Navigator.of(context).pop(counter);
+            Navigator.of(context).pop(resultDialog);
           },
         ),
         MaterialButton(
@@ -172,6 +174,8 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
     );
   }
 }
+
+
 
 class MyInputTextFormatter extends TextInputFormatter {
   @override

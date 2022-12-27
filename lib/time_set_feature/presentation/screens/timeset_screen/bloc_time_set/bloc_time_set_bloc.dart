@@ -178,10 +178,13 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
           durationMinutesOfItemSet: averageDuration.minute,
           durationSecondsOfItemSet: averageDuration.second,
           startItemOfSet: start);
+      var startNumber = event.startNumber;
 
       for (int i = 0; i < event.count; i++) {
-        listItem.add(itemOfSet);
+        listItem.add(itemOfSet.copyWith(chipsItem: [startNumber.toString()]));
+        startNumber++;
       }
+
       averageDuration = _timeCalculator.calcAverageDurationOfItem(
           duration: durationTimeSet,
           countOfItems: (listItem.length));
