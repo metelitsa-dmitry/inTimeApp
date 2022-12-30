@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:in_time/core/time_calculator.dart';
 import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart';
+import 'package:in_time/time_set_feature/domain/entities/number_chips_data.dart';
 import 'package:in_time/time_set_feature/domain/usecases/add_time_set_use_case.dart';
 import 'package:in_time/time_set_feature/domain/usecases/get_last_session_use_case.dart';
 
@@ -34,6 +35,7 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
   String get currentTimeSetTitle => _currentTimeSet.title;
 
   var listItem = <ItemOfSetEntity>[];
+  var numberChips = <NumberChipsData>[];
   var averageDuration = DateTime(0, 0, 0, 1, 0);
 
   TimeSetBloc(
@@ -179,9 +181,11 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
           durationSecondsOfItemSet: averageDuration.second,
           startItemOfSet: start);
       var startNumber = event.startNumber;
+      numberChips = _currentTimeSet.numberChips?.toList() ?? [];
 
       for (int i = 0; i < event.count; i++) {
         listItem.add(itemOfSet.copyWith(chipsItem: [startNumber.toString()]));
+        numberChips.add(NumberChipsData(number: startNumber, isSelected: false));
         startNumber++;
       }
 
@@ -193,7 +197,7 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
           averageDuration: averageDuration,
           startOfTimeSet: start);
 
-      _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem);
+      _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem, numberChips: numberChips);
       _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
 
       emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));

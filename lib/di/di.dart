@@ -5,9 +5,6 @@ import 'package:in_time/time_set_feature/domain/usecases/get_time_set_use_case.d
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_fab_visibility/bloc_fab_visibility_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-
-
 import '../time_set_feature/data/data_sources/data_base_hive.dart';
 import '../time_set_feature/data/data_sources/session_local_repository.dart';
 import '../time_set_feature/data/repositories/time_set_repository.dart';
@@ -18,6 +15,7 @@ import '../time_set_feature/domain/usecases/add_time_set_use_case.dart';
 import '../time_set_feature/domain/usecases/delete_time_set_use_case.dart';
 import '../time_set_feature/domain/usecases/get_last_session_use_case.dart';
 import '../time_set_feature/domain/usecases/recalculate_item_of_set_use_case.dart';
+import '../time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update_item/bloc_add_update_item_bloc.dart';
 import '../time_set_feature/presentation/screens/timeset_screen/bloc_list_time_sets/bloc_list_time_sets_bloc.dart';
 
 final sl = GetIt.instance;
@@ -27,6 +25,7 @@ init() async {
   sl.registerFactory(() => TimeSetBloc(sl(), sl(), sl(), sl(), sl()));
   sl.registerFactory(() => ListTimeSetsBloc(sl(), sl()));
   sl.registerFactory(() => FabVisibilityBloc());
+  sl.registerFactory(() => AddUpdateItemBloc());
 
   ///UseCases
   sl.registerLazySingleton(() => GetAllTimeSetsUseCase(sl()));
