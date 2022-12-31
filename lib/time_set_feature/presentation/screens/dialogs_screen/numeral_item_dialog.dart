@@ -32,7 +32,7 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('AppLocalizations.of(context)!.how_many_points'),
+            Text('Сколько пунктов добавить?'),
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[300],
@@ -91,7 +91,7 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
             const Divider(
               height: 16.0,
             ),
-            Text("AppLocalizations.of(context)!.starting_digit"),
+            Text('Начальный номер пункта'),
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[300],

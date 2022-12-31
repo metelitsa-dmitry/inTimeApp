@@ -16,46 +16,58 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AddUpdateItemEvent {
-  ItemOfSetEntity? get itemOfSet => throw _privateConstructorUsedError;
-  TimeSetEntity get timeSet => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
         initial,
+    required TResult Function(bool isTable) changeIsTable,
+    required TResult Function(bool isVerse) changeIsVerse,
+    required TResult Function(bool isPicture) changeIsPicture,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
+    TResult? Function(bool isTable)? changeIsTable,
+    TResult? Function(bool isVerse)? changeIsVerse,
+    TResult? Function(bool isPicture)? changeIsPicture,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
+    TResult Function(bool isTable)? changeIsTable,
+    TResult Function(bool isVerse)? changeIsVerse,
+    TResult Function(bool isPicture)? changeIsPicture,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ItemInitialEvent value) initial,
+    required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
+    required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
+    required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ItemInitialEvent value)? initial,
+    TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ItemInitialEvent value)? initial,
+    TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $AddUpdateItemEventCopyWith<AddUpdateItemEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -64,11 +76,6 @@ abstract class $AddUpdateItemEventCopyWith<$Res> {
   factory $AddUpdateItemEventCopyWith(
           AddUpdateItemEvent value, $Res Function(AddUpdateItemEvent) then) =
       _$AddUpdateItemEventCopyWithImpl<$Res, AddUpdateItemEvent>;
-  @useResult
-  $Res call({ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet});
-
-  $ItemOfSetEntityCopyWith<$Res>? get itemOfSet;
-  $TimeSetEntityCopyWith<$Res> get timeSet;
 }
 
 /// @nodoc
@@ -80,59 +87,17 @@ class _$AddUpdateItemEventCopyWithImpl<$Res, $Val extends AddUpdateItemEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? itemOfSet = freezed,
-    Object? timeSet = null,
-  }) {
-    return _then(_value.copyWith(
-      itemOfSet: freezed == itemOfSet
-          ? _value.itemOfSet
-          : itemOfSet // ignore: cast_nullable_to_non_nullable
-              as ItemOfSetEntity?,
-      timeSet: null == timeSet
-          ? _value.timeSet
-          : timeSet // ignore: cast_nullable_to_non_nullable
-              as TimeSetEntity,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ItemOfSetEntityCopyWith<$Res>? get itemOfSet {
-    if (_value.itemOfSet == null) {
-      return null;
-    }
-
-    return $ItemOfSetEntityCopyWith<$Res>(_value.itemOfSet!, (value) {
-      return _then(_value.copyWith(itemOfSet: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TimeSetEntityCopyWith<$Res> get timeSet {
-    return $TimeSetEntityCopyWith<$Res>(_value.timeSet, (value) {
-      return _then(_value.copyWith(timeSet: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$ItemInitialEventCopyWith<$Res>
-    implements $AddUpdateItemEventCopyWith<$Res> {
+abstract class _$$ItemInitialEventCopyWith<$Res> {
   factory _$$ItemInitialEventCopyWith(
           _$ItemInitialEvent value, $Res Function(_$ItemInitialEvent) then) =
       __$$ItemInitialEventCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet});
 
-  @override
   $ItemOfSetEntityCopyWith<$Res>? get itemOfSet;
-  @override
   $TimeSetEntityCopyWith<$Res> get timeSet;
 }
 
@@ -160,6 +125,26 @@ class __$$ItemInitialEventCopyWithImpl<$Res>
           : timeSet // ignore: cast_nullable_to_non_nullable
               as TimeSetEntity,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ItemOfSetEntityCopyWith<$Res>? get itemOfSet {
+    if (_value.itemOfSet == null) {
+      return null;
+    }
+
+    return $ItemOfSetEntityCopyWith<$Res>(_value.itemOfSet!, (value) {
+      return _then(_value.copyWith(itemOfSet: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TimeSetEntityCopyWith<$Res> get timeSet {
+    return $TimeSetEntityCopyWith<$Res>(_value.timeSet, (value) {
+      return _then(_value.copyWith(timeSet: value));
+    });
   }
 }
 
@@ -202,6 +187,9 @@ class _$ItemInitialEvent implements ItemInitialEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
         initial,
+    required TResult Function(bool isTable) changeIsTable,
+    required TResult Function(bool isVerse) changeIsVerse,
+    required TResult Function(bool isPicture) changeIsPicture,
   }) {
     return initial(itemOfSet, timeSet);
   }
@@ -211,6 +199,9 @@ class _$ItemInitialEvent implements ItemInitialEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
+    TResult? Function(bool isTable)? changeIsTable,
+    TResult? Function(bool isVerse)? changeIsVerse,
+    TResult? Function(bool isPicture)? changeIsPicture,
   }) {
     return initial?.call(itemOfSet, timeSet);
   }
@@ -220,6 +211,9 @@ class _$ItemInitialEvent implements ItemInitialEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
+    TResult Function(bool isTable)? changeIsTable,
+    TResult Function(bool isVerse)? changeIsVerse,
+    TResult Function(bool isPicture)? changeIsPicture,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -232,6 +226,9 @@ class _$ItemInitialEvent implements ItemInitialEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ItemInitialEvent value) initial,
+    required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
+    required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
+    required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
   }) {
     return initial(this);
   }
@@ -240,6 +237,9 @@ class _$ItemInitialEvent implements ItemInitialEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ItemInitialEvent value)? initial,
+    TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
   }) {
     return initial?.call(this);
   }
@@ -248,6 +248,9 @@ class _$ItemInitialEvent implements ItemInitialEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ItemInitialEvent value)? initial,
+    TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -262,14 +265,463 @@ abstract class ItemInitialEvent implements AddUpdateItemEvent {
       {final ItemOfSetEntity? itemOfSet,
       required final TimeSetEntity timeSet}) = _$ItemInitialEvent;
 
-  @override
   ItemOfSetEntity? get itemOfSet;
-  @override
   TimeSetEntity get timeSet;
-  @override
   @JsonKey(ignore: true)
   _$$ItemInitialEventCopyWith<_$ItemInitialEvent> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ItemChangeIsTableEventCopyWith<$Res> {
+  factory _$$ItemChangeIsTableEventCopyWith(_$ItemChangeIsTableEvent value,
+          $Res Function(_$ItemChangeIsTableEvent) then) =
+      __$$ItemChangeIsTableEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isTable});
+}
+
+/// @nodoc
+class __$$ItemChangeIsTableEventCopyWithImpl<$Res>
+    extends _$AddUpdateItemEventCopyWithImpl<$Res, _$ItemChangeIsTableEvent>
+    implements _$$ItemChangeIsTableEventCopyWith<$Res> {
+  __$$ItemChangeIsTableEventCopyWithImpl(_$ItemChangeIsTableEvent _value,
+      $Res Function(_$ItemChangeIsTableEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isTable = null,
+  }) {
+    return _then(_$ItemChangeIsTableEvent(
+      null == isTable
+          ? _value.isTable
+          : isTable // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
+  const _$ItemChangeIsTableEvent(this.isTable);
+
+  @override
+  final bool isTable;
+
+  @override
+  String toString() {
+    return 'AddUpdateItemEvent.changeIsTable(isTable: $isTable)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ItemChangeIsTableEvent &&
+            (identical(other.isTable, isTable) || other.isTable == isTable));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isTable);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ItemChangeIsTableEventCopyWith<_$ItemChangeIsTableEvent> get copyWith =>
+      __$$ItemChangeIsTableEventCopyWithImpl<_$ItemChangeIsTableEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+        initial,
+    required TResult Function(bool isTable) changeIsTable,
+    required TResult Function(bool isVerse) changeIsVerse,
+    required TResult Function(bool isPicture) changeIsPicture,
+  }) {
+    return changeIsTable(isTable);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+        initial,
+    TResult? Function(bool isTable)? changeIsTable,
+    TResult? Function(bool isVerse)? changeIsVerse,
+    TResult? Function(bool isPicture)? changeIsPicture,
+  }) {
+    return changeIsTable?.call(isTable);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+        initial,
+    TResult Function(bool isTable)? changeIsTable,
+    TResult Function(bool isVerse)? changeIsVerse,
+    TResult Function(bool isPicture)? changeIsPicture,
+    required TResult orElse(),
+  }) {
+    if (changeIsTable != null) {
+      return changeIsTable(isTable);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItemInitialEvent value) initial,
+    required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
+    required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
+    required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
+  }) {
+    return changeIsTable(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItemInitialEvent value)? initial,
+    TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+  }) {
+    return changeIsTable?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItemInitialEvent value)? initial,
+    TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    required TResult orElse(),
+  }) {
+    if (changeIsTable != null) {
+      return changeIsTable(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ItemChangeIsTableEvent implements AddUpdateItemEvent {
+  const factory ItemChangeIsTableEvent(final bool isTable) =
+      _$ItemChangeIsTableEvent;
+
+  bool get isTable;
+  @JsonKey(ignore: true)
+  _$$ItemChangeIsTableEventCopyWith<_$ItemChangeIsTableEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ItemChangeIsVerseEventCopyWith<$Res> {
+  factory _$$ItemChangeIsVerseEventCopyWith(_$ItemChangeIsVerseEvent value,
+          $Res Function(_$ItemChangeIsVerseEvent) then) =
+      __$$ItemChangeIsVerseEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isVerse});
+}
+
+/// @nodoc
+class __$$ItemChangeIsVerseEventCopyWithImpl<$Res>
+    extends _$AddUpdateItemEventCopyWithImpl<$Res, _$ItemChangeIsVerseEvent>
+    implements _$$ItemChangeIsVerseEventCopyWith<$Res> {
+  __$$ItemChangeIsVerseEventCopyWithImpl(_$ItemChangeIsVerseEvent _value,
+      $Res Function(_$ItemChangeIsVerseEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isVerse = null,
+  }) {
+    return _then(_$ItemChangeIsVerseEvent(
+      null == isVerse
+          ? _value.isVerse
+          : isVerse // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
+  const _$ItemChangeIsVerseEvent(this.isVerse);
+
+  @override
+  final bool isVerse;
+
+  @override
+  String toString() {
+    return 'AddUpdateItemEvent.changeIsVerse(isVerse: $isVerse)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ItemChangeIsVerseEvent &&
+            (identical(other.isVerse, isVerse) || other.isVerse == isVerse));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isVerse);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ItemChangeIsVerseEventCopyWith<_$ItemChangeIsVerseEvent> get copyWith =>
+      __$$ItemChangeIsVerseEventCopyWithImpl<_$ItemChangeIsVerseEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+        initial,
+    required TResult Function(bool isTable) changeIsTable,
+    required TResult Function(bool isVerse) changeIsVerse,
+    required TResult Function(bool isPicture) changeIsPicture,
+  }) {
+    return changeIsVerse(isVerse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+        initial,
+    TResult? Function(bool isTable)? changeIsTable,
+    TResult? Function(bool isVerse)? changeIsVerse,
+    TResult? Function(bool isPicture)? changeIsPicture,
+  }) {
+    return changeIsVerse?.call(isVerse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+        initial,
+    TResult Function(bool isTable)? changeIsTable,
+    TResult Function(bool isVerse)? changeIsVerse,
+    TResult Function(bool isPicture)? changeIsPicture,
+    required TResult orElse(),
+  }) {
+    if (changeIsVerse != null) {
+      return changeIsVerse(isVerse);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItemInitialEvent value) initial,
+    required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
+    required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
+    required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
+  }) {
+    return changeIsVerse(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItemInitialEvent value)? initial,
+    TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+  }) {
+    return changeIsVerse?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItemInitialEvent value)? initial,
+    TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    required TResult orElse(),
+  }) {
+    if (changeIsVerse != null) {
+      return changeIsVerse(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ItemChangeIsVerseEvent implements AddUpdateItemEvent {
+  const factory ItemChangeIsVerseEvent(final bool isVerse) =
+      _$ItemChangeIsVerseEvent;
+
+  bool get isVerse;
+  @JsonKey(ignore: true)
+  _$$ItemChangeIsVerseEventCopyWith<_$ItemChangeIsVerseEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ItemChangeIsPictureEventCopyWith<$Res> {
+  factory _$$ItemChangeIsPictureEventCopyWith(_$ItemChangeIsPictureEvent value,
+          $Res Function(_$ItemChangeIsPictureEvent) then) =
+      __$$ItemChangeIsPictureEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isPicture});
+}
+
+/// @nodoc
+class __$$ItemChangeIsPictureEventCopyWithImpl<$Res>
+    extends _$AddUpdateItemEventCopyWithImpl<$Res, _$ItemChangeIsPictureEvent>
+    implements _$$ItemChangeIsPictureEventCopyWith<$Res> {
+  __$$ItemChangeIsPictureEventCopyWithImpl(_$ItemChangeIsPictureEvent _value,
+      $Res Function(_$ItemChangeIsPictureEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isPicture = null,
+  }) {
+    return _then(_$ItemChangeIsPictureEvent(
+      null == isPicture
+          ? _value.isPicture
+          : isPicture // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
+  const _$ItemChangeIsPictureEvent(this.isPicture);
+
+  @override
+  final bool isPicture;
+
+  @override
+  String toString() {
+    return 'AddUpdateItemEvent.changeIsPicture(isPicture: $isPicture)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ItemChangeIsPictureEvent &&
+            (identical(other.isPicture, isPicture) ||
+                other.isPicture == isPicture));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isPicture);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ItemChangeIsPictureEventCopyWith<_$ItemChangeIsPictureEvent>
+      get copyWith =>
+          __$$ItemChangeIsPictureEventCopyWithImpl<_$ItemChangeIsPictureEvent>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+        initial,
+    required TResult Function(bool isTable) changeIsTable,
+    required TResult Function(bool isVerse) changeIsVerse,
+    required TResult Function(bool isPicture) changeIsPicture,
+  }) {
+    return changeIsPicture(isPicture);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+        initial,
+    TResult? Function(bool isTable)? changeIsTable,
+    TResult? Function(bool isVerse)? changeIsVerse,
+    TResult? Function(bool isPicture)? changeIsPicture,
+  }) {
+    return changeIsPicture?.call(isPicture);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+        initial,
+    TResult Function(bool isTable)? changeIsTable,
+    TResult Function(bool isVerse)? changeIsVerse,
+    TResult Function(bool isPicture)? changeIsPicture,
+    required TResult orElse(),
+  }) {
+    if (changeIsPicture != null) {
+      return changeIsPicture(isPicture);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItemInitialEvent value) initial,
+    required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
+    required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
+    required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
+  }) {
+    return changeIsPicture(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItemInitialEvent value)? initial,
+    TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+  }) {
+    return changeIsPicture?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItemInitialEvent value)? initial,
+    TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    required TResult orElse(),
+  }) {
+    if (changeIsPicture != null) {
+      return changeIsPicture(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ItemChangeIsPictureEvent implements AddUpdateItemEvent {
+  const factory ItemChangeIsPictureEvent(final bool isPicture) =
+      _$ItemChangeIsPictureEvent;
+
+  bool get isPicture;
+  @JsonKey(ignore: true)
+  _$$ItemChangeIsPictureEventCopyWith<_$ItemChangeIsPictureEvent>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

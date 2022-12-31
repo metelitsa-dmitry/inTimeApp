@@ -25,7 +25,7 @@ init() async {
   sl.registerFactory(() => TimeSetBloc(sl(), sl(), sl(), sl(), sl()));
   sl.registerFactory(() => ListTimeSetsBloc(sl(), sl()));
   sl.registerFactory(() => FabVisibilityBloc());
-  sl.registerFactory(() => AddUpdateItemBloc());
+  sl.registerFactory(() => AddUpdateItemBloc(sl()));
 
   ///UseCases
   sl.registerLazySingleton(() => GetAllTimeSetsUseCase(sl()));

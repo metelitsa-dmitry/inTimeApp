@@ -5,14 +5,10 @@ class AddUpdateItemEvent with _$AddUpdateItemEvent {
   const factory AddUpdateItemEvent.initial({
     ItemOfSetEntity? itemOfSet,
     required TimeSetEntity timeSet,
-    // String? titleItem, // text in item
-    // List<String>? chipsItem,
-    // int? durationHourOfItemSet,
-    // int? durationMinutesOfItemSet,
-    // int? durationSecondsOfItemSet,
-    // DateTime? startItemOfSet,
-    // bool? isPicture,
-    // bool? isVerse,
-    // bool? isTable,
   }) = ItemInitialEvent;
+
+  const factory AddUpdateItemEvent.changeIsTable(bool isTable) = ItemChangeIsTableEvent;
+  const factory AddUpdateItemEvent.changeIsVerse(bool isVerse) = ItemChangeIsVerseEvent;
+  const factory AddUpdateItemEvent.changeIsPicture(bool isPicture) = ItemChangeIsPictureEvent;
+
 }
