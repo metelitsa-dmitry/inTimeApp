@@ -36,7 +36,7 @@ class WrapNumberChipsWidget extends StatelessWidget {
                   if (isSelected) {
                     itemBloc.add(AddNumberChipsEvent(numberChips[index].number.toString()));
                   } else {
-
+                    itemBloc.add(RemoveNumberChipsEvent(numberChips[index].number.toString()));
                   }
                 },
               );

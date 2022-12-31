@@ -82,5 +82,16 @@ class AddUpdateItemBloc extends Bloc<AddUpdateItemEvent, AddUpdateItemState> {
         itemOfSet: _currentItem,
       ));
     });
+
+    on<RemoveNumberChipsEvent>((event, emit) {
+      listItemChips = _currentItem?.chipsItem?.toList() ?? [];
+      listItemChips.remove(event.numberChip);
+      _currentItem = _currentItem?.copyWith(chipsItem: listItemChips);
+      emit(ItemInitialState(
+        timeSet: _currentTimeSet,
+        itemOfSet: _currentItem,
+      ));
+    });
+
   }
 }

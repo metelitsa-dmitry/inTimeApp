@@ -25,6 +25,7 @@ mixin _$AddUpdateItemEvent {
     required TResult Function(bool isPicture) changeIsPicture,
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
+    required TResult Function(String numberChip) removeNumberChips,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +37,7 @@ mixin _$AddUpdateItemEvent {
     TResult? Function(bool isPicture)? changeIsPicture,
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
+    TResult? Function(String numberChip)? removeNumberChips,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +49,7 @@ mixin _$AddUpdateItemEvent {
     TResult Function(bool isPicture)? changeIsPicture,
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
+    TResult Function(String numberChip)? removeNumberChips,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -58,6 +61,7 @@ mixin _$AddUpdateItemEvent {
     required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
+    required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +72,7 @@ mixin _$AddUpdateItemEvent {
     TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,6 +83,7 @@ mixin _$AddUpdateItemEvent {
     TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -204,6 +210,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     required TResult Function(bool isPicture) changeIsPicture,
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
+    required TResult Function(String numberChip) removeNumberChips,
   }) {
     return initial(itemOfSet, timeSet);
   }
@@ -218,6 +225,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     TResult? Function(bool isPicture)? changeIsPicture,
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
+    TResult? Function(String numberChip)? removeNumberChips,
   }) {
     return initial?.call(itemOfSet, timeSet);
   }
@@ -232,6 +240,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     TResult Function(bool isPicture)? changeIsPicture,
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
+    TResult Function(String numberChip)? removeNumberChips,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -249,6 +258,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
+    required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
   }) {
     return initial(this);
   }
@@ -262,6 +272,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
   }) {
     return initial?.call(this);
   }
@@ -275,6 +286,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -368,6 +380,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     required TResult Function(bool isPicture) changeIsPicture,
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
+    required TResult Function(String numberChip) removeNumberChips,
   }) {
     return changeIsTable(isTable);
   }
@@ -382,6 +395,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     TResult? Function(bool isPicture)? changeIsPicture,
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
+    TResult? Function(String numberChip)? removeNumberChips,
   }) {
     return changeIsTable?.call(isTable);
   }
@@ -396,6 +410,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     TResult Function(bool isPicture)? changeIsPicture,
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
+    TResult Function(String numberChip)? removeNumberChips,
     required TResult orElse(),
   }) {
     if (changeIsTable != null) {
@@ -413,6 +428,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
+    required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
   }) {
     return changeIsTable(this);
   }
@@ -426,6 +442,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
   }) {
     return changeIsTable?.call(this);
   }
@@ -439,6 +456,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
     required TResult orElse(),
   }) {
     if (changeIsTable != null) {
@@ -530,6 +548,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     required TResult Function(bool isPicture) changeIsPicture,
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
+    required TResult Function(String numberChip) removeNumberChips,
   }) {
     return changeIsVerse(isVerse);
   }
@@ -544,6 +563,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     TResult? Function(bool isPicture)? changeIsPicture,
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
+    TResult? Function(String numberChip)? removeNumberChips,
   }) {
     return changeIsVerse?.call(isVerse);
   }
@@ -558,6 +578,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     TResult Function(bool isPicture)? changeIsPicture,
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
+    TResult Function(String numberChip)? removeNumberChips,
     required TResult orElse(),
   }) {
     if (changeIsVerse != null) {
@@ -575,6 +596,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
+    required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
   }) {
     return changeIsVerse(this);
   }
@@ -588,6 +610,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
   }) {
     return changeIsVerse?.call(this);
   }
@@ -601,6 +624,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
     required TResult orElse(),
   }) {
     if (changeIsVerse != null) {
@@ -694,6 +718,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     required TResult Function(bool isPicture) changeIsPicture,
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
+    required TResult Function(String numberChip) removeNumberChips,
   }) {
     return changeIsPicture(isPicture);
   }
@@ -708,6 +733,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     TResult? Function(bool isPicture)? changeIsPicture,
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
+    TResult? Function(String numberChip)? removeNumberChips,
   }) {
     return changeIsPicture?.call(isPicture);
   }
@@ -722,6 +748,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     TResult Function(bool isPicture)? changeIsPicture,
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
+    TResult Function(String numberChip)? removeNumberChips,
     required TResult orElse(),
   }) {
     if (changeIsPicture != null) {
@@ -739,6 +766,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
+    required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
   }) {
     return changeIsPicture(this);
   }
@@ -752,6 +780,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
   }) {
     return changeIsPicture?.call(this);
   }
@@ -765,6 +794,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
     required TResult orElse(),
   }) {
     if (changeIsPicture != null) {
@@ -856,6 +886,7 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
     required TResult Function(bool isPicture) changeIsPicture,
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
+    required TResult Function(String numberChip) removeNumberChips,
   }) {
     return changeTitle(text);
   }
@@ -870,6 +901,7 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
     TResult? Function(bool isPicture)? changeIsPicture,
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
+    TResult? Function(String numberChip)? removeNumberChips,
   }) {
     return changeTitle?.call(text);
   }
@@ -884,6 +916,7 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
     TResult Function(bool isPicture)? changeIsPicture,
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
+    TResult Function(String numberChip)? removeNumberChips,
     required TResult orElse(),
   }) {
     if (changeTitle != null) {
@@ -901,6 +934,7 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
     required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
+    required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
   }) {
     return changeTitle(this);
   }
@@ -914,6 +948,7 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
     TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
   }) {
     return changeTitle?.call(this);
   }
@@ -927,6 +962,7 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
     TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
     required TResult orElse(),
   }) {
     if (changeTitle != null) {
@@ -1019,6 +1055,7 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
     required TResult Function(bool isPicture) changeIsPicture,
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
+    required TResult Function(String numberChip) removeNumberChips,
   }) {
     return addNumberChips(numberChip);
   }
@@ -1033,6 +1070,7 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
     TResult? Function(bool isPicture)? changeIsPicture,
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
+    TResult? Function(String numberChip)? removeNumberChips,
   }) {
     return addNumberChips?.call(numberChip);
   }
@@ -1047,6 +1085,7 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
     TResult Function(bool isPicture)? changeIsPicture,
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
+    TResult Function(String numberChip)? removeNumberChips,
     required TResult orElse(),
   }) {
     if (addNumberChips != null) {
@@ -1064,6 +1103,7 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
     required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
+    required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
   }) {
     return addNumberChips(this);
   }
@@ -1077,6 +1117,7 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
     TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
   }) {
     return addNumberChips?.call(this);
   }
@@ -1090,6 +1131,7 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
     TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
     required TResult orElse(),
   }) {
     if (addNumberChips != null) {
@@ -1106,6 +1148,175 @@ abstract class AddNumberChipsEvent implements AddUpdateItemEvent {
   String get numberChip;
   @JsonKey(ignore: true)
   _$$AddNumberChipsEventCopyWith<_$AddNumberChipsEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$RemoveNumberChipsEventCopyWith<$Res> {
+  factory _$$RemoveNumberChipsEventCopyWith(_$RemoveNumberChipsEvent value,
+          $Res Function(_$RemoveNumberChipsEvent) then) =
+      __$$RemoveNumberChipsEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String numberChip});
+}
+
+/// @nodoc
+class __$$RemoveNumberChipsEventCopyWithImpl<$Res>
+    extends _$AddUpdateItemEventCopyWithImpl<$Res, _$RemoveNumberChipsEvent>
+    implements _$$RemoveNumberChipsEventCopyWith<$Res> {
+  __$$RemoveNumberChipsEventCopyWithImpl(_$RemoveNumberChipsEvent _value,
+      $Res Function(_$RemoveNumberChipsEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? numberChip = null,
+  }) {
+    return _then(_$RemoveNumberChipsEvent(
+      null == numberChip
+          ? _value.numberChip
+          : numberChip // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$RemoveNumberChipsEvent implements RemoveNumberChipsEvent {
+  const _$RemoveNumberChipsEvent(this.numberChip);
+
+  @override
+  final String numberChip;
+
+  @override
+  String toString() {
+    return 'AddUpdateItemEvent.removeNumberChips(numberChip: $numberChip)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RemoveNumberChipsEvent &&
+            (identical(other.numberChip, numberChip) ||
+                other.numberChip == numberChip));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, numberChip);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RemoveNumberChipsEventCopyWith<_$RemoveNumberChipsEvent> get copyWith =>
+      __$$RemoveNumberChipsEventCopyWithImpl<_$RemoveNumberChipsEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+        initial,
+    required TResult Function(bool isTable) changeIsTable,
+    required TResult Function(bool isVerse) changeIsVerse,
+    required TResult Function(bool isPicture) changeIsPicture,
+    required TResult Function(String text) changeTitle,
+    required TResult Function(String numberChip) addNumberChips,
+    required TResult Function(String numberChip) removeNumberChips,
+  }) {
+    return removeNumberChips(numberChip);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+        initial,
+    TResult? Function(bool isTable)? changeIsTable,
+    TResult? Function(bool isVerse)? changeIsVerse,
+    TResult? Function(bool isPicture)? changeIsPicture,
+    TResult? Function(String text)? changeTitle,
+    TResult? Function(String numberChip)? addNumberChips,
+    TResult? Function(String numberChip)? removeNumberChips,
+  }) {
+    return removeNumberChips?.call(numberChip);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+        initial,
+    TResult Function(bool isTable)? changeIsTable,
+    TResult Function(bool isVerse)? changeIsVerse,
+    TResult Function(bool isPicture)? changeIsPicture,
+    TResult Function(String text)? changeTitle,
+    TResult Function(String numberChip)? addNumberChips,
+    TResult Function(String numberChip)? removeNumberChips,
+    required TResult orElse(),
+  }) {
+    if (removeNumberChips != null) {
+      return removeNumberChips(numberChip);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItemInitialEvent value) initial,
+    required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
+    required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
+    required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
+    required TResult Function(ItemChangeTitleEvent value) changeTitle,
+    required TResult Function(AddNumberChipsEvent value) addNumberChips,
+    required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
+  }) {
+    return removeNumberChips(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItemInitialEvent value)? initial,
+    TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult? Function(ItemChangeTitleEvent value)? changeTitle,
+    TResult? Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
+  }) {
+    return removeNumberChips?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItemInitialEvent value)? initial,
+    TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult Function(ItemChangeTitleEvent value)? changeTitle,
+    TResult Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    required TResult orElse(),
+  }) {
+    if (removeNumberChips != null) {
+      return removeNumberChips(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class RemoveNumberChipsEvent implements AddUpdateItemEvent {
+  const factory RemoveNumberChipsEvent(final String numberChip) =
+      _$RemoveNumberChipsEvent;
+
+  String get numberChip;
+  @JsonKey(ignore: true)
+  _$$RemoveNumberChipsEventCopyWith<_$RemoveNumberChipsEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

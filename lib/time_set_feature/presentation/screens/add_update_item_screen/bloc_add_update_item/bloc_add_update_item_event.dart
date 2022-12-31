@@ -12,5 +12,6 @@ class AddUpdateItemEvent with _$AddUpdateItemEvent {
   const factory AddUpdateItemEvent.changeIsPicture(bool isPicture) = ItemChangeIsPictureEvent;
   const factory AddUpdateItemEvent.changeTitle(String text) = ItemChangeTitleEvent;
   const factory AddUpdateItemEvent.addNumberChips(String numberChip) = AddNumberChipsEvent;
+  const factory AddUpdateItemEvent.removeNumberChips(String numberChip) = RemoveNumberChipsEvent;
 
 }
