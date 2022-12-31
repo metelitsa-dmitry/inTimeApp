@@ -11,11 +11,13 @@ part 'bloc_add_update_item_bloc.freezed.dart';
 
 class AddUpdateItemBloc extends Bloc<AddUpdateItemEvent, AddUpdateItemState> {
   final AddTimeSetUseCase _addTimeSetUseCase;
+
   TimeSetEntity? _currentTimeSet;
   ItemOfSetEntity? _currentItem;
   bool isVerse = false;
   bool isPicture = false;
   bool isTable = false;
+  String titleItem = '';
 
   AddUpdateItemBloc(this._addTimeSetUseCase)
       : super(const AddUpdateItemState.initial()) {
@@ -55,6 +57,15 @@ class AddUpdateItemBloc extends Bloc<AddUpdateItemEvent, AddUpdateItemState> {
     on<ItemChangeIsTableEvent>((event, emit) {
       isTable = event.isTable;
       _currentItem = _currentItem?.copyWith(isTable: isTable);
+      emit(ItemInitialState(
+        timeSet: _currentTimeSet,
+        itemOfSet: _currentItem,
+      ));
+    });
+
+    on<ItemChangeTitleEvent>((event, emit) {
+      titleItem = event.text;
+      _currentItem = _currentItem?.copyWith(titleItem: titleItem);
       emit(ItemInitialState(
         timeSet: _currentTimeSet,
         itemOfSet: _currentItem,

@@ -23,6 +23,7 @@ mixin _$AddUpdateItemEvent {
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
     required TResult Function(bool isPicture) changeIsPicture,
+    required TResult Function(String text) changeTitle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$AddUpdateItemEvent {
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
     TResult? Function(bool isPicture)? changeIsPicture,
+    TResult? Function(String text)? changeTitle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$AddUpdateItemEvent {
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
     TResult Function(bool isPicture)? changeIsPicture,
+    TResult Function(String text)? changeTitle,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +53,7 @@ mixin _$AddUpdateItemEvent {
     required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
     required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
     required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
+    required TResult Function(ItemChangeTitleEvent value) changeTitle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +62,7 @@ mixin _$AddUpdateItemEvent {
     TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
     TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
     TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult? Function(ItemChangeTitleEvent value)? changeTitle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +71,7 @@ mixin _$AddUpdateItemEvent {
     TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
     TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
     TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult Function(ItemChangeTitleEvent value)? changeTitle,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -190,6 +196,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
     required TResult Function(bool isPicture) changeIsPicture,
+    required TResult Function(String text) changeTitle,
   }) {
     return initial(itemOfSet, timeSet);
   }
@@ -202,6 +209,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
     TResult? Function(bool isPicture)? changeIsPicture,
+    TResult? Function(String text)? changeTitle,
   }) {
     return initial?.call(itemOfSet, timeSet);
   }
@@ -214,6 +222,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
     TResult Function(bool isPicture)? changeIsPicture,
+    TResult Function(String text)? changeTitle,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -229,6 +238,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
     required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
     required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
+    required TResult Function(ItemChangeTitleEvent value) changeTitle,
   }) {
     return initial(this);
   }
@@ -240,6 +250,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
     TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
     TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult? Function(ItemChangeTitleEvent value)? changeTitle,
   }) {
     return initial?.call(this);
   }
@@ -251,6 +262,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
     TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
     TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult Function(ItemChangeTitleEvent value)? changeTitle,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -342,6 +354,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
     required TResult Function(bool isPicture) changeIsPicture,
+    required TResult Function(String text) changeTitle,
   }) {
     return changeIsTable(isTable);
   }
@@ -354,6 +367,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
     TResult? Function(bool isPicture)? changeIsPicture,
+    TResult? Function(String text)? changeTitle,
   }) {
     return changeIsTable?.call(isTable);
   }
@@ -366,6 +380,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
     TResult Function(bool isPicture)? changeIsPicture,
+    TResult Function(String text)? changeTitle,
     required TResult orElse(),
   }) {
     if (changeIsTable != null) {
@@ -381,6 +396,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
     required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
     required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
+    required TResult Function(ItemChangeTitleEvent value) changeTitle,
   }) {
     return changeIsTable(this);
   }
@@ -392,6 +408,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
     TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
     TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult? Function(ItemChangeTitleEvent value)? changeTitle,
   }) {
     return changeIsTable?.call(this);
   }
@@ -403,6 +420,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
     TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
     TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult Function(ItemChangeTitleEvent value)? changeTitle,
     required TResult orElse(),
   }) {
     if (changeIsTable != null) {
@@ -492,6 +510,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
     required TResult Function(bool isPicture) changeIsPicture,
+    required TResult Function(String text) changeTitle,
   }) {
     return changeIsVerse(isVerse);
   }
@@ -504,6 +523,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
     TResult? Function(bool isPicture)? changeIsPicture,
+    TResult? Function(String text)? changeTitle,
   }) {
     return changeIsVerse?.call(isVerse);
   }
@@ -516,6 +536,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
     TResult Function(bool isPicture)? changeIsPicture,
+    TResult Function(String text)? changeTitle,
     required TResult orElse(),
   }) {
     if (changeIsVerse != null) {
@@ -531,6 +552,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
     required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
     required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
+    required TResult Function(ItemChangeTitleEvent value) changeTitle,
   }) {
     return changeIsVerse(this);
   }
@@ -542,6 +564,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
     TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
     TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult? Function(ItemChangeTitleEvent value)? changeTitle,
   }) {
     return changeIsVerse?.call(this);
   }
@@ -553,6 +576,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
     TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
     TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult Function(ItemChangeTitleEvent value)? changeTitle,
     required TResult orElse(),
   }) {
     if (changeIsVerse != null) {
@@ -644,6 +668,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
     required TResult Function(bool isPicture) changeIsPicture,
+    required TResult Function(String text) changeTitle,
   }) {
     return changeIsPicture(isPicture);
   }
@@ -656,6 +681,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
     TResult? Function(bool isPicture)? changeIsPicture,
+    TResult? Function(String text)? changeTitle,
   }) {
     return changeIsPicture?.call(isPicture);
   }
@@ -668,6 +694,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
     TResult Function(bool isPicture)? changeIsPicture,
+    TResult Function(String text)? changeTitle,
     required TResult orElse(),
   }) {
     if (changeIsPicture != null) {
@@ -683,6 +710,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
     required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
     required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
+    required TResult Function(ItemChangeTitleEvent value) changeTitle,
   }) {
     return changeIsPicture(this);
   }
@@ -694,6 +722,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
     TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
     TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult? Function(ItemChangeTitleEvent value)? changeTitle,
   }) {
     return changeIsPicture?.call(this);
   }
@@ -705,6 +734,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
     TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
     TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult Function(ItemChangeTitleEvent value)? changeTitle,
     required TResult orElse(),
   }) {
     if (changeIsPicture != null) {
@@ -722,6 +752,162 @@ abstract class ItemChangeIsPictureEvent implements AddUpdateItemEvent {
   @JsonKey(ignore: true)
   _$$ItemChangeIsPictureEventCopyWith<_$ItemChangeIsPictureEvent>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ItemChangeTitleEventCopyWith<$Res> {
+  factory _$$ItemChangeTitleEventCopyWith(_$ItemChangeTitleEvent value,
+          $Res Function(_$ItemChangeTitleEvent) then) =
+      __$$ItemChangeTitleEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String text});
+}
+
+/// @nodoc
+class __$$ItemChangeTitleEventCopyWithImpl<$Res>
+    extends _$AddUpdateItemEventCopyWithImpl<$Res, _$ItemChangeTitleEvent>
+    implements _$$ItemChangeTitleEventCopyWith<$Res> {
+  __$$ItemChangeTitleEventCopyWithImpl(_$ItemChangeTitleEvent _value,
+      $Res Function(_$ItemChangeTitleEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? text = null,
+  }) {
+    return _then(_$ItemChangeTitleEvent(
+      null == text
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
+  const _$ItemChangeTitleEvent(this.text);
+
+  @override
+  final String text;
+
+  @override
+  String toString() {
+    return 'AddUpdateItemEvent.changeTitle(text: $text)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ItemChangeTitleEvent &&
+            (identical(other.text, text) || other.text == text));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, text);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ItemChangeTitleEventCopyWith<_$ItemChangeTitleEvent> get copyWith =>
+      __$$ItemChangeTitleEventCopyWithImpl<_$ItemChangeTitleEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+        initial,
+    required TResult Function(bool isTable) changeIsTable,
+    required TResult Function(bool isVerse) changeIsVerse,
+    required TResult Function(bool isPicture) changeIsPicture,
+    required TResult Function(String text) changeTitle,
+  }) {
+    return changeTitle(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+        initial,
+    TResult? Function(bool isTable)? changeIsTable,
+    TResult? Function(bool isVerse)? changeIsVerse,
+    TResult? Function(bool isPicture)? changeIsPicture,
+    TResult? Function(String text)? changeTitle,
+  }) {
+    return changeTitle?.call(text);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+        initial,
+    TResult Function(bool isTable)? changeIsTable,
+    TResult Function(bool isVerse)? changeIsVerse,
+    TResult Function(bool isPicture)? changeIsPicture,
+    TResult Function(String text)? changeTitle,
+    required TResult orElse(),
+  }) {
+    if (changeTitle != null) {
+      return changeTitle(text);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItemInitialEvent value) initial,
+    required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
+    required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
+    required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
+    required TResult Function(ItemChangeTitleEvent value) changeTitle,
+  }) {
+    return changeTitle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItemInitialEvent value)? initial,
+    TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult? Function(ItemChangeTitleEvent value)? changeTitle,
+  }) {
+    return changeTitle?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItemInitialEvent value)? initial,
+    TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult Function(ItemChangeTitleEvent value)? changeTitle,
+    required TResult orElse(),
+  }) {
+    if (changeTitle != null) {
+      return changeTitle(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ItemChangeTitleEvent implements AddUpdateItemEvent {
+  const factory ItemChangeTitleEvent(final String text) =
+      _$ItemChangeTitleEvent;
+
+  String get text;
+  @JsonKey(ignore: true)
+  _$$ItemChangeTitleEventCopyWith<_$ItemChangeTitleEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

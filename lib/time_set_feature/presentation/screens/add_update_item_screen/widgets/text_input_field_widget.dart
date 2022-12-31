@@ -8,9 +8,7 @@ import 'package:in_time/time_set_feature/presentation/screens/add_update_item_sc
 class TextInputFieldWidget extends StatefulWidget {
   const TextInputFieldWidget({
     Key? key,
-    //this.itemOfSet,
   }) : super(key: key);
-  //final ItemOfSetEntity? itemOfSet;
 
   @override
   State<TextInputFieldWidget> createState() => _TextInputFieldWidgetState();
@@ -29,6 +27,7 @@ class _TextInputFieldWidgetState extends State<TextInputFieldWidget> {
   }
   @override
   Widget build(BuildContext context) {
+    final itemBloc = context.watch<AddUpdateItemBloc>();
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -50,7 +49,9 @@ class _TextInputFieldWidgetState extends State<TextInputFieldWidget> {
                 borderRadius: BorderRadius.circular(8.0),
               ),
             ),
-            onChanged: (value) { },
+            onChanged: (value) {
+              itemBloc.add(ItemChangeTitleEvent(value));
+            },
           ),
         ],
       ),

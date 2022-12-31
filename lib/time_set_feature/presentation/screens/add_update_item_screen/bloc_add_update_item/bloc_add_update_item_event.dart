@@ -10,5 +10,6 @@ class AddUpdateItemEvent with _$AddUpdateItemEvent {
   const factory AddUpdateItemEvent.changeIsTable(bool isTable) = ItemChangeIsTableEvent;
   const factory AddUpdateItemEvent.changeIsVerse(bool isVerse) = ItemChangeIsVerseEvent;
   const factory AddUpdateItemEvent.changeIsPicture(bool isPicture) = ItemChangeIsPictureEvent;
+  const factory AddUpdateItemEvent.changeTitle(String text) = ItemChangeTitleEvent;
 
 }
