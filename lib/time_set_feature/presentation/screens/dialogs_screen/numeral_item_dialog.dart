@@ -104,9 +104,8 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
                     icon: const Icon(Icons.remove),
                     onPressed: () {
                       setState(() {
-
                         resultDialog = resultDialog.copyWith(
-                            startNumber: max(1, resultDialog.startNumber -1));
+                            startNumber: max(1, resultDialog.startNumber - 1));
                       });
                     },
                   ),
@@ -145,7 +144,7 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
                     onPressed: () {
                       setState(() {
                         resultDialog =
-                            resultDialog.copyWith(counter: resultDialog.counter +1);
+                            resultDialog.copyWith(startNumber: resultDialog.startNumber +1);
                       });
                     },
                   ),
