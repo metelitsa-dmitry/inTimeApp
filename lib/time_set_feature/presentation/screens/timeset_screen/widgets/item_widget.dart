@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart';
 
-
 class ItemWidget extends StatelessWidget {
   const ItemWidget({Key? key, required this.item}) : super(key: key);
   final ItemOfSetEntity item;
 
-
   @override
   Widget build(BuildContext context) {
-
+    final itemChips = item.chipsItem ?? [];
     return Container(
       margin: const EdgeInsets.only(left: 5.0, right: 5.0, bottom: 5.0),
       // padding:
@@ -26,7 +24,7 @@ class ItemWidget extends StatelessWidget {
           children: [
             Wrap(
               alignment: WrapAlignment.start,
-              children: item.chipsItem!
+              children: itemChips
                   .map((value) => InputChip(
                         label: Text(value),
                         labelStyle:
@@ -52,7 +50,6 @@ class MyPopupMenuButton extends StatelessWidget {
     Key? key,
     required this.item,
   }) : super(key: key);
-
 
   final ItemOfSetEntity item;
 
@@ -89,7 +86,7 @@ class MyPopupMenuButton extends StatelessWidget {
                 child: Row(
                   children: const [
                     Icon(Icons.arrow_upward),
-                    SizedBox(width:8),
+                    SizedBox(width: 8),
                     Text('local.add'),
                   ],
                 ),
@@ -99,7 +96,7 @@ class MyPopupMenuButton extends StatelessWidget {
                 child: Row(
                   children: const [
                     Icon(Icons.arrow_downward),
-                    SizedBox(width:8),
+                    SizedBox(width: 8),
                     Text('local.add'),
                   ],
                 ),
@@ -109,7 +106,7 @@ class MyPopupMenuButton extends StatelessWidget {
                 child: Row(
                   children: const [
                     Icon(Icons.menu_book),
-                    SizedBox(width:8),
+                    SizedBox(width: 8),
                     Text('{local.quote} '),
                   ],
                 ),
@@ -119,7 +116,7 @@ class MyPopupMenuButton extends StatelessWidget {
                 child: Row(
                   children: const [
                     Icon(Icons.photo_album),
-                    SizedBox(width:8),
+                    SizedBox(width: 8),
                     Text('{local.illustration} '),
                   ],
                 ),
@@ -129,7 +126,7 @@ class MyPopupMenuButton extends StatelessWidget {
                 child: Row(
                   children: const [
                     Icon(Icons.table_rows_outlined),
-                    SizedBox(width:8),
+                    SizedBox(width: 8),
                     Text('{local.table} '),
                   ],
                 ),
@@ -139,7 +136,7 @@ class MyPopupMenuButton extends StatelessWidget {
                 child: Row(
                   children: const [
                     Icon(Icons.delete_forever),
-                    SizedBox(width:8),
+                    SizedBox(width: 8),
                     Text('{local.delete} '),
                   ],
                 ),
@@ -232,7 +229,7 @@ class IsVerseButton extends StatelessWidget {
       icon: const Icon(Icons.menu_book_outlined),
       //color: item.isVerse ? Colors.black : Colors.grey,
       onPressed: () {
-       // context.read<TimeSetModule>().changeIsVerse(item);
+        // context.read<TimeSetModule>().changeIsVerse(item);
       },
     );
   }
@@ -249,9 +246,8 @@ class IsPictureButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon:
-          const Icon(Icons.photo_album_outlined),
-     //color: item.isPicture ? Colors.black : Colors.grey,
+      icon: const Icon(Icons.photo_album_outlined),
+      //color: item.isPicture ? Colors.black : Colors.grey,
       onPressed: () {
         //context.read<TimeSetModule>().changeIsPicture(item);
       },

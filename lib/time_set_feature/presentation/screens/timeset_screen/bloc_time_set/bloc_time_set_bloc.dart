@@ -47,14 +47,19 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
 
     on<TimeSetInitialEvent>((event, emit) async {
       emit(const TimeSetState.loading());
-      final list = _getAllTimeSets();
-      if (list.isEmpty) {
+      final listTimeSets = _getAllTimeSets();
+      if (listTimeSets.isEmpty) {
         _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
         lastSession = _currentTimeSet.title;
       }
       lastSession = await _getLastSessionUseCase();
       _currentTimeSet = await _getTimeSetUseCase(lastSession ?? _currentTimeSet.title);
-
+      listItem = _currentTimeSet.itemsOfSet?.toList() ?? [];
+      final timeSetDuration = Duration(
+          hours: _currentTimeSet.durationHourTimeSet,
+          minutes: _currentTimeSet.durationMinutesTimeSet);
+      averageDuration = _timeCalculator.calcAverageDurationOfItem(
+          duration: timeSetDuration, countOfItems: (listItem.length));
       emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
     });
 
@@ -226,7 +231,8 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
 
     on<CleanListItemOfSetEvent>((event, emit) {
       listItem = [];
-      _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem);
+      numberChips = [];
+      _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem, numberChips: numberChips);
       _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
       emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
     });
