@@ -44,10 +44,6 @@ class TextChoiceChipsWidget extends StatelessWidget {
       }
   }
 
-
-
-
-
 class WrapTextChoiceChips extends StatelessWidget {
   const WrapTextChoiceChips({
     Key? key, this.itemOfSet,
@@ -57,8 +53,6 @@ class WrapTextChoiceChips extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
         final textChoiceChips = itemOfSet?.chipsItem ?? [];
-    //     context.select((EditItemModel value) => value.textChoiceChips);
-    // final itemChips = context.watch<EditItemModel>().itemChips;
 
     return Wrap(
           alignment: WrapAlignment.start,
@@ -71,12 +65,11 @@ class WrapTextChoiceChips extends StatelessWidget {
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
-                    //selected: choiceChip.isSelected,
                     selected: textChoiceChips.contains(choiceChip),
                     selectedColor: Colors.blueGrey,
                     backgroundColor: Colors.blueGrey[200],
                     onSelected: (isSelected) {
-///TODO fix selection of chips if change of item cancel
+
                       String value = choiceChip;
                       if (isSelected) {
 

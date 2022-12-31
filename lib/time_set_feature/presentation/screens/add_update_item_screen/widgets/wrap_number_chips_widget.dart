@@ -10,7 +10,8 @@ class WrapNumberChipsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = context.watch<AddUpdateItemBloc>().state;
+    final itemBloc = context.watch<AddUpdateItemBloc>();
+    final state = itemBloc.state;
     final numberChips = state.timeSet?.numberChips ?? [];
     final itemNumberChips = state.itemOfSet?.chipsItem ?? [];
 
@@ -33,7 +34,7 @@ class WrapNumberChipsWidget extends StatelessWidget {
                 backgroundColor: Colors.blueGrey[200],
                 onSelected: (isSelected) {
                   if (isSelected) {
-
+                    itemBloc.add(AddNumberChipsEvent(numberChips[index].number.toString()));
                   } else {
 
                   }

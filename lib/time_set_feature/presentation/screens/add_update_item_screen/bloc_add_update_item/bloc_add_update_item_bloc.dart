@@ -18,6 +18,7 @@ class AddUpdateItemBloc extends Bloc<AddUpdateItemEvent, AddUpdateItemState> {
   bool isPicture = false;
   bool isTable = false;
   String titleItem = '';
+  List<String> listItemChips = [];
 
   AddUpdateItemBloc(this._addTimeSetUseCase)
       : super(const AddUpdateItemState.initial()) {
@@ -66,6 +67,16 @@ class AddUpdateItemBloc extends Bloc<AddUpdateItemEvent, AddUpdateItemState> {
     on<ItemChangeTitleEvent>((event, emit) {
       titleItem = event.text;
       _currentItem = _currentItem?.copyWith(titleItem: titleItem);
+      emit(ItemInitialState(
+        timeSet: _currentTimeSet,
+        itemOfSet: _currentItem,
+      ));
+    });
+
+    on<AddNumberChipsEvent>((event, emit) {
+      listItemChips = _currentItem?.chipsItem?.toList() ?? [];
+      listItemChips.add(event.numberChip);
+      _currentItem = _currentItem?.copyWith(chipsItem: listItemChips);
       emit(ItemInitialState(
         timeSet: _currentTimeSet,
         itemOfSet: _currentItem,
