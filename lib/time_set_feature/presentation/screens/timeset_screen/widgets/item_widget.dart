@@ -1,47 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart';
+import '../../../../domain/entities/time_set_entity.dart';
+import '../../add_update_item_screen/item_detail_screen.dart';
+
 
 class ItemWidget extends StatelessWidget {
-  const ItemWidget({Key? key, required this.item}) : super(key: key);
+  const ItemWidget({
+    Key? key,
+    required this.item, required this.timeSet, required this.index,
+  }) : super(key: key);
   final ItemOfSetEntity item;
+  final TimeSetEntity timeSet;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     final itemChips = item.chipsItem ?? [];
     return Container(
-      margin: const EdgeInsets.only(left: 5.0, right: 5.0, bottom: 5.0),
-      // padding:
-      //     const EdgeInsets.only(left: 5.0, right: 5.0, top: 5.0, bottom: 5.0),
-      decoration: BoxDecoration(
-        color: Colors.blueGrey[200],
-        borderRadius: const BorderRadius.all(
-          Radius.circular(5.0),
+        margin: const EdgeInsets.only(left: 5.0, right: 5.0, bottom: 5.0),
+        // padding:
+        //     const EdgeInsets.only(left: 5.0, right: 5.0, top: 5.0, bottom: 5.0),
+        decoration: BoxDecoration(
+          color: Colors.blueGrey[200],
+          borderRadius: const BorderRadius.all(
+            Radius.circular(5.0),
+          ),
         ),
-      ),
-      child: ListTile(
-        leading: StartTime(item: item),
-        title: Wrap(
-          children: [
-            Wrap(
-              alignment: WrapAlignment.start,
-              children: itemChips
-                  .map((value) => InputChip(
-                        label: Text(value),
-                        labelStyle:
-                            const TextStyle(fontSize: 16, color: Colors.black),
-                        disabledColor: Colors.white,
-                      ))
-                  .toList(),
+        child: GestureDetector(
+          child: ListTile(
+            leading: StartTime(item: item),
+            title: Wrap(
+              children: [
+                Wrap(
+                  alignment: WrapAlignment.start,
+                  children: itemChips
+                      .map((value) => InputChip(
+                            label: Text(value),
+                            labelStyle: const TextStyle(
+                                fontSize: 16, color: Colors.black),
+                            disabledColor: Colors.white,
+                          ))
+                      .toList(),
+                ),
+                if (item.isPicture ?? false) IsPictureButton(item: item),
+                if (item.isVerse ?? false) IsVerseButton(item: item),
+                if (item.isTable ?? false) IsTableButton(item: item),
+              ],
             ),
-            if (item.isPicture ?? false) IsPictureButton(item: item),
-            if (item.isVerse ?? false) IsVerseButton(item: item),
-            if (item.isTable ?? false) IsTableButton(item: item),
-          ],
+            subtitle: item.titleItem != '' ? ItemTitle(item: item) : null,
+            trailing: MyPopupMenuButton(item: item),
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        ItemDetailScreen(itemOfSet: item, timeSet: timeSet, index: index)));
+          },
         ),
-        subtitle: item.titleItem != '' ? ItemTitle(item: item) : null,
-        trailing: MyPopupMenuButton(item: item),
-      ),
-    );
+      );
   }
 }
 

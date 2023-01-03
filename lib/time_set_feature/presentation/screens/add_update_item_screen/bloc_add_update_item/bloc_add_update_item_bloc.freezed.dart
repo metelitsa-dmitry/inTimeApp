@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AddUpdateItemEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+    required TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
         initial,
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
@@ -26,11 +27,13 @@ mixin _$AddUpdateItemEvent {
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
     required TResult Function(String numberChip) removeNumberChips,
+    required TResult Function() saveItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult? Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
@@ -38,11 +41,13 @@ mixin _$AddUpdateItemEvent {
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
     TResult? Function(String numberChip)? removeNumberChips,
+    TResult? Function()? saveItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
@@ -50,6 +55,7 @@ mixin _$AddUpdateItemEvent {
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
     TResult Function(String numberChip)? removeNumberChips,
+    TResult Function()? saveItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +68,7 @@ mixin _$AddUpdateItemEvent {
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
     required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
+    required TResult Function(SaveItemEvent value) saveItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -73,6 +80,7 @@ mixin _$AddUpdateItemEvent {
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
     TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult? Function(SaveItemEvent value)? saveItem,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -84,6 +92,7 @@ mixin _$AddUpdateItemEvent {
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
     TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult Function(SaveItemEvent value)? saveItem,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -113,7 +122,7 @@ abstract class _$$ItemInitialEventCopyWith<$Res> {
           _$ItemInitialEvent value, $Res Function(_$ItemInitialEvent) then) =
       __$$ItemInitialEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet});
+  $Res call({int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet});
 
   $ItemOfSetEntityCopyWith<$Res>? get itemOfSet;
   $TimeSetEntityCopyWith<$Res> get timeSet;
@@ -130,10 +139,15 @@ class __$$ItemInitialEventCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? index = null,
     Object? itemOfSet = freezed,
     Object? timeSet = null,
   }) {
     return _then(_$ItemInitialEvent(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
       itemOfSet: freezed == itemOfSet
           ? _value.itemOfSet
           : itemOfSet // ignore: cast_nullable_to_non_nullable
@@ -169,8 +183,11 @@ class __$$ItemInitialEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ItemInitialEvent implements ItemInitialEvent {
-  const _$ItemInitialEvent({this.itemOfSet, required this.timeSet});
+  const _$ItemInitialEvent(
+      {required this.index, this.itemOfSet, required this.timeSet});
 
+  @override
+  final int index;
   @override
   final ItemOfSetEntity? itemOfSet;
   @override
@@ -178,7 +195,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
 
   @override
   String toString() {
-    return 'AddUpdateItemEvent.initial(itemOfSet: $itemOfSet, timeSet: $timeSet)';
+    return 'AddUpdateItemEvent.initial(index: $index, itemOfSet: $itemOfSet, timeSet: $timeSet)';
   }
 
   @override
@@ -186,13 +203,14 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ItemInitialEvent &&
+            (identical(other.index, index) || other.index == index) &&
             (identical(other.itemOfSet, itemOfSet) ||
                 other.itemOfSet == itemOfSet) &&
             (identical(other.timeSet, timeSet) || other.timeSet == timeSet));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, itemOfSet, timeSet);
+  int get hashCode => Object.hash(runtimeType, index, itemOfSet, timeSet);
 
   @JsonKey(ignore: true)
   @override
@@ -203,7 +221,8 @@ class _$ItemInitialEvent implements ItemInitialEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+    required TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
         initial,
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
@@ -211,14 +230,16 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
     required TResult Function(String numberChip) removeNumberChips,
+    required TResult Function() saveItem,
   }) {
-    return initial(itemOfSet, timeSet);
+    return initial(index, itemOfSet, timeSet);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult? Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
@@ -226,14 +247,16 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
     TResult? Function(String numberChip)? removeNumberChips,
+    TResult? Function()? saveItem,
   }) {
-    return initial?.call(itemOfSet, timeSet);
+    return initial?.call(index, itemOfSet, timeSet);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
@@ -241,10 +264,11 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
     TResult Function(String numberChip)? removeNumberChips,
+    TResult Function()? saveItem,
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(itemOfSet, timeSet);
+      return initial(index, itemOfSet, timeSet);
     }
     return orElse();
   }
@@ -259,6 +283,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
     required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
+    required TResult Function(SaveItemEvent value) saveItem,
   }) {
     return initial(this);
   }
@@ -273,6 +298,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
     TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult? Function(SaveItemEvent value)? saveItem,
   }) {
     return initial?.call(this);
   }
@@ -287,6 +313,7 @@ class _$ItemInitialEvent implements ItemInitialEvent {
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
     TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult Function(SaveItemEvent value)? saveItem,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -298,9 +325,11 @@ class _$ItemInitialEvent implements ItemInitialEvent {
 
 abstract class ItemInitialEvent implements AddUpdateItemEvent {
   const factory ItemInitialEvent(
-      {final ItemOfSetEntity? itemOfSet,
+      {required final int index,
+      final ItemOfSetEntity? itemOfSet,
       required final TimeSetEntity timeSet}) = _$ItemInitialEvent;
 
+  int get index;
   ItemOfSetEntity? get itemOfSet;
   TimeSetEntity get timeSet;
   @JsonKey(ignore: true)
@@ -373,7 +402,8 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+    required TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
         initial,
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
@@ -381,6 +411,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
     required TResult Function(String numberChip) removeNumberChips,
+    required TResult Function() saveItem,
   }) {
     return changeIsTable(isTable);
   }
@@ -388,7 +419,8 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult? Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
@@ -396,6 +428,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
     TResult? Function(String numberChip)? removeNumberChips,
+    TResult? Function()? saveItem,
   }) {
     return changeIsTable?.call(isTable);
   }
@@ -403,7 +436,8 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
@@ -411,6 +445,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
     TResult Function(String numberChip)? removeNumberChips,
+    TResult Function()? saveItem,
     required TResult orElse(),
   }) {
     if (changeIsTable != null) {
@@ -429,6 +464,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
     required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
+    required TResult Function(SaveItemEvent value) saveItem,
   }) {
     return changeIsTable(this);
   }
@@ -443,6 +479,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
     TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult? Function(SaveItemEvent value)? saveItem,
   }) {
     return changeIsTable?.call(this);
   }
@@ -457,6 +494,7 @@ class _$ItemChangeIsTableEvent implements ItemChangeIsTableEvent {
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
     TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult Function(SaveItemEvent value)? saveItem,
     required TResult orElse(),
   }) {
     if (changeIsTable != null) {
@@ -541,7 +579,8 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+    required TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
         initial,
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
@@ -549,6 +588,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
     required TResult Function(String numberChip) removeNumberChips,
+    required TResult Function() saveItem,
   }) {
     return changeIsVerse(isVerse);
   }
@@ -556,7 +596,8 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult? Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
@@ -564,6 +605,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
     TResult? Function(String numberChip)? removeNumberChips,
+    TResult? Function()? saveItem,
   }) {
     return changeIsVerse?.call(isVerse);
   }
@@ -571,7 +613,8 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
@@ -579,6 +622,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
     TResult Function(String numberChip)? removeNumberChips,
+    TResult Function()? saveItem,
     required TResult orElse(),
   }) {
     if (changeIsVerse != null) {
@@ -597,6 +641,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
     required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
+    required TResult Function(SaveItemEvent value) saveItem,
   }) {
     return changeIsVerse(this);
   }
@@ -611,6 +656,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
     TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult? Function(SaveItemEvent value)? saveItem,
   }) {
     return changeIsVerse?.call(this);
   }
@@ -625,6 +671,7 @@ class _$ItemChangeIsVerseEvent implements ItemChangeIsVerseEvent {
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
     TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult Function(SaveItemEvent value)? saveItem,
     required TResult orElse(),
   }) {
     if (changeIsVerse != null) {
@@ -711,7 +758,8 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+    required TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
         initial,
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
@@ -719,6 +767,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
     required TResult Function(String numberChip) removeNumberChips,
+    required TResult Function() saveItem,
   }) {
     return changeIsPicture(isPicture);
   }
@@ -726,7 +775,8 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult? Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
@@ -734,6 +784,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
     TResult? Function(String numberChip)? removeNumberChips,
+    TResult? Function()? saveItem,
   }) {
     return changeIsPicture?.call(isPicture);
   }
@@ -741,7 +792,8 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
@@ -749,6 +801,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
     TResult Function(String numberChip)? removeNumberChips,
+    TResult Function()? saveItem,
     required TResult orElse(),
   }) {
     if (changeIsPicture != null) {
@@ -767,6 +820,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
     required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
+    required TResult Function(SaveItemEvent value) saveItem,
   }) {
     return changeIsPicture(this);
   }
@@ -781,6 +835,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
     TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult? Function(SaveItemEvent value)? saveItem,
   }) {
     return changeIsPicture?.call(this);
   }
@@ -795,6 +850,7 @@ class _$ItemChangeIsPictureEvent implements ItemChangeIsPictureEvent {
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
     TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult Function(SaveItemEvent value)? saveItem,
     required TResult orElse(),
   }) {
     if (changeIsPicture != null) {
@@ -879,7 +935,8 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+    required TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
         initial,
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
@@ -887,6 +944,7 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
     required TResult Function(String numberChip) removeNumberChips,
+    required TResult Function() saveItem,
   }) {
     return changeTitle(text);
   }
@@ -894,7 +952,8 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult? Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
@@ -902,6 +961,7 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
     TResult? Function(String numberChip)? removeNumberChips,
+    TResult? Function()? saveItem,
   }) {
     return changeTitle?.call(text);
   }
@@ -909,7 +969,8 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
@@ -917,6 +978,7 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
     TResult Function(String numberChip)? removeNumberChips,
+    TResult Function()? saveItem,
     required TResult orElse(),
   }) {
     if (changeTitle != null) {
@@ -935,6 +997,7 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
     required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
+    required TResult Function(SaveItemEvent value) saveItem,
   }) {
     return changeTitle(this);
   }
@@ -949,6 +1012,7 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
     TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult? Function(SaveItemEvent value)? saveItem,
   }) {
     return changeTitle?.call(this);
   }
@@ -963,6 +1027,7 @@ class _$ItemChangeTitleEvent implements ItemChangeTitleEvent {
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
     TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult Function(SaveItemEvent value)? saveItem,
     required TResult orElse(),
   }) {
     if (changeTitle != null) {
@@ -1048,7 +1113,8 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+    required TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
         initial,
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
@@ -1056,6 +1122,7 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
     required TResult Function(String numberChip) removeNumberChips,
+    required TResult Function() saveItem,
   }) {
     return addNumberChips(numberChip);
   }
@@ -1063,7 +1130,8 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult? Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
@@ -1071,6 +1139,7 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
     TResult? Function(String numberChip)? removeNumberChips,
+    TResult? Function()? saveItem,
   }) {
     return addNumberChips?.call(numberChip);
   }
@@ -1078,7 +1147,8 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
@@ -1086,6 +1156,7 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
     TResult Function(String numberChip)? removeNumberChips,
+    TResult Function()? saveItem,
     required TResult orElse(),
   }) {
     if (addNumberChips != null) {
@@ -1104,6 +1175,7 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
     required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
+    required TResult Function(SaveItemEvent value) saveItem,
   }) {
     return addNumberChips(this);
   }
@@ -1118,6 +1190,7 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
     TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult? Function(SaveItemEvent value)? saveItem,
   }) {
     return addNumberChips?.call(this);
   }
@@ -1132,6 +1205,7 @@ class _$AddNumberChipsEvent implements AddNumberChipsEvent {
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
     TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult Function(SaveItemEvent value)? saveItem,
     required TResult orElse(),
   }) {
     if (addNumberChips != null) {
@@ -1217,7 +1291,8 @@ class _$RemoveNumberChipsEvent implements RemoveNumberChipsEvent {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+    required TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
         initial,
     required TResult Function(bool isTable) changeIsTable,
     required TResult Function(bool isVerse) changeIsVerse,
@@ -1225,6 +1300,7 @@ class _$RemoveNumberChipsEvent implements RemoveNumberChipsEvent {
     required TResult Function(String text) changeTitle,
     required TResult Function(String numberChip) addNumberChips,
     required TResult Function(String numberChip) removeNumberChips,
+    required TResult Function() saveItem,
   }) {
     return removeNumberChips(numberChip);
   }
@@ -1232,7 +1308,8 @@ class _$RemoveNumberChipsEvent implements RemoveNumberChipsEvent {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult? Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult? Function(bool isTable)? changeIsTable,
     TResult? Function(bool isVerse)? changeIsVerse,
@@ -1240,6 +1317,7 @@ class _$RemoveNumberChipsEvent implements RemoveNumberChipsEvent {
     TResult? Function(String text)? changeTitle,
     TResult? Function(String numberChip)? addNumberChips,
     TResult? Function(String numberChip)? removeNumberChips,
+    TResult? Function()? saveItem,
   }) {
     return removeNumberChips?.call(numberChip);
   }
@@ -1247,7 +1325,8 @@ class _$RemoveNumberChipsEvent implements RemoveNumberChipsEvent {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+    TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
         initial,
     TResult Function(bool isTable)? changeIsTable,
     TResult Function(bool isVerse)? changeIsVerse,
@@ -1255,6 +1334,7 @@ class _$RemoveNumberChipsEvent implements RemoveNumberChipsEvent {
     TResult Function(String text)? changeTitle,
     TResult Function(String numberChip)? addNumberChips,
     TResult Function(String numberChip)? removeNumberChips,
+    TResult Function()? saveItem,
     required TResult orElse(),
   }) {
     if (removeNumberChips != null) {
@@ -1273,6 +1353,7 @@ class _$RemoveNumberChipsEvent implements RemoveNumberChipsEvent {
     required TResult Function(ItemChangeTitleEvent value) changeTitle,
     required TResult Function(AddNumberChipsEvent value) addNumberChips,
     required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
+    required TResult Function(SaveItemEvent value) saveItem,
   }) {
     return removeNumberChips(this);
   }
@@ -1287,6 +1368,7 @@ class _$RemoveNumberChipsEvent implements RemoveNumberChipsEvent {
     TResult? Function(ItemChangeTitleEvent value)? changeTitle,
     TResult? Function(AddNumberChipsEvent value)? addNumberChips,
     TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult? Function(SaveItemEvent value)? saveItem,
   }) {
     return removeNumberChips?.call(this);
   }
@@ -1301,6 +1383,7 @@ class _$RemoveNumberChipsEvent implements RemoveNumberChipsEvent {
     TResult Function(ItemChangeTitleEvent value)? changeTitle,
     TResult Function(AddNumberChipsEvent value)? addNumberChips,
     TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult Function(SaveItemEvent value)? saveItem,
     required TResult orElse(),
   }) {
     if (removeNumberChips != null) {
@@ -1318,6 +1401,150 @@ abstract class RemoveNumberChipsEvent implements AddUpdateItemEvent {
   @JsonKey(ignore: true)
   _$$RemoveNumberChipsEventCopyWith<_$RemoveNumberChipsEvent> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SaveItemEventCopyWith<$Res> {
+  factory _$$SaveItemEventCopyWith(
+          _$SaveItemEvent value, $Res Function(_$SaveItemEvent) then) =
+      __$$SaveItemEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SaveItemEventCopyWithImpl<$Res>
+    extends _$AddUpdateItemEventCopyWithImpl<$Res, _$SaveItemEvent>
+    implements _$$SaveItemEventCopyWith<$Res> {
+  __$$SaveItemEventCopyWithImpl(
+      _$SaveItemEvent _value, $Res Function(_$SaveItemEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SaveItemEvent implements SaveItemEvent {
+  const _$SaveItemEvent();
+
+  @override
+  String toString() {
+    return 'AddUpdateItemEvent.saveItem()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SaveItemEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)
+        initial,
+    required TResult Function(bool isTable) changeIsTable,
+    required TResult Function(bool isVerse) changeIsVerse,
+    required TResult Function(bool isPicture) changeIsPicture,
+    required TResult Function(String text) changeTitle,
+    required TResult Function(String numberChip) addNumberChips,
+    required TResult Function(String numberChip) removeNumberChips,
+    required TResult Function() saveItem,
+  }) {
+    return saveItem();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+        initial,
+    TResult? Function(bool isTable)? changeIsTable,
+    TResult? Function(bool isVerse)? changeIsVerse,
+    TResult? Function(bool isPicture)? changeIsPicture,
+    TResult? Function(String text)? changeTitle,
+    TResult? Function(String numberChip)? addNumberChips,
+    TResult? Function(String numberChip)? removeNumberChips,
+    TResult? Function()? saveItem,
+  }) {
+    return saveItem?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            int index, ItemOfSetEntity? itemOfSet, TimeSetEntity timeSet)?
+        initial,
+    TResult Function(bool isTable)? changeIsTable,
+    TResult Function(bool isVerse)? changeIsVerse,
+    TResult Function(bool isPicture)? changeIsPicture,
+    TResult Function(String text)? changeTitle,
+    TResult Function(String numberChip)? addNumberChips,
+    TResult Function(String numberChip)? removeNumberChips,
+    TResult Function()? saveItem,
+    required TResult orElse(),
+  }) {
+    if (saveItem != null) {
+      return saveItem();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItemInitialEvent value) initial,
+    required TResult Function(ItemChangeIsTableEvent value) changeIsTable,
+    required TResult Function(ItemChangeIsVerseEvent value) changeIsVerse,
+    required TResult Function(ItemChangeIsPictureEvent value) changeIsPicture,
+    required TResult Function(ItemChangeTitleEvent value) changeTitle,
+    required TResult Function(AddNumberChipsEvent value) addNumberChips,
+    required TResult Function(RemoveNumberChipsEvent value) removeNumberChips,
+    required TResult Function(SaveItemEvent value) saveItem,
+  }) {
+    return saveItem(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItemInitialEvent value)? initial,
+    TResult? Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult? Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult? Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult? Function(ItemChangeTitleEvent value)? changeTitle,
+    TResult? Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult? Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult? Function(SaveItemEvent value)? saveItem,
+  }) {
+    return saveItem?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItemInitialEvent value)? initial,
+    TResult Function(ItemChangeIsTableEvent value)? changeIsTable,
+    TResult Function(ItemChangeIsVerseEvent value)? changeIsVerse,
+    TResult Function(ItemChangeIsPictureEvent value)? changeIsPicture,
+    TResult Function(ItemChangeTitleEvent value)? changeTitle,
+    TResult Function(AddNumberChipsEvent value)? addNumberChips,
+    TResult Function(RemoveNumberChipsEvent value)? removeNumberChips,
+    TResult Function(SaveItemEvent value)? saveItem,
+    required TResult orElse(),
+  }) {
+    if (saveItem != null) {
+      return saveItem(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SaveItemEvent implements AddUpdateItemEvent {
+  const factory SaveItemEvent() = _$SaveItemEvent;
 }
 
 /// @nodoc

@@ -58,8 +58,8 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       final timeSetDuration = Duration(
           hours: _currentTimeSet.durationHourTimeSet,
           minutes: _currentTimeSet.durationMinutesTimeSet);
-      averageDuration = _timeCalculator.calcAverageDurationOfItem(
-          duration: timeSetDuration, countOfItems: (listItem.length));
+      if(listItem.isNotEmpty){averageDuration = _timeCalculator.calcAverageDurationOfItem(
+          duration: timeSetDuration, countOfItems: (listItem.length));}
       emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
     });
 

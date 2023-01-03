@@ -24,8 +24,9 @@ class WrapNumberChipsWidget extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: numberChips.length,
             itemBuilder: (context, index) {
+              final number = numberChips[index].number.toString();
               return ChoiceChip(
-                label: Text(numberChips[index].number.toString()),
+                label: Text(number),
                 labelStyle: const TextStyle(fontSize: 16,
                     fontWeight: FontWeight.bold, color: Colors.white),
                 selected:
@@ -34,9 +35,9 @@ class WrapNumberChipsWidget extends StatelessWidget {
                 backgroundColor: Colors.blueGrey[200],
                 onSelected: (isSelected) {
                   if (isSelected) {
-                    itemBloc.add(AddNumberChipsEvent(numberChips[index].number.toString()));
+                    itemBloc.add(AddNumberChipsEvent(number));
                   } else {
-                    itemBloc.add(RemoveNumberChipsEvent(numberChips[index].number.toString()));
+                    itemBloc.add(RemoveNumberChipsEvent(number));
                   }
                 },
               );

@@ -12,6 +12,7 @@ import '../time_set_feature/domain/data_source/data_base_domain.dart';
 import '../time_set_feature/domain/repositories/session_repository.dart';
 import '../time_set_feature/domain/repositories/time_set_repository.dart';
 import '../time_set_feature/domain/usecases/add_time_set_use_case.dart';
+import '../time_set_feature/domain/usecases/add_update_item_in_set_use_case.dart';
 import '../time_set_feature/domain/usecases/delete_time_set_use_case.dart';
 import '../time_set_feature/domain/usecases/get_last_session_use_case.dart';
 import '../time_set_feature/domain/usecases/recalculate_item_of_set_use_case.dart';
@@ -34,6 +35,7 @@ init() async {
   sl.registerLazySingleton(() => DeleteTimeSetUseCase(sl()));
   sl.registerLazySingleton(() => RecalculateItemOfSet());
   sl.registerLazySingleton(() => GetLastSessionUseCase(sl()));
+  sl.registerLazySingleton(() => AddUpdateItemInSetUseCase(sl()));
 
 
   ///Repository

@@ -5,7 +5,6 @@ import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart
 import 'package:in_time/time_set_feature/domain/entities/time_set_entity.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_fab_visibility/bloc_fab_visibility_bloc.dart';
-import '../../add_update_item_screen/item_detail_screen.dart';
 import 'item_widget.dart';
 import 'time_setup_panel.dart';
 
@@ -59,32 +58,22 @@ class ListOfItemWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final blocTimeSet = context.watch<TimeSetBloc>();
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int index) {
-          final item = items[index];
-          return GestureDetector(
-            child: Dismissible(
-                key: UniqueKey(),
-                background: Container(
-                  color: Colors.red,
+    return  SliverList(
+                delegate: SliverChildBuilderDelegate(
+                      (BuildContext context, int index) {
+                    final item = items[index];
+                    return Dismissible(
+                          key: UniqueKey(),
+                          background: Container(
+                            color: Colors.red,
+                          ),
+                          onDismissed: (direction) {
+                            blocTimeSet.add(RemoveItemOfSetEvent(id: index));
+                          },
+                          child: ItemWidget(item: item, timeSet: timeSet, index: index));
+                  },
+                  childCount: items.length,
                 ),
-                onDismissed: (direction) {
-                  blocTimeSet.add(RemoveItemOfSetEvent(id: index));
-                },
-                child: ItemWidget(item: item)),
-            onTap: () {
-             // context.read<AddUpdateItemBloc>().add(ItemInitialEvent(itemOfSet: item, timeSet: timeSet ));
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          ItemDetailScreen(itemOfSet: item, timeSet: timeSet,)));
-            },
-          );
-        },
-        childCount: items.length,
-      ),
-    );
+              );
   }
 }

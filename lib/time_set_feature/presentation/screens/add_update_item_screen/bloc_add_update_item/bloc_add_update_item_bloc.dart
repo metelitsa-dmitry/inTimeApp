@@ -2,27 +2,29 @@ import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart';
 import 'package:in_time/time_set_feature/domain/entities/time_set_entity.dart';
-
-import '../../../../domain/usecases/add_time_set_use_case.dart';
+import 'package:in_time/time_set_feature/domain/usecases/add_update_item_in_set_use_case.dart';
 
 part 'bloc_add_update_item_event.dart';
 part 'bloc_add_update_item_state.dart';
 part 'bloc_add_update_item_bloc.freezed.dart';
 
 class AddUpdateItemBloc extends Bloc<AddUpdateItemEvent, AddUpdateItemState> {
-  final AddTimeSetUseCase _addTimeSetUseCase;
+ final AddUpdateItemInSetUseCase _addUpdateItemInSet;
 
-  TimeSetEntity? _currentTimeSet;
+
+  late TimeSetEntity _currentTimeSet;
   ItemOfSetEntity? _currentItem;
+  int index = 0;
   bool isVerse = false;
   bool isPicture = false;
   bool isTable = false;
   String titleItem = '';
   List<String> listItemChips = [];
 
-  AddUpdateItemBloc(this._addTimeSetUseCase)
+  AddUpdateItemBloc(this._addUpdateItemInSet)
       : super(const AddUpdateItemState.initial()) {
     on<ItemInitialEvent>((event, emit) {
+      index = event.index;
       _currentTimeSet = event.timeSet;
       _currentItem = event.itemOfSet ??
           ItemOfSetEntity(
@@ -91,6 +93,18 @@ class AddUpdateItemBloc extends Bloc<AddUpdateItemEvent, AddUpdateItemState> {
         timeSet: _currentTimeSet,
         itemOfSet: _currentItem,
       ));
+    });
+///TODO saveChangeItem
+    on<SaveItemEvent>((event, emit) {
+      _currentItem = _currentItem ?? ItemOfSetEntity(
+          durationHourOfItemSet: 1,
+          durationMinutesOfItemSet: 0,
+          durationSecondsOfItemSet: 0,
+          startItemOfSet: DateTime.now());
+
+      _addUpdateItemInSet(index, _currentTimeSet, _currentItem!);
+
+
     });
 
   }

@@ -10,16 +10,16 @@ import 'bloc_add_update_item/bloc_add_update_item_bloc.dart';
 class ItemDetailScreen extends StatelessWidget {
    const ItemDetailScreen({Key? key,
      required this.timeSet,
-      this.itemOfSet
+      this.itemOfSet, required this.index
    }) : super(key: key);
   final ItemOfSetEntity? itemOfSet;
     final TimeSetEntity timeSet;
-
+final int index;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (context) => sl<AddUpdateItemBloc>()
-      ..add((ItemInitialEvent(itemOfSet: itemOfSet, timeSet: timeSet ))),
+      ..add((ItemInitialEvent(itemOfSet: itemOfSet, timeSet: timeSet, index: index ))),
         child: const AddUpdateItemBody());
   }
 }

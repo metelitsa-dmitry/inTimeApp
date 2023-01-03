@@ -34,7 +34,7 @@ class AddUpdateItemBody extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              // context.read<EditItemModel>().saveItem(context);
+              context.read<AddUpdateItemBloc>().add(const SaveItemEvent());
               Navigator.pop(context);
             },
             child: const Icon(Icons.save),
