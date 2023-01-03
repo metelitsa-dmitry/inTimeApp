@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_fab_visibility/bloc_fab_visibility_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/widgets/time_set_body.dart';
+import '../../../../di/di.dart';
+import '../../../domain/data_source/data_base_domain.dart';
 import '../dialogs_screen/save_set_dialog.dart';
 import 'bloc_time_set/bloc_time_set_bloc.dart';
 import 'widgets/drawer_time_set_widget.dart';
@@ -31,14 +34,25 @@ class _TimeSetScreenState extends State<TimeSetScreen> {
         actions: listOfActionButtons(context),
       ),
       drawer: const DrawerTimeSetScreen(),
-      body: state.when(
-          initial: () => const Text(''),
-          loading: () => const Center(
+      body: ValueListenableBuilder(
+        valueListenable: sl<DataBase>().box.listenable(),
+        builder: (context, _, child) {
+          context.read<TimeSetBloc>().add(const TimeSetInitialEvent());
+          return child!;
+        },
+        child: BlocBuilder<TimeSetBloc, TimeSetState>(builder: (context, state){
+          return state.when(
+              initial: () => const Text(''),
+              loading: () => const Center(
                 child: CircularProgressIndicator(),
               ),
-          loadedTimeSet: (timeSet) => TimeSetBody(
+              loadedTimeSet: (timeSet) => TimeSetBody(
                 timeSet: timeSet,
-              )),
+              ));
+        }),
+
+
+      ),
       floatingActionButton: fabVisible ? const MenuFab() : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
