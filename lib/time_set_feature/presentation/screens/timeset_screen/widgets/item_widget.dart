@@ -13,7 +13,7 @@ class ItemWidget extends StatelessWidget {
   final ItemOfSetEntity item;
   final TimeSetEntity timeSet;
   final int index;
-  
+
   @override
   Widget build(BuildContext context) {
     final itemChips = item.chipsItem ?? [];

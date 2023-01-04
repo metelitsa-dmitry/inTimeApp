@@ -37,7 +37,8 @@ class ListOfItemWidgets extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          ItemDetailScreen(itemOfSet: item, timeSet: timeSet, index: index)));
+                          ItemDetailScreen(itemOfSet: item, timeSet: timeSet, index: index)))
+                  .then((value) => blocTimeSet.add(const TimeSetInitialEvent()));
             },
           );
         },
