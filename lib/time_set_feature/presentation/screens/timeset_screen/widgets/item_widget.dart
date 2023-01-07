@@ -164,16 +164,20 @@ class StartTime extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final startTime = TimeOfDay.fromDateTime(item.startItemOfSet).format(context);
+    final durationHour = item.durationHourOfItemSet.toString().padLeft(2,'0');
+    final durationMinutes = item.durationMinutesOfItemSet.toString().padLeft(2,'0');
+   // final durationSeconds = item.durationSecondsOfItemSet.toString().padLeft(2,'0');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          item.startItemOfSetFormat,
+          startTime.toString(),
           style: const TextStyle(fontSize: 18),
         ),
         Text(
-          '${item.durationHourOfItemSet}:${item.durationMinutesOfItemSet}:${item.durationSecondsOfItemSet}',
+          '$durationHour:$durationMinutes',
           style: const TextStyle(fontSize: 14, color: Colors.black38),
         ),
       ],

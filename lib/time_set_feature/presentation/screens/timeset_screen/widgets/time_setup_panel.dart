@@ -16,11 +16,7 @@ class TimeSetupPanel extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [
-          StartTimeSet(),
-          DurationTimeSet(),
-          FinishTimeSet()
-        ],
+        children: const [StartTimeSet(), DurationTimeSet(), FinishTimeSet()],
       ),
     );
   }
@@ -43,19 +39,27 @@ class StartTimeSet extends StatelessWidget {
           child: Row(
             children: [
               const Icon(Icons.hourglass_top),
-          state.when(
-              initial: () => const Text('--:--'),
-              loading: () => const CircularProgressIndicator(),
-              loadedTimeSet: (timeSet)=> Text(timeSet.startTimeSetFormat,
-                style: const TextStyle(
-                  fontSize: 16,),
-                ),
+              state.when(
+                initial: () => const Text('--:--'),
+                loading: () => const CircularProgressIndicator(),
+                loadedTimeSet: (timeSet) {
+                  final startTime = TimeOfDay.fromDateTime(timeSet.startTimeSet).format(context);
+                  return Text(
+                    startTime,
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
+                  );
+                }
               ),
             ],
           ),
           onTap: () async {
-            final currentTime = state.whenOrNull(loadedTimeSet: (timeSet) => timeSet.startTimeSet) ?? DateTime.now();
-            final newStartTime = await _changeTime(context: context, dateTime: currentTime );
+            final currentTime = state.whenOrNull(
+                    loadedTimeSet: (timeSet) => timeSet.startTimeSet) ??
+                DateTime.now();
+            final newStartTime =
+                await _changeTime(context: context, dateTime: currentTime);
             blocTimeSet.add(ChangeStartTimeSetEvent(newStatTime: newStartTime));
           },
         ),
@@ -71,8 +75,9 @@ class DurationTimeSet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final state = context.watch<TimeSetBloc>().state;
     final blocTimeSet = context.watch<TimeSetBloc>();
+    final state = blocTimeSet.state;
+
     return Flexible(
       flex: 1,
       child: Padding(
@@ -85,18 +90,27 @@ class DurationTimeSet extends StatelessWidget {
               state.when(
                 initial: () => const Text('--:--'),
                 loading: () => const CircularProgressIndicator(),
-                loadedTimeSet: (timeSet)=> Text('${timeSet.durationHourTimeSet}:${timeSet.durationMinutesTimeSet}',
+                loadedTimeSet: (timeSet) {
+                  final hours = timeSet.durationHourTimeSet.toString().padLeft(2, '0');
+                  final minutes = timeSet.durationMinutesTimeSet.toString().padLeft(2,'0');
+                  return Text(
+                  '$hours:$minutes',
                   style: const TextStyle(
-                    fontSize: 16,),
-                ),
+                    fontSize: 16,
+                  ),
+                );}
               ),
             ],
           ),
-          onTap: ()async {
-            final currentTimeSet = state.whenOrNull(loadedTimeSet: (timeSet) => timeSet);
-            final currentDuration = DateTime(0, 0, 0, currentTimeSet!.durationHourTimeSet, currentTimeSet.durationMinutesTimeSet);
+          onTap: () async {
+            final currentTimeSet =
+                state.whenOrNull(loadedTimeSet: (timeSet) => timeSet);
+            final currentDuration = DateTime(0, 0, 0,
+                currentTimeSet!.durationHourTimeSet,
+                currentTimeSet.durationMinutesTimeSet);
 
-            final newTime = await _changeTime(context: context, dateTime: currentDuration );
+            final newTime =
+                await _changeTime(context: context, dateTime: currentDuration);
             blocTimeSet.add(ChangeDurationTimeSetEvent(newDuration: newTime));
           },
         ),
@@ -127,16 +141,24 @@ class FinishTimeSet extends StatelessWidget {
               state.when(
                 initial: () => const Text('--:--'),
                 loading: () => const CircularProgressIndicator(),
-                loadedTimeSet: (timeSet)=> Text(timeSet.finishTimeSetFormat,
-                  style: const TextStyle(
-                    fontSize: 16,),
-                ),
+                loadedTimeSet: (timeSet) {
+                  final finishTime = TimeOfDay.fromDateTime(timeSet.finishTimeSet).format(context);
+                  return Text(
+                    finishTime,
+                    style: const TextStyle(
+                      fontSize: 16,
+                    ),
+                  );
+                }
               ),
             ],
           ),
-          onTap: () async{
-            final currentTime = state.whenOrNull(loadedTimeSet: (timeSet) => timeSet.finishTimeSet) ?? DateTime.now();
-            final newTime = await _changeTime(context: context, dateTime: currentTime );
+          onTap: () async {
+            final currentTime = state.whenOrNull(
+                    loadedTimeSet: (timeSet) => timeSet.finishTimeSet) ??
+                DateTime.now();
+            final newTime =
+                await _changeTime(context: context, dateTime: currentTime);
 
             blocTimeSet.add(ChangeFinishTimeSetEvent(newFinishTime: newTime));
           },
@@ -146,7 +168,6 @@ class FinishTimeSet extends StatelessWidget {
   }
 }
 
-
 Future<DateTime> _changeTime(
     {required BuildContext context, required DateTime dateTime}) async {
   final currentTime = TimeOfDay.fromDateTime(dateTime);
@@ -155,9 +176,8 @@ Future<DateTime> _changeTime(
     initialTime: currentTime,
   );
   if (newValue == null) {
-    return DateTime(0,1,1, currentTime.hour, currentTime.minute);
+    return DateTime(0, 0, 0, currentTime.hour, currentTime.minute);
   } else {
-    return DateTime(0,1,1, newValue.hour, newValue.minute);
+    return DateTime(0, 0, 0, newValue.hour, newValue.minute);
   }
-
 }

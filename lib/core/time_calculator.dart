@@ -26,19 +26,20 @@ class TimeCalculator {
 
       final durationOfItemInMinutes = duration.inMinutes;
       final averageDurationOfItemInMinutes =
-      (durationOfItemInMinutes / countOfItems).roundToDouble();
+      (durationOfItemInMinutes / countOfItems).round();
       return _formatDurationToDateTime(averageDurationOfItemInMinutes);
 
   }
 
-  DateTime _formatDurationToDateTime(double minutes) {
+  DateTime _formatDurationToDateTime(int minutes) {
 
     final int durationOfItemHours = minutes~/60;
-    final int durationOfItemMinutes = (minutes - (durationOfItemHours*60)).floor();
-    int durationOfItemSeconds =
-    ((minutes * 60) - (durationOfItemMinutes * 60)-(durationOfItemHours*3600)).floor();
+    final int durationOfItemMinutes = (minutes - (durationOfItemHours*60));
+    // final int durationOfItemSeconds =
+    // ((minutes * 60) - (durationOfItemHours * 3600) - (durationOfItemMinutes * 60)).floor();
     return DateTime(0, 1, 1, durationOfItemHours, durationOfItemMinutes,
-        durationOfItemSeconds);
+        //durationOfItemSeconds
+    );
   }
 
 }

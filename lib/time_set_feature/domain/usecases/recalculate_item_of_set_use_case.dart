@@ -6,17 +6,19 @@ class RecalculateItemOfSet {
       required DateTime averageDuration,
       required DateTime startOfTimeSet}) {
     var start = startOfTimeSet;
-    for (int i = 0; i < listOfItems.length; i++) {
-      listOfItems[i] = listOfItems[i].copyWith(
+    var currentListItems = listOfItems.toList();
+    for (int i = 0; i < currentListItems.length; i++) {
+      currentListItems[i] = listOfItems[i].copyWith(
           durationHourOfItemSet: averageDuration.hour,
           durationMinutesOfItemSet: averageDuration.minute,
-          durationSecondsOfItemSet: averageDuration.second,
+         // durationSecondsOfItemSet: averageDuration.second,
           startItemOfSet: start);
       start = start.add(Duration(
           hours: averageDuration.hour,
           minutes: averageDuration.minute,
-          seconds: averageDuration.second));
+          //seconds: averageDuration.second
+      ));
     }
-    return listOfItems;
+    return currentListItems;
   }
 }

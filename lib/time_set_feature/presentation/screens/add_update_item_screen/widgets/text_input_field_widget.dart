@@ -3,8 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:in_time/time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update_item/bloc_add_update_item_bloc.dart';
 
-
-
 class TextInputFieldWidget extends StatefulWidget {
   const TextInputFieldWidget({
     Key? key,
@@ -16,7 +14,7 @@ class TextInputFieldWidget extends StatefulWidget {
 
 class _TextInputFieldWidgetState extends State<TextInputFieldWidget> {
 
-  late TextEditingController _titleItemController ;
+  TextEditingController _titleItemController = TextEditingController(text: '') ;
 
   @override
   void initState() {
@@ -28,6 +26,7 @@ class _TextInputFieldWidgetState extends State<TextInputFieldWidget> {
   @override
   Widget build(BuildContext context) {
     final itemBloc = context.watch<AddUpdateItemBloc>();
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(

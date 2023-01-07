@@ -26,6 +26,7 @@ class AddUpdateItemBloc extends Bloc<AddUpdateItemEvent, AddUpdateItemState> {
     on<ItemInitialEvent>((event, emit) {
       index = event.index;
       _currentTimeSet = event.timeSet;
+
       _currentItem = event.itemOfSet ??
           ItemOfSetEntity(
               durationHourOfItemSet: 1,
@@ -33,7 +34,7 @@ class AddUpdateItemBloc extends Bloc<AddUpdateItemEvent, AddUpdateItemState> {
               durationSecondsOfItemSet: 0,
               startItemOfSet: DateTime.now());
 
-      emit(ItemInitialState(
+          emit(ItemInitialState(
         timeSet: event.timeSet,
         itemOfSet: event.itemOfSet,
       ));

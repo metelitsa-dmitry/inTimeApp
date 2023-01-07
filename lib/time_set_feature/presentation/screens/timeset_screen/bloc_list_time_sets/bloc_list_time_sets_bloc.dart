@@ -24,7 +24,6 @@ class ListTimeSetsBloc extends Bloc<ListTimeSetsEvent, ListTimeSetsState> {
     on<Delete>((event, emit) {
       _deleteTimeSetUseCase(event.id);
       emit(ListTimeSetsState.loaded(listTimeSets: currentListTimeSets));
-
     });
   }
 }

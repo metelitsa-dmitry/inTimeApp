@@ -5,6 +5,7 @@ import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart
 import 'package:in_time/time_set_feature/domain/entities/number_chips_data.dart';
 import 'package:in_time/time_set_feature/domain/usecases/add_time_set_use_case.dart';
 import 'package:in_time/time_set_feature/domain/usecases/get_last_session_use_case.dart';
+import 'package:in_time/time_set_feature/domain/usecases/save_last_session_use_case.dart';
 
 import '../../../../domain/entities/time_set_entity.dart';
 import '../../../../domain/usecases/get_all_time_sets.dart';
@@ -21,220 +22,280 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
   final AddTimeSetUseCase _addTimeSetUseCase;
   final RecalculateItemOfSet _recalculateItemOfSet;
   final GetLastSessionUseCase _getLastSessionUseCase;
+  final SaveLastSessionUseCase _saveLastSession;
 
-  String? lastSession;
+  String lastSession = 'New';
   final _timeCalculator = TimeCalculator();
-
-  var _currentTimeSet = TimeSetEntity(
-      title: 'New',
-      startTimeSet: DateTime.now(),
-      durationHourTimeSet: 1,
-      durationMinutesTimeSet: 0,
-      finishTimeSet: DateTime.now().add(const Duration(hours: 1)),
-      dateTimeSaved: DateTime.now());
-  String get currentTimeSetTitle => _currentTimeSet.title;
-
-  var listItem = <ItemOfSetEntity>[];
-  var numberChips = <NumberChipsData>[];
-  var averageDuration = DateTime(0, 0, 0, 1, 0);
+  //var numberChips = <NumberChipsData>[];
 
   TimeSetBloc(
       this._getAllTimeSets,
       this._getTimeSetUseCase,
       this._addTimeSetUseCase,
-      this._recalculateItemOfSet, this._getLastSessionUseCase)
+      this._recalculateItemOfSet,
+      this._getLastSessionUseCase,
+      this._saveLastSession)
       : super(const TimeSetState.initial()) {
-
     on<TimeSetInitialEvent>((event, emit) async {
       emit(const TimeSetState.loading());
       final listTimeSets = _getAllTimeSets();
+      final timeSet = TimeSetEntity(
+          title: 'New',
+          startTimeSet: DateTime.now(),
+          durationHourTimeSet: 1,
+          durationMinutesTimeSet: 0,
+          finishTimeSet: DateTime.now().add(const Duration(hours: 1)),
+          dateTimeSaved: DateTime.now());
+
       if (listTimeSets.isEmpty) {
-        _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
-        lastSession = _currentTimeSet.title;
+        _addTimeSetUseCase(timeSet.title, timeSet);
+        _saveLastSession(timeSet.title);
       }
-      lastSession = await _getLastSessionUseCase();
-      _currentTimeSet = await _getTimeSetUseCase(lastSession ?? _currentTimeSet.title);
-      listItem = _currentTimeSet.itemsOfSet?.toList() ?? [];
-      final timeSetDuration = Duration(
-          hours: _currentTimeSet.durationHourTimeSet,
-          minutes: _currentTimeSet.durationMinutesTimeSet);
-      if(listItem.isNotEmpty){averageDuration = _timeCalculator.calcAverageDurationOfItem(
-          duration: timeSetDuration, countOfItems: (listItem.length));}
-      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
+
+      ///TODO fix null check
+      lastSession = await _getLastSessionUseCase() ?? 'New';
+      final currentTimeSet =
+          await _getTimeSetUseCase(lastSession);
+
+      emit(TimeSetState.loadedTimeSet(timeSet: currentTimeSet));
     });
 
     on<GetTimeSetEvent>((event, emit) async {
       emit(const TimeSetState.loading());
-      _currentTimeSet = await _getTimeSetUseCase(event.id);
-      lastSession = _currentTimeSet.title;
-      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
+      final loadedTimeSet = await _getTimeSetUseCase(event.id);
+      lastSession = loadedTimeSet.title;
+      _saveLastSession(lastSession);
+      emit(TimeSetState.loadedTimeSet(timeSet: loadedTimeSet));
     });
 
     on<SaveAsTimeSetEvent>((event, emit) {
-      _currentTimeSet = _currentTimeSet.copyWith(
-          title: event.id, dateTimeSaved: DateTime.now());
-      _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
-      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
+      if (state is _LoadedTimeSet) {
+        final currentState = state as _LoadedTimeSet;
+        final savedTimeSet = currentState.timeSet
+            .copyWith(title: event.id, dateTimeSaved: DateTime.now());
+        _addTimeSetUseCase(savedTimeSet.title, savedTimeSet);
+        lastSession = savedTimeSet.title;
+        emit(TimeSetState.loadedTimeSet(timeSet: savedTimeSet));
+      }
     });
 
     on<ChangeStartTimeSetEvent>((event, emit) async {
-      emit(const TimeSetState.loading());
-      final newStart = event.newStatTime;
-      final newFinish = newStart.add(Duration(
-          hours: _currentTimeSet.durationHourTimeSet,
-          minutes: _currentTimeSet.durationMinutesTimeSet));
+      if (state is _LoadedTimeSet) {
+        final currentTimeSet = (state as _LoadedTimeSet).timeSet;
+        final currentListItem = currentTimeSet.itemsOfSet?.toList() ?? [];
+        var averageDuration = DateTime(0, 0, 0, 0, 1);
+        final newDuration = Duration(
+            hours: currentTimeSet.durationHourTimeSet,
+            minutes: currentTimeSet.durationMinutesTimeSet);
+        if (currentListItem.isNotEmpty) {
+          averageDuration = _timeCalculator.calcAverageDurationOfItem(
+              duration: newDuration, countOfItems: (currentListItem.length));
+        }
+        final newStart = event.newStatTime;
+        final newFinish = newStart.add(Duration(
+            hours: currentTimeSet.durationHourTimeSet,
+            minutes: currentTimeSet.durationMinutesTimeSet));
 
-      listItem = _recalculateItemOfSet(
-          listOfItems: listItem,
-          averageDuration: averageDuration,
-          startOfTimeSet: event.newStatTime);
-      _currentTimeSet = _currentTimeSet.copyWith(
-          startTimeSet: event.newStatTime,
-          finishTimeSet: newFinish,
-          itemsOfSet: listItem);
-      _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
+        var updatedListItems = _recalculateItemOfSet(
+                listOfItems: currentTimeSet.itemsOfSet ?? [],
+                averageDuration: averageDuration,
+                startOfTimeSet: event.newStatTime)
+            .toList();
+        final updatedTimeSet = currentTimeSet.copyWith(
+            startTimeSet: event.newStatTime,
+            finishTimeSet: newFinish,
+            itemsOfSet: updatedListItems);
+        _addTimeSetUseCase(updatedTimeSet.title, updatedTimeSet);
 
-      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
+        emit(TimeSetState.loadedTimeSet(timeSet: updatedTimeSet));
+      }
     });
 
     on<ChangeDurationTimeSetEvent>((event, emit) async {
-      listItem = _currentTimeSet.itemsOfSet?.toList() ?? [];
-      final newDuration = Duration(hours:event.newDuration.hour,
-      minutes:event.newDuration.minute );
-      final startTime = _currentTimeSet.startTimeSet;
-      averageDuration = _timeCalculator.calcAverageDurationOfItem(
-          duration: newDuration, countOfItems: (listItem.length));
-      final newFinish = startTime.add(newDuration);
+      if (state is _LoadedTimeSet) {
+        final currentTimeSet = (state as _LoadedTimeSet).timeSet;
+        final currentListItem = currentTimeSet.itemsOfSet?.toList() ?? [];
+        final newDuration = Duration(
+            hours: event.newDuration.hour, minutes: event.newDuration.minute);
+        final startTime = currentTimeSet.startTimeSet;
+        var averageDuration = DateTime(0, 0, 0, 0, 1);
+        if(currentListItem.isNotEmpty){
+          averageDuration = _timeCalculator.calcAverageDurationOfItem(
+              duration: newDuration, countOfItems: (currentListItem.length));
+        }
 
-      listItem = _recalculateItemOfSet(
-          listOfItems: listItem,
-          averageDuration: averageDuration,
-          startOfTimeSet: startTime);
-      _currentTimeSet = _currentTimeSet.copyWith(
-          startTimeSet: startTime,
-          durationHourTimeSet: event.newDuration.hour,
-          durationMinutesTimeSet:event.newDuration.minute ,
-          finishTimeSet: newFinish,
-          itemsOfSet: listItem);
-      _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
+        final newFinish = startTime.add(newDuration);
 
-      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
+        final updatedListItem = _recalculateItemOfSet(
+            listOfItems: currentListItem,
+            averageDuration: averageDuration,
+            startOfTimeSet: startTime);
+        final updatedTimeSet = currentTimeSet.copyWith(
+            startTimeSet: startTime,
+            durationHourTimeSet: event.newDuration.hour,
+            durationMinutesTimeSet: event.newDuration.minute,
+            finishTimeSet: newFinish,
+            itemsOfSet: updatedListItem);
+        _addTimeSetUseCase(updatedTimeSet.title, updatedTimeSet);
+        emit(TimeSetState.loadedTimeSet(timeSet: updatedTimeSet));
+      }
     });
 
     on<ChangeFinishTimeSetEvent>((event, emit) async {
-      listItem = _currentTimeSet.itemsOfSet?.toList() ?? [];
+      if (state is _LoadedTimeSet) {
+        final currentTimeSet = (state as _LoadedTimeSet).timeSet;
+        final currentListItem = currentTimeSet.itemsOfSet?.toList() ?? [];
+        var durationInHours = currentTimeSet.durationHourTimeSet;
+        var durationInMinutes = currentTimeSet.durationMinutesTimeSet;
+        var durationTimeSet = Duration(hours: durationInHours, minutes: durationInMinutes);
+        var avrgDurationItem = DateTime(0, 0, 0, 0, 1);
+        var startTime = currentTimeSet.startTimeSet;
+        final newFinishTime = event.newFinishTime;
+        //if finish less then start => change duration of Set
+        if (newFinishTime.isAfter(startTime)){
+          durationTimeSet = newFinishTime.difference(startTime);
+          durationInHours = (durationTimeSet.inMinutes / 60).floor();
+          durationInMinutes =
+              (durationTimeSet.inMinutes).floor() - (durationInHours * 60);
+        }
+        // if finish equal or more then start => change start
+        else{
+          startTime = newFinishTime.subtract(durationTimeSet);
+        }
 
-      final startTime = _currentTimeSet.startTimeSet;
-      final newFinishTime = event.newFinishTime;
+        if(currentListItem.isNotEmpty){
+          avrgDurationItem = _timeCalculator.calcAverageDurationOfItem(
+              duration: durationTimeSet, countOfItems: (currentListItem.length));
+        }
 
-      final newDuration = newFinishTime.difference(startTime);
-      final newDurationInHours = (newDuration.inMinutes / 60).floor();
-      final newDurationInMinutes =
-          (newDuration.inMinutes).floor() - (newDurationInHours * 60);
-      averageDuration = _timeCalculator.calcAverageDurationOfItem(
-          duration: newDuration, countOfItems: listItem.length);
-
-      listItem = _recalculateItemOfSet(
-          listOfItems: listItem,
-          averageDuration: averageDuration,
-          startOfTimeSet: startTime);
-      _currentTimeSet = _currentTimeSet.copyWith(
-          startTimeSet: startTime,
-          durationHourTimeSet: newDurationInHours,
-          durationMinutesTimeSet:newDurationInMinutes ,
-          finishTimeSet: newFinishTime,
-          itemsOfSet: listItem);
-      _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
-      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
+        final updatedListItem = _recalculateItemOfSet(
+            listOfItems: currentListItem,
+            averageDuration: avrgDurationItem,
+            startOfTimeSet: startTime);
+        final updatedTimeSet = currentTimeSet.copyWith(
+            startTimeSet: startTime,
+            durationHourTimeSet: durationInHours,
+            durationMinutesTimeSet: durationInMinutes,
+            finishTimeSet: newFinishTime,
+            itemsOfSet: updatedListItem);
+        _addTimeSetUseCase(updatedTimeSet.title, updatedTimeSet);
+        emit(TimeSetState.loadedTimeSet(timeSet: updatedTimeSet));
+      }
     });
 
     on<AddItemOfSetEvent>((event, emit) {
-      listItem = _currentTimeSet.itemsOfSet?.toList() ?? [];
-      var start = _currentTimeSet.startTimeSet;
-      final durationTimeSet = Duration(
-          hours: _currentTimeSet.durationHourTimeSet,
-          minutes: _currentTimeSet.durationHourTimeSet);
-      averageDuration = _timeCalculator.calcAverageDurationOfItem(
-          duration: durationTimeSet, countOfItems: (listItem.length + 1));
-      final itemOfSet = ItemOfSetEntity(
-          durationHourOfItemSet: averageDuration.hour,
-          durationMinutesOfItemSet: averageDuration.minute,
-          durationSecondsOfItemSet: averageDuration.second,
-          startItemOfSet: start);
-      listItem.add(itemOfSet);
+      if (state is _LoadedTimeSet) {
+        final currentTimeSet = (state as _LoadedTimeSet).timeSet;
+        final currentListItem = currentTimeSet.itemsOfSet?.toList() ?? [];
+        var start = currentTimeSet.startTimeSet;
+        final durationTimeSet = Duration(
+            hours: currentTimeSet.durationHourTimeSet,
+            minutes: currentTimeSet.durationMinutesTimeSet);
+        final averageDuration = _timeCalculator.calcAverageDurationOfItem(
+            duration: durationTimeSet,
+            countOfItems: (currentListItem.length + 1));
+        final itemOfSet = ItemOfSetEntity(
+            durationHourOfItemSet: averageDuration.hour,
+            durationMinutesOfItemSet: averageDuration.minute,
+            durationSecondsOfItemSet: averageDuration.second,
+            startItemOfSet: start);
+        currentListItem.add(itemOfSet);
 
-      listItem = _recalculateItemOfSet(
-          listOfItems: listItem,
-          averageDuration: averageDuration,
-          startOfTimeSet: start);
+        final updatedListItem = _recalculateItemOfSet(
+            listOfItems: currentListItem,
+            averageDuration: averageDuration,
+            startOfTimeSet: start);
 
-      _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem);
-      _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
-      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
+        final updatedTimeSet =
+            currentTimeSet.copyWith(itemsOfSet: updatedListItem);
+        _addTimeSetUseCase(updatedTimeSet.title, updatedTimeSet);
+        emit(TimeSetState.loadedTimeSet(timeSet: updatedTimeSet));
+      }
     });
 
     on<AddSeveralItemOfSetEvent>((event, emit) {
-      listItem = _currentTimeSet.itemsOfSet?.toList() ?? [];
-      var start = _currentTimeSet.startTimeSet;
-      final durationTimeSet = Duration(
-          hours: _currentTimeSet.durationHourTimeSet,
-          minutes: _currentTimeSet.durationHourTimeSet);
+      if (state is _LoadedTimeSet) {
+        final currentTimeSet = (state as _LoadedTimeSet).timeSet;
+        final currentListItem = currentTimeSet.itemsOfSet?.toList() ?? [];
+        var averageDuration = DateTime(0, 0, 0, 1, 0);
+        var start = currentTimeSet.startTimeSet;
+        final durationTimeSet = Duration(
+            hours: currentTimeSet.durationHourTimeSet,
+            minutes: currentTimeSet.durationMinutesTimeSet);
+        if (currentListItem.isNotEmpty) {
+          averageDuration = _timeCalculator.calcAverageDurationOfItem(
+              duration: durationTimeSet, countOfItems: currentListItem.length);
+        }
 
-      final itemOfSet = ItemOfSetEntity(
-          durationHourOfItemSet: averageDuration.hour,
-          durationMinutesOfItemSet: averageDuration.minute,
-          durationSecondsOfItemSet: averageDuration.second,
-          startItemOfSet: start);
-      var startNumber = event.startNumber;
-      numberChips = _currentTimeSet.numberChips?.toList() ?? [];
+        final itemOfSet = ItemOfSetEntity(
+            durationHourOfItemSet: averageDuration.hour,
+            durationMinutesOfItemSet: averageDuration.minute,
+            durationSecondsOfItemSet: averageDuration.second,
+            startItemOfSet: start);
+        var startNumber = event.startNumber;
+        var numberChips = currentTimeSet.numberChips?.toList() ?? [];
 
-      for (int i = 0; i < event.count; i++) {
-        listItem.add(itemOfSet.copyWith(chipsItem: [startNumber.toString()]));
-        numberChips.add(NumberChipsData(number: startNumber, isSelected: false));
-        startNumber++;
+        for (int i = 0; i < event.count; i++) {
+          currentListItem
+              .add(itemOfSet.copyWith(chipsItem: [startNumber.toString()]));
+          numberChips
+              .add(NumberChipsData(number: startNumber, isSelected: false));
+          startNumber++;
+        }
+
+        averageDuration = _timeCalculator.calcAverageDurationOfItem(
+            duration: durationTimeSet, countOfItems: (currentListItem.length));
+        final updatedListItem = _recalculateItemOfSet(
+            listOfItems: currentListItem,
+            averageDuration: averageDuration,
+            startOfTimeSet: start);
+
+        final updatedTimeSet = currentTimeSet.copyWith(
+            itemsOfSet: updatedListItem, numberChips: numberChips);
+        _addTimeSetUseCase(updatedTimeSet.title, updatedTimeSet);
+
+        emit(TimeSetState.loadedTimeSet(timeSet: updatedTimeSet));
       }
-
-      averageDuration = _timeCalculator.calcAverageDurationOfItem(
-          duration: durationTimeSet,
-          countOfItems: (listItem.length));
-      listItem = _recalculateItemOfSet(
-          listOfItems: listItem,
-          averageDuration: averageDuration,
-          startOfTimeSet: start);
-
-      _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem, numberChips: numberChips);
-      _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
-
-      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
     });
 
     on<RemoveItemOfSetEvent>((event, emit) {
-      listItem = _currentTimeSet.itemsOfSet?.toList() ?? [];
-      var start = _currentTimeSet.startTimeSet;
-      final durationTimeSet = Duration(
-          hours: _currentTimeSet.durationHourTimeSet,
-          minutes: _currentTimeSet.durationHourTimeSet);
-      listItem.removeAt(event.id);
-      if(listItem.isNotEmpty){
-        averageDuration = _timeCalculator.calcAverageDurationOfItem(
-            duration: durationTimeSet,
-            countOfItems: (listItem.length));
-        listItem = _recalculateItemOfSet(
-            listOfItems: listItem,
+      if (state is _LoadedTimeSet) {
+        final currentTimeSet = (state as _LoadedTimeSet).timeSet;
+        var currentListItem = currentTimeSet.itemsOfSet?.toList() ?? [];
+        var averageDuration = DateTime(0,0,0,0,0);
+        final start = currentTimeSet.startTimeSet;
+        final durationTimeSet = Duration(
+            hours: currentTimeSet.durationHourTimeSet,
+            minutes: currentTimeSet.durationMinutesTimeSet);
+
+        currentListItem.removeAt(event.id);
+
+        if (currentListItem.isNotEmpty) {
+          averageDuration = _timeCalculator.calcAverageDurationOfItem(
+              duration: durationTimeSet,
+              countOfItems: (currentListItem.length));
+        }
+        currentListItem = _recalculateItemOfSet(
+            listOfItems: currentListItem,
             averageDuration: averageDuration,
             startOfTimeSet: start);
+        final updatedTimeSet =
+        currentTimeSet.copyWith(itemsOfSet: currentListItem);
+        _addTimeSetUseCase(updatedTimeSet.title, updatedTimeSet);
+        emit(TimeSetState.loadedTimeSet(timeSet: updatedTimeSet));
       }
-      _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem);
-      _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
-      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
     });
 
     on<CleanListItemOfSetEvent>((event, emit) {
-      listItem = [];
-      numberChips = [];
-      _currentTimeSet = _currentTimeSet.copyWith(itemsOfSet: listItem, numberChips: numberChips);
-      _addTimeSetUseCase(_currentTimeSet.title, _currentTimeSet);
-      emit(TimeSetState.loadedTimeSet(timeSet: _currentTimeSet));
+      if (state is _LoadedTimeSet) {
+        final currentTimeSet = (state as _LoadedTimeSet).timeSet;
+        final cleanListItem = <ItemOfSetEntity>[];
+        final numberChips = <NumberChipsData>[];
+        final updatedTimeSet = currentTimeSet.copyWith(
+            itemsOfSet: cleanListItem, numberChips: numberChips);
+        _addTimeSetUseCase(updatedTimeSet.title, updatedTimeSet);
+        emit(TimeSetState.loadedTimeSet(timeSet: updatedTimeSet));
+      }
     });
   }
 }

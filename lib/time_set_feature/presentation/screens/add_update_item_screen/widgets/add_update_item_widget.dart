@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import '../bloc_add_update_item/bloc_add_update_item_bloc.dart';
 
 class AddUpdateItemWidget extends StatelessWidget {
@@ -65,7 +64,7 @@ class StartTime extends StatelessWidget {
   Widget build(BuildContext context) {
     final stateItem = context.watch<AddUpdateItemBloc>().state.itemOfSet;
     final startTime = stateItem?.startItemOfSet ?? DateTime(0,0,0,0,0,0);
-    String formattedDate = DateFormat('HH:mm:ss').format(startTime);
+    String formattedDate = TimeOfDay.fromDateTime(startTime).format(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -90,16 +89,11 @@ class DurationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final stateItem = context.watch<AddUpdateItemBloc>().state.itemOfSet;
-    final durationHourOfItemSet = stateItem?.durationHourOfItemSet ?? 0;
-    final durationMinutesOfItemSet = stateItem?.durationMinutesOfItemSet ?? 0;
-    final durationSecondsOfItemSet= stateItem?.durationSecondsOfItemSet ?? 0;
-    final durationDateFormat = DateTime(0, 0, 0,
-        durationHourOfItemSet, durationMinutesOfItemSet, durationSecondsOfItemSet);;
+    final durationHourOfItem = stateItem?.durationHourOfItemSet.toString().padLeft(2,'0') ?? 0;
+    final durationMinutesOfItem = stateItem?.durationMinutesOfItemSet.toString().padLeft(2,'0') ?? 0;
+    //final durationSecondsOfItem= stateItem?.durationSecondsOfItemSet.toString().padLeft(2,'0') ?? 0;
 
-    final duration = DateFormat('HH:mm:ss').format(durationDateFormat);
-
-    return Text(duration,
-        // '${_itemEdited.durationHours}:${_itemEdited.durationInMinutes}:${_itemEdited.durationInSeconds}',
+    return Text('$durationHourOfItem:$durationMinutesOfItem',
         style: const TextStyle(fontSize: 14, color: Colors.black38));
     }
 
