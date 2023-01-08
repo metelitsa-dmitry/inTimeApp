@@ -167,7 +167,7 @@ class StartTime extends StatelessWidget {
     final startTime = TimeOfDay.fromDateTime(item.startItemOfSet).format(context);
     final durationHour = item.durationHourOfItemSet.toString().padLeft(2,'0');
     final durationMinutes = item.durationMinutesOfItemSet.toString().padLeft(2,'0');
-   // final durationSeconds = item.durationSecondsOfItemSet.toString().padLeft(2,'0');
+   final durationSeconds = item.durationSecondsOfItemSet.toString().padLeft(2,'0');
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -177,7 +177,7 @@ class StartTime extends StatelessWidget {
           style: const TextStyle(fontSize: 18),
         ),
         Text(
-          '$durationHour:$durationMinutes',
+          '$durationHour:$durationMinutes:$durationSeconds',
           style: const TextStyle(fontSize: 14, color: Colors.black38),
         ),
       ],

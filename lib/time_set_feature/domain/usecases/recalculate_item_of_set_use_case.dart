@@ -11,12 +11,12 @@ class RecalculateItemOfSet {
       currentListItems[i] = listOfItems[i].copyWith(
           durationHourOfItemSet: averageDuration.hour,
           durationMinutesOfItemSet: averageDuration.minute,
-         // durationSecondsOfItemSet: averageDuration.second,
+          durationSecondsOfItemSet: averageDuration.second,
           startItemOfSet: start);
       start = start.add(Duration(
           hours: averageDuration.hour,
           minutes: averageDuration.minute,
-          //seconds: averageDuration.second
+          seconds: averageDuration.second
       ));
     }
     return currentListItems;
