@@ -5,22 +5,39 @@ import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart
 import '../../../../di/di.dart';
 import '../../../domain/entities/time_set_entity.dart';
 import 'add_update_item_screen.dart';
-import 'bloc_add_update_item/bloc_add_update_item_bloc.dart';
+import 'bloc_add_update/add_update_item_bloc.dart';
+import 'bloc_add_update_item/item_form_bloc.dart';
 
 class ItemDetailScreen extends StatelessWidget {
   const ItemDetailScreen(
-      {Key? key, required this.timeSet, this.itemOfSet, required this.index})
+      {Key? key, required this.timeSet, required this.itemOfSet, required this.index})
       : super(key: key);
-  final ItemOfSetEntity? itemOfSet;
+  final ItemOfSetEntity itemOfSet;
   final TimeSetEntity timeSet;
   final int index;
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-        create: (context) => sl<AddUpdateItemBloc>()
-          ..add((ItemInitialEvent(
-              itemOfSet: itemOfSet, timeSet: timeSet, index: index))),
-        child: const AddUpdateItemBody());
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => sl<AddUpdateItemBloc>()),
+        BlocProvider(
+        create: (context) => sl<AddUpdateItemFormBloc>()
+      ..add((ItemInitialFormEvent(
+        timeSet: timeSet,
+        index: index,
+        titleItem: itemOfSet.titleItem,
+        chipsItem: itemOfSet.chipsItem,
+        durationHourOfItemSet: itemOfSet.durationHourOfItemSet,
+        durationMinutesOfItemSet: itemOfSet.durationMinutesOfItemSet,
+        durationSecondsOfItemSet: itemOfSet.durationSecondsOfItemSet,
+        startItemOfSet: itemOfSet.startItemOfSet,
+        isPicture: itemOfSet.isPicture,
+        isVerse: itemOfSet.isVerse,
+        isTable: itemOfSet.isTable,
+      )))),
+
+    ],
+          child:  AddUpdateItemBody(itemOfSet:  itemOfSet,));
   }
 }

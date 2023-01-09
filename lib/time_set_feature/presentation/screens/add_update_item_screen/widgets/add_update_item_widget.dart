@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../bloc_add_update_item/bloc_add_update_item_bloc.dart';
+import '../bloc_add_update_item/item_form_bloc.dart';
 
 class AddUpdateItemWidget extends StatelessWidget {
   const AddUpdateItemWidget({
@@ -9,11 +9,11 @@ class AddUpdateItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final stateItem = context.watch<AddUpdateItemBloc>().state.itemOfSet;
-   final chipsItem = stateItem?.chipsItem ?? [];
-   final isPicture = stateItem?.isPicture ?? false;
-   final isVerse = stateItem?.isVerse ?? false;
-   final isTable = stateItem?.isTable ?? false;
+    final stateItem = context.watch<AddUpdateItemFormBloc>().state;
+   final chipsItem = stateItem.chipsItem ?? [];
+   final isPicture = stateItem.isPicture ?? false;
+   final isVerse = stateItem.isVerse ?? false;
+   final isTable = stateItem.isTable ?? false;
 
 ///TODO refactor
     return Container(
@@ -56,14 +56,12 @@ class AddUpdateItemWidget extends StatelessWidget {
 class StartTime extends StatelessWidget {
   const StartTime({
     Key? key,
-    //this.itemOfSet,
   }) : super(key: key);
-  //final ItemOfSetEntity? itemOfSet;
 
   @override
   Widget build(BuildContext context) {
-    final stateItem = context.watch<AddUpdateItemBloc>().state.itemOfSet;
-    final startTime = stateItem?.startItemOfSet ?? DateTime(0,0,0,0,0,0);
+    final stateItem = context.watch<AddUpdateItemFormBloc>().state;
+    final startTime = stateItem.startItemOfSet ?? DateTime(0,0,0,0,0,0);
     String formattedDate = TimeOfDay.fromDateTime(startTime).format(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -82,16 +80,15 @@ class StartTime extends StatelessWidget {
 class DurationItem extends StatelessWidget {
   const DurationItem({
     Key? key,
-    //this.itemOfSet,
+
   }) : super(key: key);
-  //final ItemOfSetEntity? itemOfSet;
+
 
   @override
   Widget build(BuildContext context) {
-    final stateItem = context.watch<AddUpdateItemBloc>().state.itemOfSet;
-    final durationHourOfItem = stateItem?.durationHourOfItemSet.toString().padLeft(2,'0') ?? 0;
-    final durationMinutesOfItem = stateItem?.durationMinutesOfItemSet.toString().padLeft(2,'0') ?? 0;
-    //final durationSecondsOfItem= stateItem?.durationSecondsOfItemSet.toString().padLeft(2,'0') ?? 0;
+    final stateItem = context.watch<AddUpdateItemFormBloc>().state;
+    final durationHourOfItem = stateItem.durationHourOfItemSet.toString().padLeft(2,'0');
+    final durationMinutesOfItem = stateItem.durationMinutesOfItemSet.toString().padLeft(2,'0');
 
     return Text('$durationHourOfItem:$durationMinutesOfItem',
         style: const TextStyle(fontSize: 14, color: Colors.black38));

@@ -17,7 +17,8 @@ import '../time_set_feature/domain/usecases/delete_time_set_use_case.dart';
 import '../time_set_feature/domain/usecases/get_last_session_use_case.dart';
 import '../time_set_feature/domain/usecases/recalculate_item_of_set_use_case.dart';
 import '../time_set_feature/domain/usecases/save_last_session_use_case.dart';
-import '../time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update_item/bloc_add_update_item_bloc.dart';
+import '../time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update/add_update_item_bloc.dart';
+import '../time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update_item/item_form_bloc.dart';
 import '../time_set_feature/presentation/screens/timeset_screen/bloc_list_time_sets/bloc_list_time_sets_bloc.dart';
 
 final sl = GetIt.instance;
@@ -28,6 +29,10 @@ init() async {
   sl.registerFactory(() => ListTimeSetsBloc(sl(), sl()));
   sl.registerFactory(() => FabVisibilityBloc());
   sl.registerFactory(() => AddUpdateItemBloc(sl()));
+ sl.registerFactory(() => AddUpdateItemFormBloc(sl()));
+
+
+
 
   ///UseCases
   sl.registerLazySingleton(() => GetAllTimeSetsUseCase(sl()));

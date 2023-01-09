@@ -1,40 +1,41 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:flutter/material.dart';
-import 'package:in_time/time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update_item/bloc_add_update_item_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update_item/item_form_bloc.dart';
+
+import '../../../../domain/entities/item_of_set_entity.dart';
 
 class TextInputFieldWidget extends StatefulWidget {
   const TextInputFieldWidget({
-    Key? key,
+    Key? key, required this.itemOfSet,
   }) : super(key: key);
+  final ItemOfSetEntity itemOfSet;
 
   @override
   State<TextInputFieldWidget> createState() => _TextInputFieldWidgetState();
 }
 
 class _TextInputFieldWidgetState extends State<TextInputFieldWidget> {
-
-  TextEditingController _titleItemController = TextEditingController(text: '') ;
+  late TextEditingController _titleItemController;
 
   @override
   void initState() {
     super.initState();
-   final stateItem = context.read<AddUpdateItemBloc>().state.itemOfSet;
-    _titleItemController =
-        TextEditingController(text: stateItem?.titleItem);
+    // final title = context.read<AddUpdateItemFormBloc>().state.titleItem;
+    _titleItemController = TextEditingController(text: widget.itemOfSet.titleItem);
   }
+
   @override
   Widget build(BuildContext context) {
-    final itemBloc = context.watch<AddUpdateItemBloc>();
+    final itemBloc = context.watch<AddUpdateItemFormBloc>();
 
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           Text(
+          const Text(
             'Описание:',
-            style: const TextStyle(fontSize: 16),
+            style: TextStyle(fontSize: 16),
           ),
           const Divider(
             height: 8.0,
@@ -49,7 +50,7 @@ class _TextInputFieldWidgetState extends State<TextInputFieldWidget> {
               ),
             ),
             onChanged: (value) {
-              itemBloc.add(ItemChangeTitleEvent(value));
+              itemBloc.add(ItemChangeTitleFormEvent(value));
             },
           ),
         ],

@@ -26,7 +26,6 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
 
   String lastSession = 'New';
   final _timeCalculator = TimeCalculator();
-  //var numberChips = <NumberChipsData>[];
 
   TimeSetBloc(
       this._getAllTimeSets,
@@ -46,17 +45,13 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
           durationMinutesTimeSet: 0,
           finishTimeSet: DateTime.now().add(const Duration(hours: 1)),
           dateTimeSaved: DateTime.now());
-
       if (listTimeSets.isEmpty) {
         _addTimeSetUseCase(timeSet.title, timeSet);
         _saveLastSession(timeSet.title);
       }
-
-      ///TODO fix null check
       lastSession = await _getLastSessionUseCase() ?? 'New';
       final currentTimeSet =
           await _getTimeSetUseCase(lastSession);
-
       emit(TimeSetState.loadedTimeSet(timeSet: currentTimeSet));
     });
 
