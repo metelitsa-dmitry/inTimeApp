@@ -253,6 +253,38 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       }
     });
 
+    on<InsertItemInSetEvent>((event, emit) {
+      if (state is _LoadedTimeSet) {
+        final index = event.index;
+        final currentTimeSet = (state as _LoadedTimeSet).timeSet;
+        final currentListItem = currentTimeSet.itemsOfSet?.toList() ?? [];
+        var start = currentTimeSet.startTimeSet;
+        final durationTimeSet = Duration(
+            hours: currentTimeSet.durationHourTimeSet,
+            minutes: currentTimeSet.durationMinutesTimeSet);
+        final averageDuration = _timeCalculator.calcAverageDurationOfItem(
+            duration: durationTimeSet,
+            countOfItems: (currentListItem.length + 1));
+        final itemOfSet = ItemOfSetEntity(
+            durationHourOfItemSet: averageDuration.hour,
+            durationMinutesOfItemSet: averageDuration.minute,
+            durationSecondsOfItemSet: averageDuration.second,
+            startItemOfSet: start);
+        currentListItem.insert(index, itemOfSet);
+
+        final updatedListItem = _recalculateItemOfSet(
+            listOfItems: currentListItem,
+            averageDuration: averageDuration,
+            startOfTimeSet: start);
+
+        final updatedTimeSet =
+        currentTimeSet.copyWith(itemsOfSet: updatedListItem);
+        _addTimeSetUseCase(updatedTimeSet.title, updatedTimeSet);
+        emit(TimeSetState.loadedTimeSet(timeSet: updatedTimeSet));
+      }
+    });
+
+
     on<RemoveItemOfSetEvent>((event, emit) {
       if (state is _LoadedTimeSet) {
         final currentTimeSet = (state as _LoadedTimeSet).timeSet;
@@ -292,5 +324,6 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
         emit(TimeSetState.loadedTimeSet(timeSet: updatedTimeSet));
       }
     });
+
   }
 }

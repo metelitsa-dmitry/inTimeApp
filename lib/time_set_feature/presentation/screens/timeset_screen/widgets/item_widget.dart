@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart';
+import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
 import '../../../../domain/entities/time_set_entity.dart';
-
 
 class ItemWidget extends StatelessWidget {
   const ItemWidget({
@@ -48,7 +49,7 @@ class ItemWidget extends StatelessWidget {
             ],
           ),
           subtitle: item.titleItem != '' ? ItemTitle(item: item) : null,
-          trailing: MyPopupMenuButton(item: item),
+          trailing: MyPopupMenuButton(index: index),
         ),
       );
   }
@@ -57,35 +58,27 @@ class ItemWidget extends StatelessWidget {
 class MyPopupMenuButton extends StatelessWidget {
   const MyPopupMenuButton({
     Key? key,
-    required this.item,
+    required this.index,
   }) : super(key: key);
 
-  final ItemOfSetEntity item;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
-    // final _timeSet= context.watch<TimeModule>().timeSet;
-    // final local = AppLocalizations.of(context)!;
+    final blocTimeSet = context.read<TimeSetBloc>();
+
+        // final local = AppLocalizations.of(context)!;
     return PopupMenuButton(
         onSelected: (value) {
           switch (value) {
             case 1:
-              // context.read<TimeSetModule>().insertItemAbove(index);
+              blocTimeSet.add(InsertItemInSetEvent(index: index));
               break;
             case 2:
-              // context.read<TimeSetModule>().insertItemUnder(index);
+              blocTimeSet.add(InsertItemInSetEvent(index: index + 1));
               break;
             case 3:
-              // context.read<TimeSetModule>().deleteItemFromList(index);
-              break;
-            case 4:
-              // context.read<TimeSetModule>().changeIsVerse(item);
-              break;
-            case 5:
-              // context.read<TimeSetModule>().changeIsPicture(item);
-              break;
-            case 6:
-              // context.read<TimeSetModule>().changeIsTable(item);
+              blocTimeSet.add(RemoveItemOfSetEvent(id: index));
               break;
           }
         },
@@ -107,36 +100,6 @@ class MyPopupMenuButton extends StatelessWidget {
                     Icon(Icons.arrow_downward),
                     SizedBox(width: 8),
                     Text('local.add'),
-                  ],
-                ),
-              ),
-              PopupMenuItem(
-                value: 4,
-                child: Row(
-                  children: const [
-                    Icon(Icons.menu_book),
-                    SizedBox(width: 8),
-                    Text('{local.quote} '),
-                  ],
-                ),
-              ),
-              PopupMenuItem(
-                value: 5,
-                child: Row(
-                  children: const [
-                    Icon(Icons.photo_album),
-                    SizedBox(width: 8),
-                    Text('{local.illustration} '),
-                  ],
-                ),
-              ),
-              PopupMenuItem(
-                value: 6,
-                child: Row(
-                  children: const [
-                    Icon(Icons.table_rows_outlined),
-                    SizedBox(width: 8),
-                    Text('{local.table} '),
                   ],
                 ),
               ),

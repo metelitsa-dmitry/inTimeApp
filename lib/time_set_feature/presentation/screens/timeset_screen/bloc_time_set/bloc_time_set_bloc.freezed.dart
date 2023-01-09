@@ -25,6 +25,7 @@ mixin _$TimeSetEvent {
     required TResult Function(DateTime newDuration) changeDurationTimeSet,
     required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
     required TResult Function() addItemOfSet,
+    required TResult Function(int index) insertItemInSet,
     required TResult Function(int count, int startNumber) addSeveralItemOfSet,
     required TResult Function(int id) removeItemOfSet,
     required TResult Function() cleanListItemOfSet,
@@ -39,6 +40,7 @@ mixin _$TimeSetEvent {
     TResult? Function(DateTime newDuration)? changeDurationTimeSet,
     TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult? Function()? addItemOfSet,
+    TResult? Function(int index)? insertItemInSet,
     TResult? Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult? Function(int id)? removeItemOfSet,
     TResult? Function()? cleanListItemOfSet,
@@ -53,6 +55,7 @@ mixin _$TimeSetEvent {
     TResult Function(DateTime newDuration)? changeDurationTimeSet,
     TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult Function()? addItemOfSet,
+    TResult Function(int index)? insertItemInSet,
     TResult Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult Function(int id)? removeItemOfSet,
     TResult Function()? cleanListItemOfSet,
@@ -70,6 +73,7 @@ mixin _$TimeSetEvent {
     required TResult Function(ChangeFinishTimeSetEvent value)
         changeFinishTimeSet,
     required TResult Function(AddItemOfSetEvent value) addItemOfSet,
+    required TResult Function(InsertItemInSetEvent value) insertItemInSet,
     required TResult Function(AddSeveralItemOfSetEvent value)
         addSeveralItemOfSet,
     required TResult Function(RemoveItemOfSetEvent value) removeItemOfSet,
@@ -85,6 +89,7 @@ mixin _$TimeSetEvent {
     TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult? Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult? Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult? Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult? Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult? Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -99,6 +104,7 @@ mixin _$TimeSetEvent {
     TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -170,6 +176,7 @@ class _$TimeSetInitialEvent implements TimeSetInitialEvent {
     required TResult Function(DateTime newDuration) changeDurationTimeSet,
     required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
     required TResult Function() addItemOfSet,
+    required TResult Function(int index) insertItemInSet,
     required TResult Function(int count, int startNumber) addSeveralItemOfSet,
     required TResult Function(int id) removeItemOfSet,
     required TResult Function() cleanListItemOfSet,
@@ -187,6 +194,7 @@ class _$TimeSetInitialEvent implements TimeSetInitialEvent {
     TResult? Function(DateTime newDuration)? changeDurationTimeSet,
     TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult? Function()? addItemOfSet,
+    TResult? Function(int index)? insertItemInSet,
     TResult? Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult? Function(int id)? removeItemOfSet,
     TResult? Function()? cleanListItemOfSet,
@@ -204,6 +212,7 @@ class _$TimeSetInitialEvent implements TimeSetInitialEvent {
     TResult Function(DateTime newDuration)? changeDurationTimeSet,
     TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult Function()? addItemOfSet,
+    TResult Function(int index)? insertItemInSet,
     TResult Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult Function(int id)? removeItemOfSet,
     TResult Function()? cleanListItemOfSet,
@@ -227,6 +236,7 @@ class _$TimeSetInitialEvent implements TimeSetInitialEvent {
     required TResult Function(ChangeFinishTimeSetEvent value)
         changeFinishTimeSet,
     required TResult Function(AddItemOfSetEvent value) addItemOfSet,
+    required TResult Function(InsertItemInSetEvent value) insertItemInSet,
     required TResult Function(AddSeveralItemOfSetEvent value)
         addSeveralItemOfSet,
     required TResult Function(RemoveItemOfSetEvent value) removeItemOfSet,
@@ -245,6 +255,7 @@ class _$TimeSetInitialEvent implements TimeSetInitialEvent {
     TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult? Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult? Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult? Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult? Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult? Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -262,6 +273,7 @@ class _$TimeSetInitialEvent implements TimeSetInitialEvent {
     TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -349,6 +361,7 @@ class _$GetTimeSetEvent implements GetTimeSetEvent {
     required TResult Function(DateTime newDuration) changeDurationTimeSet,
     required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
     required TResult Function() addItemOfSet,
+    required TResult Function(int index) insertItemInSet,
     required TResult Function(int count, int startNumber) addSeveralItemOfSet,
     required TResult Function(int id) removeItemOfSet,
     required TResult Function() cleanListItemOfSet,
@@ -366,6 +379,7 @@ class _$GetTimeSetEvent implements GetTimeSetEvent {
     TResult? Function(DateTime newDuration)? changeDurationTimeSet,
     TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult? Function()? addItemOfSet,
+    TResult? Function(int index)? insertItemInSet,
     TResult? Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult? Function(int id)? removeItemOfSet,
     TResult? Function()? cleanListItemOfSet,
@@ -383,6 +397,7 @@ class _$GetTimeSetEvent implements GetTimeSetEvent {
     TResult Function(DateTime newDuration)? changeDurationTimeSet,
     TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult Function()? addItemOfSet,
+    TResult Function(int index)? insertItemInSet,
     TResult Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult Function(int id)? removeItemOfSet,
     TResult Function()? cleanListItemOfSet,
@@ -406,6 +421,7 @@ class _$GetTimeSetEvent implements GetTimeSetEvent {
     required TResult Function(ChangeFinishTimeSetEvent value)
         changeFinishTimeSet,
     required TResult Function(AddItemOfSetEvent value) addItemOfSet,
+    required TResult Function(InsertItemInSetEvent value) insertItemInSet,
     required TResult Function(AddSeveralItemOfSetEvent value)
         addSeveralItemOfSet,
     required TResult Function(RemoveItemOfSetEvent value) removeItemOfSet,
@@ -424,6 +440,7 @@ class _$GetTimeSetEvent implements GetTimeSetEvent {
     TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult? Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult? Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult? Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult? Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult? Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -441,6 +458,7 @@ class _$GetTimeSetEvent implements GetTimeSetEvent {
     TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -534,6 +552,7 @@ class _$SaveAsTimeSetEvent implements SaveAsTimeSetEvent {
     required TResult Function(DateTime newDuration) changeDurationTimeSet,
     required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
     required TResult Function() addItemOfSet,
+    required TResult Function(int index) insertItemInSet,
     required TResult Function(int count, int startNumber) addSeveralItemOfSet,
     required TResult Function(int id) removeItemOfSet,
     required TResult Function() cleanListItemOfSet,
@@ -551,6 +570,7 @@ class _$SaveAsTimeSetEvent implements SaveAsTimeSetEvent {
     TResult? Function(DateTime newDuration)? changeDurationTimeSet,
     TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult? Function()? addItemOfSet,
+    TResult? Function(int index)? insertItemInSet,
     TResult? Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult? Function(int id)? removeItemOfSet,
     TResult? Function()? cleanListItemOfSet,
@@ -568,6 +588,7 @@ class _$SaveAsTimeSetEvent implements SaveAsTimeSetEvent {
     TResult Function(DateTime newDuration)? changeDurationTimeSet,
     TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult Function()? addItemOfSet,
+    TResult Function(int index)? insertItemInSet,
     TResult Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult Function(int id)? removeItemOfSet,
     TResult Function()? cleanListItemOfSet,
@@ -591,6 +612,7 @@ class _$SaveAsTimeSetEvent implements SaveAsTimeSetEvent {
     required TResult Function(ChangeFinishTimeSetEvent value)
         changeFinishTimeSet,
     required TResult Function(AddItemOfSetEvent value) addItemOfSet,
+    required TResult Function(InsertItemInSetEvent value) insertItemInSet,
     required TResult Function(AddSeveralItemOfSetEvent value)
         addSeveralItemOfSet,
     required TResult Function(RemoveItemOfSetEvent value) removeItemOfSet,
@@ -609,6 +631,7 @@ class _$SaveAsTimeSetEvent implements SaveAsTimeSetEvent {
     TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult? Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult? Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult? Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult? Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult? Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -626,6 +649,7 @@ class _$SaveAsTimeSetEvent implements SaveAsTimeSetEvent {
     TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -721,6 +745,7 @@ class _$ChangeStartTimeSetEvent implements ChangeStartTimeSetEvent {
     required TResult Function(DateTime newDuration) changeDurationTimeSet,
     required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
     required TResult Function() addItemOfSet,
+    required TResult Function(int index) insertItemInSet,
     required TResult Function(int count, int startNumber) addSeveralItemOfSet,
     required TResult Function(int id) removeItemOfSet,
     required TResult Function() cleanListItemOfSet,
@@ -738,6 +763,7 @@ class _$ChangeStartTimeSetEvent implements ChangeStartTimeSetEvent {
     TResult? Function(DateTime newDuration)? changeDurationTimeSet,
     TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult? Function()? addItemOfSet,
+    TResult? Function(int index)? insertItemInSet,
     TResult? Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult? Function(int id)? removeItemOfSet,
     TResult? Function()? cleanListItemOfSet,
@@ -755,6 +781,7 @@ class _$ChangeStartTimeSetEvent implements ChangeStartTimeSetEvent {
     TResult Function(DateTime newDuration)? changeDurationTimeSet,
     TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult Function()? addItemOfSet,
+    TResult Function(int index)? insertItemInSet,
     TResult Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult Function(int id)? removeItemOfSet,
     TResult Function()? cleanListItemOfSet,
@@ -778,6 +805,7 @@ class _$ChangeStartTimeSetEvent implements ChangeStartTimeSetEvent {
     required TResult Function(ChangeFinishTimeSetEvent value)
         changeFinishTimeSet,
     required TResult Function(AddItemOfSetEvent value) addItemOfSet,
+    required TResult Function(InsertItemInSetEvent value) insertItemInSet,
     required TResult Function(AddSeveralItemOfSetEvent value)
         addSeveralItemOfSet,
     required TResult Function(RemoveItemOfSetEvent value) removeItemOfSet,
@@ -796,6 +824,7 @@ class _$ChangeStartTimeSetEvent implements ChangeStartTimeSetEvent {
     TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult? Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult? Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult? Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult? Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult? Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -813,6 +842,7 @@ class _$ChangeStartTimeSetEvent implements ChangeStartTimeSetEvent {
     TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -910,6 +940,7 @@ class _$ChangeDurationTimeSetEvent implements ChangeDurationTimeSetEvent {
     required TResult Function(DateTime newDuration) changeDurationTimeSet,
     required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
     required TResult Function() addItemOfSet,
+    required TResult Function(int index) insertItemInSet,
     required TResult Function(int count, int startNumber) addSeveralItemOfSet,
     required TResult Function(int id) removeItemOfSet,
     required TResult Function() cleanListItemOfSet,
@@ -927,6 +958,7 @@ class _$ChangeDurationTimeSetEvent implements ChangeDurationTimeSetEvent {
     TResult? Function(DateTime newDuration)? changeDurationTimeSet,
     TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult? Function()? addItemOfSet,
+    TResult? Function(int index)? insertItemInSet,
     TResult? Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult? Function(int id)? removeItemOfSet,
     TResult? Function()? cleanListItemOfSet,
@@ -944,6 +976,7 @@ class _$ChangeDurationTimeSetEvent implements ChangeDurationTimeSetEvent {
     TResult Function(DateTime newDuration)? changeDurationTimeSet,
     TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult Function()? addItemOfSet,
+    TResult Function(int index)? insertItemInSet,
     TResult Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult Function(int id)? removeItemOfSet,
     TResult Function()? cleanListItemOfSet,
@@ -967,6 +1000,7 @@ class _$ChangeDurationTimeSetEvent implements ChangeDurationTimeSetEvent {
     required TResult Function(ChangeFinishTimeSetEvent value)
         changeFinishTimeSet,
     required TResult Function(AddItemOfSetEvent value) addItemOfSet,
+    required TResult Function(InsertItemInSetEvent value) insertItemInSet,
     required TResult Function(AddSeveralItemOfSetEvent value)
         addSeveralItemOfSet,
     required TResult Function(RemoveItemOfSetEvent value) removeItemOfSet,
@@ -985,6 +1019,7 @@ class _$ChangeDurationTimeSetEvent implements ChangeDurationTimeSetEvent {
     TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult? Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult? Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult? Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult? Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult? Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -1002,6 +1037,7 @@ class _$ChangeDurationTimeSetEvent implements ChangeDurationTimeSetEvent {
     TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -1098,6 +1134,7 @@ class _$ChangeFinishTimeSetEvent implements ChangeFinishTimeSetEvent {
     required TResult Function(DateTime newDuration) changeDurationTimeSet,
     required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
     required TResult Function() addItemOfSet,
+    required TResult Function(int index) insertItemInSet,
     required TResult Function(int count, int startNumber) addSeveralItemOfSet,
     required TResult Function(int id) removeItemOfSet,
     required TResult Function() cleanListItemOfSet,
@@ -1115,6 +1152,7 @@ class _$ChangeFinishTimeSetEvent implements ChangeFinishTimeSetEvent {
     TResult? Function(DateTime newDuration)? changeDurationTimeSet,
     TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult? Function()? addItemOfSet,
+    TResult? Function(int index)? insertItemInSet,
     TResult? Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult? Function(int id)? removeItemOfSet,
     TResult? Function()? cleanListItemOfSet,
@@ -1132,6 +1170,7 @@ class _$ChangeFinishTimeSetEvent implements ChangeFinishTimeSetEvent {
     TResult Function(DateTime newDuration)? changeDurationTimeSet,
     TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult Function()? addItemOfSet,
+    TResult Function(int index)? insertItemInSet,
     TResult Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult Function(int id)? removeItemOfSet,
     TResult Function()? cleanListItemOfSet,
@@ -1155,6 +1194,7 @@ class _$ChangeFinishTimeSetEvent implements ChangeFinishTimeSetEvent {
     required TResult Function(ChangeFinishTimeSetEvent value)
         changeFinishTimeSet,
     required TResult Function(AddItemOfSetEvent value) addItemOfSet,
+    required TResult Function(InsertItemInSetEvent value) insertItemInSet,
     required TResult Function(AddSeveralItemOfSetEvent value)
         addSeveralItemOfSet,
     required TResult Function(RemoveItemOfSetEvent value) removeItemOfSet,
@@ -1173,6 +1213,7 @@ class _$ChangeFinishTimeSetEvent implements ChangeFinishTimeSetEvent {
     TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult? Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult? Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult? Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult? Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult? Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -1190,6 +1231,7 @@ class _$ChangeFinishTimeSetEvent implements ChangeFinishTimeSetEvent {
     TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -1257,6 +1299,7 @@ class _$AddItemOfSetEvent implements AddItemOfSetEvent {
     required TResult Function(DateTime newDuration) changeDurationTimeSet,
     required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
     required TResult Function() addItemOfSet,
+    required TResult Function(int index) insertItemInSet,
     required TResult Function(int count, int startNumber) addSeveralItemOfSet,
     required TResult Function(int id) removeItemOfSet,
     required TResult Function() cleanListItemOfSet,
@@ -1274,6 +1317,7 @@ class _$AddItemOfSetEvent implements AddItemOfSetEvent {
     TResult? Function(DateTime newDuration)? changeDurationTimeSet,
     TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult? Function()? addItemOfSet,
+    TResult? Function(int index)? insertItemInSet,
     TResult? Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult? Function(int id)? removeItemOfSet,
     TResult? Function()? cleanListItemOfSet,
@@ -1291,6 +1335,7 @@ class _$AddItemOfSetEvent implements AddItemOfSetEvent {
     TResult Function(DateTime newDuration)? changeDurationTimeSet,
     TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult Function()? addItemOfSet,
+    TResult Function(int index)? insertItemInSet,
     TResult Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult Function(int id)? removeItemOfSet,
     TResult Function()? cleanListItemOfSet,
@@ -1314,6 +1359,7 @@ class _$AddItemOfSetEvent implements AddItemOfSetEvent {
     required TResult Function(ChangeFinishTimeSetEvent value)
         changeFinishTimeSet,
     required TResult Function(AddItemOfSetEvent value) addItemOfSet,
+    required TResult Function(InsertItemInSetEvent value) insertItemInSet,
     required TResult Function(AddSeveralItemOfSetEvent value)
         addSeveralItemOfSet,
     required TResult Function(RemoveItemOfSetEvent value) removeItemOfSet,
@@ -1332,6 +1378,7 @@ class _$AddItemOfSetEvent implements AddItemOfSetEvent {
     TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult? Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult? Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult? Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult? Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult? Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -1349,6 +1396,7 @@ class _$AddItemOfSetEvent implements AddItemOfSetEvent {
     TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -1363,6 +1411,198 @@ class _$AddItemOfSetEvent implements AddItemOfSetEvent {
 
 abstract class AddItemOfSetEvent implements TimeSetEvent {
   const factory AddItemOfSetEvent() = _$AddItemOfSetEvent;
+}
+
+/// @nodoc
+abstract class _$$InsertItemInSetEventCopyWith<$Res> {
+  factory _$$InsertItemInSetEventCopyWith(_$InsertItemInSetEvent value,
+          $Res Function(_$InsertItemInSetEvent) then) =
+      __$$InsertItemInSetEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$InsertItemInSetEventCopyWithImpl<$Res>
+    extends _$TimeSetEventCopyWithImpl<$Res, _$InsertItemInSetEvent>
+    implements _$$InsertItemInSetEventCopyWith<$Res> {
+  __$$InsertItemInSetEventCopyWithImpl(_$InsertItemInSetEvent _value,
+      $Res Function(_$InsertItemInSetEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$InsertItemInSetEvent(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InsertItemInSetEvent implements InsertItemInSetEvent {
+  const _$InsertItemInSetEvent({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'TimeSetEvent.insertItemInSet(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InsertItemInSetEvent &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InsertItemInSetEventCopyWith<_$InsertItemInSetEvent> get copyWith =>
+      __$$InsertItemInSetEventCopyWithImpl<_$InsertItemInSetEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(String id) getTimeSet,
+    required TResult Function(String id) saveAsTimeSet,
+    required TResult Function(DateTime newStatTime) changeStartTimeSet,
+    required TResult Function(DateTime newDuration) changeDurationTimeSet,
+    required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
+    required TResult Function() addItemOfSet,
+    required TResult Function(int index) insertItemInSet,
+    required TResult Function(int count, int startNumber) addSeveralItemOfSet,
+    required TResult Function(int id) removeItemOfSet,
+    required TResult Function() cleanListItemOfSet,
+  }) {
+    return insertItemInSet(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(String id)? getTimeSet,
+    TResult? Function(String id)? saveAsTimeSet,
+    TResult? Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult? Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
+    TResult? Function()? addItemOfSet,
+    TResult? Function(int index)? insertItemInSet,
+    TResult? Function(int count, int startNumber)? addSeveralItemOfSet,
+    TResult? Function(int id)? removeItemOfSet,
+    TResult? Function()? cleanListItemOfSet,
+  }) {
+    return insertItemInSet?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(String id)? getTimeSet,
+    TResult Function(String id)? saveAsTimeSet,
+    TResult Function(DateTime newStatTime)? changeStartTimeSet,
+    TResult Function(DateTime newDuration)? changeDurationTimeSet,
+    TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
+    TResult Function()? addItemOfSet,
+    TResult Function(int index)? insertItemInSet,
+    TResult Function(int count, int startNumber)? addSeveralItemOfSet,
+    TResult Function(int id)? removeItemOfSet,
+    TResult Function()? cleanListItemOfSet,
+    required TResult orElse(),
+  }) {
+    if (insertItemInSet != null) {
+      return insertItemInSet(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(TimeSetInitialEvent value) initial,
+    required TResult Function(GetTimeSetEvent value) getTimeSet,
+    required TResult Function(SaveAsTimeSetEvent value) saveAsTimeSet,
+    required TResult Function(ChangeStartTimeSetEvent value) changeStartTimeSet,
+    required TResult Function(ChangeDurationTimeSetEvent value)
+        changeDurationTimeSet,
+    required TResult Function(ChangeFinishTimeSetEvent value)
+        changeFinishTimeSet,
+    required TResult Function(AddItemOfSetEvent value) addItemOfSet,
+    required TResult Function(InsertItemInSetEvent value) insertItemInSet,
+    required TResult Function(AddSeveralItemOfSetEvent value)
+        addSeveralItemOfSet,
+    required TResult Function(RemoveItemOfSetEvent value) removeItemOfSet,
+    required TResult Function(CleanListItemOfSetEvent value) cleanListItemOfSet,
+  }) {
+    return insertItemInSet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(TimeSetInitialEvent value)? initial,
+    TResult? Function(GetTimeSetEvent value)? getTimeSet,
+    TResult? Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult? Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
+    TResult? Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult? Function(InsertItemInSetEvent value)? insertItemInSet,
+    TResult? Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
+    TResult? Function(RemoveItemOfSetEvent value)? removeItemOfSet,
+    TResult? Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
+  }) {
+    return insertItemInSet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(TimeSetInitialEvent value)? initial,
+    TResult Function(GetTimeSetEvent value)? getTimeSet,
+    TResult Function(SaveAsTimeSetEvent value)? saveAsTimeSet,
+    TResult Function(ChangeStartTimeSetEvent value)? changeStartTimeSet,
+    TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
+    TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
+    TResult Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult Function(InsertItemInSetEvent value)? insertItemInSet,
+    TResult Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
+    TResult Function(RemoveItemOfSetEvent value)? removeItemOfSet,
+    TResult Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
+    required TResult orElse(),
+  }) {
+    if (insertItemInSet != null) {
+      return insertItemInSet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InsertItemInSetEvent implements TimeSetEvent {
+  const factory InsertItemInSetEvent({required final int index}) =
+      _$InsertItemInSetEvent;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$InsertItemInSetEventCopyWith<_$InsertItemInSetEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1448,6 +1688,7 @@ class _$AddSeveralItemOfSetEvent implements AddSeveralItemOfSetEvent {
     required TResult Function(DateTime newDuration) changeDurationTimeSet,
     required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
     required TResult Function() addItemOfSet,
+    required TResult Function(int index) insertItemInSet,
     required TResult Function(int count, int startNumber) addSeveralItemOfSet,
     required TResult Function(int id) removeItemOfSet,
     required TResult Function() cleanListItemOfSet,
@@ -1465,6 +1706,7 @@ class _$AddSeveralItemOfSetEvent implements AddSeveralItemOfSetEvent {
     TResult? Function(DateTime newDuration)? changeDurationTimeSet,
     TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult? Function()? addItemOfSet,
+    TResult? Function(int index)? insertItemInSet,
     TResult? Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult? Function(int id)? removeItemOfSet,
     TResult? Function()? cleanListItemOfSet,
@@ -1482,6 +1724,7 @@ class _$AddSeveralItemOfSetEvent implements AddSeveralItemOfSetEvent {
     TResult Function(DateTime newDuration)? changeDurationTimeSet,
     TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult Function()? addItemOfSet,
+    TResult Function(int index)? insertItemInSet,
     TResult Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult Function(int id)? removeItemOfSet,
     TResult Function()? cleanListItemOfSet,
@@ -1505,6 +1748,7 @@ class _$AddSeveralItemOfSetEvent implements AddSeveralItemOfSetEvent {
     required TResult Function(ChangeFinishTimeSetEvent value)
         changeFinishTimeSet,
     required TResult Function(AddItemOfSetEvent value) addItemOfSet,
+    required TResult Function(InsertItemInSetEvent value) insertItemInSet,
     required TResult Function(AddSeveralItemOfSetEvent value)
         addSeveralItemOfSet,
     required TResult Function(RemoveItemOfSetEvent value) removeItemOfSet,
@@ -1523,6 +1767,7 @@ class _$AddSeveralItemOfSetEvent implements AddSeveralItemOfSetEvent {
     TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult? Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult? Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult? Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult? Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult? Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -1540,6 +1785,7 @@ class _$AddSeveralItemOfSetEvent implements AddSeveralItemOfSetEvent {
     TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -1636,6 +1882,7 @@ class _$RemoveItemOfSetEvent implements RemoveItemOfSetEvent {
     required TResult Function(DateTime newDuration) changeDurationTimeSet,
     required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
     required TResult Function() addItemOfSet,
+    required TResult Function(int index) insertItemInSet,
     required TResult Function(int count, int startNumber) addSeveralItemOfSet,
     required TResult Function(int id) removeItemOfSet,
     required TResult Function() cleanListItemOfSet,
@@ -1653,6 +1900,7 @@ class _$RemoveItemOfSetEvent implements RemoveItemOfSetEvent {
     TResult? Function(DateTime newDuration)? changeDurationTimeSet,
     TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult? Function()? addItemOfSet,
+    TResult? Function(int index)? insertItemInSet,
     TResult? Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult? Function(int id)? removeItemOfSet,
     TResult? Function()? cleanListItemOfSet,
@@ -1670,6 +1918,7 @@ class _$RemoveItemOfSetEvent implements RemoveItemOfSetEvent {
     TResult Function(DateTime newDuration)? changeDurationTimeSet,
     TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult Function()? addItemOfSet,
+    TResult Function(int index)? insertItemInSet,
     TResult Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult Function(int id)? removeItemOfSet,
     TResult Function()? cleanListItemOfSet,
@@ -1693,6 +1942,7 @@ class _$RemoveItemOfSetEvent implements RemoveItemOfSetEvent {
     required TResult Function(ChangeFinishTimeSetEvent value)
         changeFinishTimeSet,
     required TResult Function(AddItemOfSetEvent value) addItemOfSet,
+    required TResult Function(InsertItemInSetEvent value) insertItemInSet,
     required TResult Function(AddSeveralItemOfSetEvent value)
         addSeveralItemOfSet,
     required TResult Function(RemoveItemOfSetEvent value) removeItemOfSet,
@@ -1711,6 +1961,7 @@ class _$RemoveItemOfSetEvent implements RemoveItemOfSetEvent {
     TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult? Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult? Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult? Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult? Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult? Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -1728,6 +1979,7 @@ class _$RemoveItemOfSetEvent implements RemoveItemOfSetEvent {
     TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -1796,6 +2048,7 @@ class _$CleanListItemOfSetEvent implements CleanListItemOfSetEvent {
     required TResult Function(DateTime newDuration) changeDurationTimeSet,
     required TResult Function(DateTime newFinishTime) changeFinishTimeSet,
     required TResult Function() addItemOfSet,
+    required TResult Function(int index) insertItemInSet,
     required TResult Function(int count, int startNumber) addSeveralItemOfSet,
     required TResult Function(int id) removeItemOfSet,
     required TResult Function() cleanListItemOfSet,
@@ -1813,6 +2066,7 @@ class _$CleanListItemOfSetEvent implements CleanListItemOfSetEvent {
     TResult? Function(DateTime newDuration)? changeDurationTimeSet,
     TResult? Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult? Function()? addItemOfSet,
+    TResult? Function(int index)? insertItemInSet,
     TResult? Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult? Function(int id)? removeItemOfSet,
     TResult? Function()? cleanListItemOfSet,
@@ -1830,6 +2084,7 @@ class _$CleanListItemOfSetEvent implements CleanListItemOfSetEvent {
     TResult Function(DateTime newDuration)? changeDurationTimeSet,
     TResult Function(DateTime newFinishTime)? changeFinishTimeSet,
     TResult Function()? addItemOfSet,
+    TResult Function(int index)? insertItemInSet,
     TResult Function(int count, int startNumber)? addSeveralItemOfSet,
     TResult Function(int id)? removeItemOfSet,
     TResult Function()? cleanListItemOfSet,
@@ -1853,6 +2108,7 @@ class _$CleanListItemOfSetEvent implements CleanListItemOfSetEvent {
     required TResult Function(ChangeFinishTimeSetEvent value)
         changeFinishTimeSet,
     required TResult Function(AddItemOfSetEvent value) addItemOfSet,
+    required TResult Function(InsertItemInSetEvent value) insertItemInSet,
     required TResult Function(AddSeveralItemOfSetEvent value)
         addSeveralItemOfSet,
     required TResult Function(RemoveItemOfSetEvent value) removeItemOfSet,
@@ -1871,6 +2127,7 @@ class _$CleanListItemOfSetEvent implements CleanListItemOfSetEvent {
     TResult? Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult? Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult? Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult? Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult? Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult? Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult? Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
@@ -1888,6 +2145,7 @@ class _$CleanListItemOfSetEvent implements CleanListItemOfSetEvent {
     TResult Function(ChangeDurationTimeSetEvent value)? changeDurationTimeSet,
     TResult Function(ChangeFinishTimeSetEvent value)? changeFinishTimeSet,
     TResult Function(AddItemOfSetEvent value)? addItemOfSet,
+    TResult Function(InsertItemInSetEvent value)? insertItemInSet,
     TResult Function(AddSeveralItemOfSetEvent value)? addSeveralItemOfSet,
     TResult Function(RemoveItemOfSetEvent value)? removeItemOfSet,
     TResult Function(CleanListItemOfSetEvent value)? cleanListItemOfSet,
