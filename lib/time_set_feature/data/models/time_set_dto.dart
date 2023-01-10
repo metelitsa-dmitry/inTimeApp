@@ -43,19 +43,21 @@ class TimeSetDto {
     required this.finishTimeSet,
   });
 
-
   factory TimeSetDto.fromDomain(TimeSetEntity timeSet) {
     return TimeSetDto(
-        itemsOfSet: timeSet.itemsOfSet?.map((item) => ItemOfSetDto.fromDomain(item)).toList(),
-        numberChips: timeSet.numberChips?.map((chip) => NumberChipsDataDto.fromDomain(chip)).toList(),
-        dateTimeSaved: timeSet.dateTimeSaved,
-        title: timeSet.title,
-        startTimeSet: timeSet.startTimeSet,
-        durationHourTimeSet: timeSet.durationHourTimeSet,
-        durationMinutesTimeSet: timeSet.durationMinutesTimeSet,
+      itemsOfSet: timeSet.itemsOfSet
+          ?.map((item) => ItemOfSetDto.fromDomain(item))
+          .toList(),
+      numberChips: timeSet.numberChips
+          ?.map((chip) => NumberChipsDataDto.fromDomain(chip))
+          .toList(),
+      dateTimeSaved: timeSet.dateTimeSaved,
+      title: timeSet.title,
+      startTimeSet: timeSet.startTimeSet,
+      durationHourTimeSet: timeSet.durationHourTimeSet,
+      durationMinutesTimeSet: timeSet.durationMinutesTimeSet,
       finishTimeSet: timeSet.finishTimeSet,
     );
-
   }
 
   TimeSetEntity toDomain() {
@@ -71,4 +73,23 @@ class TimeSetDto {
     );
   }
 
+  TimeSetDto copyWith(
+      String? title,
+      DateTime? dateTimeSaved,
+      DateTime? startTimeSet,
+      int? durationHourTimeSet,
+      int? durationMinutesTimeSet,
+      DateTime? finishTimeSet,
+      List<ItemOfSetDto>? itemsOfSet,
+      List<NumberChipsDataDto>? numberChips) {
+    return TimeSetDto(
+      dateTimeSaved: dateTimeSaved ?? this.dateTimeSaved,
+      title: title ?? this.title,
+      startTimeSet: startTimeSet ?? this.startTimeSet,
+      durationHourTimeSet: durationHourTimeSet ?? this.durationHourTimeSet,
+      durationMinutesTimeSet:
+          durationMinutesTimeSet ?? this.durationMinutesTimeSet,
+      finishTimeSet: finishTimeSet ?? this.finishTimeSet,
+    );
+  }
 }

@@ -18,8 +18,8 @@ class AddUpdateItemBloc extends Bloc<AddUpdateItemEvent, AddUpdateItemState> {
       emit(const _Saving());
 
       final failureOrSuccess = await _addUpdateItemInSet(
-          timeSet: event.timeSet,
-          itemOfSet: event.itemOfSet,
+          timeSetEntity: event.timeSet,
+          itemOfSetEntity: event.itemOfSet,
           indexOfItem: event.indexOfItem);
 
       failureOrSuccess.fold((failure) {
