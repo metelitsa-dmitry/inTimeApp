@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/add_update_item_screen/widgets/text_choice_chips_widget.dart';
 import '../../../domain/entities/item_of_set_entity.dart';
 import 'bloc_add_update_item/item_form_bloc.dart';
 import 'widgets/add_update_item_widget.dart';
@@ -28,7 +29,7 @@ class AddUpdateItemBody extends StatelessWidget {
                   TextInputFieldWidget(itemOfSet: itemOfSet,),
                   const ListOfSwitchersWidget(),
                   const WrapNumberChipsWidget(),
-                  //TextChoiceChipsWidget(),
+                  const TextChoiceChipsWidget(),
                 ],
               ),
             )

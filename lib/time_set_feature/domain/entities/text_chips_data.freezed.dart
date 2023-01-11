@@ -102,12 +102,14 @@ class __$$_TextChoiceChipDataCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TextChoiceChipData implements _TextChoiceChipData {
-  const _$_TextChoiceChipData({required this.label, required this.isSelected});
+class _$_TextChoiceChipData extends _TextChoiceChipData {
+  _$_TextChoiceChipData({required this.label, this.isSelected = false})
+      : super._();
 
   @override
   final String label;
   @override
+  @JsonKey()
   final bool isSelected;
 
   @override
@@ -136,10 +138,11 @@ class _$_TextChoiceChipData implements _TextChoiceChipData {
           this, _$identity);
 }
 
-abstract class _TextChoiceChipData implements TextChoiceChipData {
-  const factory _TextChoiceChipData(
+abstract class _TextChoiceChipData extends TextChoiceChipData {
+  factory _TextChoiceChipData(
       {required final String label,
-      required final bool isSelected}) = _$_TextChoiceChipData;
+      final bool isSelected}) = _$_TextChoiceChipData;
+  _TextChoiceChipData._() : super._();
 
   @override
   String get label;

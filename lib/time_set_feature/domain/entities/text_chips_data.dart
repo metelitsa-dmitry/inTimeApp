@@ -6,11 +6,15 @@ part 'text_chips_data.freezed.dart';
 @freezed
 class TextChoiceChipData with _$TextChoiceChipData {
 
- // TextChoiceChipData._(); If will be added some methods
+ TextChoiceChipData._(); //If will be added some methods
 
-  const factory TextChoiceChipData({
+  factory TextChoiceChipData({
     required String label,
-    required bool isSelected,
+    @Default(false) bool isSelected,
   }) = _TextChoiceChipData;
+
+  factory TextChoiceChipData.empty(){
+    return TextChoiceChipData(label: '', isSelected: false);
+  }
 
 }

@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import '../../../../domain/entities/item_of_set_entity.dart';
 import '../../../../domain/entities/time_set_entity.dart';
 import '../../../../domain/usecases/add_update_item_in_set_use_case.dart';

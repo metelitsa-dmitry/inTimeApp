@@ -8,12 +8,13 @@ class AddUpdateItemFormState with _$AddUpdateItemFormState {
     int? indexOfItem,
     String? titleItem, // text in item
     List<String>? chipsItem,
+    DateTime? startItemOfSet,
     int? durationHourOfItemSet,
     int? durationMinutesOfItemSet,
     int? durationSecondsOfItemSet,
-    DateTime? startItemOfSet,
     bool? isPicture, // need to discuss picture
     bool? isVerse, // need to read verse
     bool? isTable,
+    List<TextChoiceChipData>? listTextChipsData,
   }) = ItemInitialFormState;
 }

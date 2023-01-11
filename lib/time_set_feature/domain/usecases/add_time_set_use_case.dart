@@ -3,7 +3,7 @@ import 'package:in_time/time_set_feature/domain/entities/time_set_entity.dart';
 import 'package:in_time/time_set_feature/domain/repositories/time_set_repository.dart';
 
 class AddTimeSetUseCase {
-  final TimeSetRepository _timeSetRepository;
+  final TimeSetRepository<TimeSetDto> _timeSetRepository;
   AddTimeSetUseCase(this._timeSetRepository);
 
   void call(String id, TimeSetEntity timeSet){

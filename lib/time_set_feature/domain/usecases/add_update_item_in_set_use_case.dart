@@ -6,7 +6,7 @@ import '../repositories/time_set_repository.dart';
 import 'package:dartz/dartz.dart';
 
 class AddUpdateItemInSetUseCase {
-  final TimeSetRepository _timeSetRepository;
+  final TimeSetRepository<TimeSetDto> _timeSetRepository;
 
   AddUpdateItemInSetUseCase(this._timeSetRepository);
 

@@ -1,19 +1,18 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:in_time/core/error/exceptions.dart';
-import 'package:in_time/time_set_feature/data/models/time_set_dto.dart';
-
 import '../../../core/constants.dart';
 import '../../domain/data_source/data_base_domain.dart';
+import '../models/text_chips_data_dto.dart';
 
-class DataBaseTimeSetImpl implements DataBase<TimeSetDto> {
-
-  @override
-  Box get box => Hive.box(constTimeSetsBox);
+class DataBaseTextChipsImpl implements DataBase<TextChoiceChipDataDto> {
 
   @override
-  Future addUpdate(String id, TimeSetDto timeSetDto) async {
+  Box get box => Hive.box(constTextChipsBox);
+
+  @override
+  Future addUpdate(String id, TextChoiceChipDataDto textChoiceChipDto) async {
     try {
-      await box.put(id, timeSetDto);
+      await box.put(id, textChoiceChipDto);
     } catch (_) {
       rethrow;
     }
@@ -38,7 +37,7 @@ class DataBaseTimeSetImpl implements DataBase<TimeSetDto> {
   }
 
   @override
-  TimeSetDto get(String id) {
+  TextChoiceChipDataDto get(String id) {
     try {
       final data = box.get(id);
       if (data == null) {
@@ -51,9 +50,9 @@ class DataBaseTimeSetImpl implements DataBase<TimeSetDto> {
   }
 
   @override
-  List<TimeSetDto> getAll() {
+  List<TextChoiceChipDataDto> getAll() {
     final data = box.toMap().values;
-    return data.toList().cast<TimeSetDto>();
+    return data.toList().cast<TextChoiceChipDataDto>();
   }
 
 }

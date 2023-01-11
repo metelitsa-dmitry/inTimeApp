@@ -15,6 +15,7 @@ class AddUpdateItemFormEvent with _$AddUpdateItemFormEvent {
     bool? isPicture, // need to discuss picture
     bool? isVerse, // need to read verse
     bool? isTable,
+    List<TextChoiceChipData>? listTextChipsData,
   }) = ItemInitialFormEvent;
 
   const factory AddUpdateItemFormEvent.changeIsTable(bool isTable) = ItemChangeIsTableFormEvent;
@@ -24,5 +25,11 @@ class AddUpdateItemFormEvent with _$AddUpdateItemFormEvent {
   const factory AddUpdateItemFormEvent.addNumberChips(String numberChip) = AddNumberChipsFormEvent;
   const factory AddUpdateItemFormEvent.removeNumberChips(String numberChip) = RemoveNumberChipsFormEvent;
   const factory AddUpdateItemFormEvent.saveItemForm() = SaveItemFormEvent;
+  const factory AddUpdateItemFormEvent.addTextChip(String labelTextChip) =
+  AddTextChipsDataFormEvent;
+  const factory AddUpdateItemFormEvent.removeTextChip(TextChoiceChipData textChip) =
+  RemoveTextChipsFormEvent;
+  const factory AddUpdateItemFormEvent.selectTextChip(TextChoiceChipData textChip) =
+  SelectTextChipsFormEvent;
 
 }

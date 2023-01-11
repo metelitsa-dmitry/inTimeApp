@@ -4,6 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:in_time/core/constants.dart';
 import 'package:in_time/time_set_feature/data/models/item_of_set_dto.dart';
 import 'package:in_time/time_set_feature/data/models/number_chips_data_dto.dart';
+import 'package:in_time/time_set_feature/data/models/text_chips_data_dto.dart';
 import 'package:in_time/time_set_feature/data/models/time_set_dto.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_list_time_sets/bloc_list_time_sets_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
@@ -23,7 +24,9 @@ void main() async {
   Hive.registerAdapter(TimeSetDtoAdapter());
   Hive.registerAdapter(ItemOfSetDtoAdapter());
   Hive.registerAdapter(NumberChipsDataDtoAdapter());
+  Hive.registerAdapter(TextChoiceChipDataDtoAdapter());
   await Hive.openBox(constTimeSetsBox);
+  await Hive.openBox(constTextChipsBox);
 
   runApp(const MyApp());
 }
@@ -46,7 +49,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(
               create: (context) => sl<ListTimeSetsBloc>()..add(const Loaded())),
           BlocProvider(create: (context) => sl<FabVisibilityBloc>()),
-          // BlocProvider(create: (context) => sl<AddUpdateItemFormBloc>()),
+          //BlocProvider(create: (context) => sl<AddUpdateItemFormBloc>()),
           // BlocProvider(create: (context) => sl<AddUpdateItemBloc>()),
         ],
         child: const TimeSetScreen(),

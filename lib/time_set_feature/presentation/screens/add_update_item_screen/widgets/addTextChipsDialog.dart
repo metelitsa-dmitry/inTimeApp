@@ -1,15 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update_item/item_form_bloc.dart';
+import '../../../../../di/di.dart';
 
 
-class AddTextChipsDialog extends StatefulWidget {
+class AddTextChipsDialog extends StatelessWidget {
   const AddTextChipsDialog({Key? key}) : super(key: key);
 
   @override
-  State<AddTextChipsDialog> createState() => _AddTextChipsDialogState();
+  Widget build(BuildContext context) {
+
+    return BlocProvider(
+      create: (context) => sl<AddUpdateItemFormBloc>(),
+      child:
+      AlertDialogBody(),
+    );
+  }
 }
 
-class _AddTextChipsDialogState extends State<AddTextChipsDialog> {
+class AlertDialogBody extends StatefulWidget {
+  const AlertDialogBody({Key? key}) : super(key: key);
 
+  @override
+  State<AlertDialogBody> createState() => _AlertDialogBodyState();
+}
+
+class _AlertDialogBodyState extends State<AlertDialogBody> {
   final _controller = TextEditingController();
 
   @override
@@ -20,8 +36,7 @@ class _AddTextChipsDialogState extends State<AddTextChipsDialog> {
 
   @override
   Widget build(BuildContext context) {
-   //final editItemModel = context.read<EditItemModel>();
-
+    //final bloc = context.read<AddUpdateItemFormBloc>();
     return AlertDialog(
       title: const Text('Добавить тэг'),
       content: TextField(
@@ -33,9 +48,13 @@ class _AddTextChipsDialogState extends State<AddTextChipsDialog> {
           child: const Text('Cancel'),
         ),
         TextButton(
-          onPressed: (){
+          onPressed: () {
+            // bloc.add(
+            //     AddTextChipsDataFormEvent(
+            //         TextChoiceChipData(
+            //             label: _controller.text, isSelected: false)));
 
-            Navigator.pop(context);
+            Navigator.pop(context, _controller.text);
           },
           child: const Text('Ok'),
         ),
@@ -43,3 +62,5 @@ class _AddTextChipsDialogState extends State<AddTextChipsDialog> {
     );
   }
 }
+
+

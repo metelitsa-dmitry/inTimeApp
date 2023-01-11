@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:in_time/time_set_feature/data/models/time_set_dto.dart';
 import 'package:in_time/time_set_feature/domain/entities/time_set_entity.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
 import '../../../../../di/di.dart';
@@ -29,7 +30,7 @@ class DrawerScreenBody extends StatelessWidget {
     final state = context.watch<ListTimeSetsBloc>().state;
     return Drawer(
       child: ValueListenableBuilder(
-        valueListenable: sl<DataBase>().box.listenable(),
+        valueListenable: sl<DataBase<TimeSetDto>>().box.listenable(),
         builder: (context, _, child) {
           context.read<ListTimeSetsBloc>().add(const Loaded());
           return child!;

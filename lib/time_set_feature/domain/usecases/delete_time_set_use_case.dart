@@ -1,7 +1,8 @@
+import '../../data/models/time_set_dto.dart';
 import '../repositories/time_set_repository.dart';
 
 class DeleteTimeSetUseCase{
-  final TimeSetRepository _timeSetRepository;
+  final TimeSetRepository<TimeSetDto> _timeSetRepository;
 
   DeleteTimeSetUseCase(this._timeSetRepository);
 
