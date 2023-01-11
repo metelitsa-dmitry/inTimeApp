@@ -74,8 +74,10 @@ class WrapTextChoiceChips extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = context.read<AddUpdateItemFormBloc>();
     final state = context.watch<AddUpdateItemFormBloc>().state;
     final textChoiceChips = state.listTextChipsData ?? [];
+    final itemChips = state.chipsItem ?? [];
     // return ValueListenableBuilder(
     //   valueListenable: sl<DataBase<TextChoiceChipDataDto>>().box.listenable(),
     //   builder: (context, _, child) {
@@ -90,13 +92,15 @@ class WrapTextChoiceChips extends StatelessWidget {
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
                         color: Colors.white),
-                    selected: textChoiceChips.contains(choiceChip),
+                    selected: itemChips.contains(choiceChip.label),
                     selectedColor: Colors.blueGrey,
                     backgroundColor: Colors.blueGrey[200],
                     onSelected: (isSelected) {
-                      String value = choiceChip.label;
                       if (isSelected) {
-                      } else {}
+                          bloc.add(SelectTextChipsFormEvent(textChip: choiceChip, isSelected: isSelected ));
+                      } else {
+                        bloc.add(NotSelectTextChipsFormEvent(textChip: choiceChip, isSelected: isSelected ));
+                      }
                     },
                     onDeleted: () {
                       context

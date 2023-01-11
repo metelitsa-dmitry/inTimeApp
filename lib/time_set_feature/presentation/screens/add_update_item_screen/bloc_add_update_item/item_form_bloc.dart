@@ -72,6 +72,25 @@ class AddUpdateItemFormBloc
        _addTextChipsUseCase(id: addedTextChip.label, textChip: addedTextChip);
         emit(state.copyWith(listTextChipsData: _getAllTextChipsUseCase()));
       }
+
+      if (event is SelectTextChipsFormEvent) {
+        final currentChipsItem = state.chipsItem?.toList() ?? [];
+        final addingChips = event.textChip.label;
+        currentChipsItem.add(addingChips);
+        final updatedChipsItem = currentChipsItem.toList() ;
+
+        emit(state.copyWith(chipsItem: updatedChipsItem));
+      }
+
+      if (event is NotSelectTextChipsFormEvent) {
+        final currentChipsItem = state.chipsItem?.toList() ?? [];
+        final removingChips = event.textChip.label;
+        currentChipsItem.removeWhere((chips) => removingChips == chips);
+        final updatedChipsItem = currentChipsItem.toList() ;
+
+        emit(state.copyWith(chipsItem: updatedChipsItem));
+      }
+
       if (event is RemoveTextChipsFormEvent) {
         final textChip = event.textChip;
         _deleteTextChipUseCase(textChip.label);

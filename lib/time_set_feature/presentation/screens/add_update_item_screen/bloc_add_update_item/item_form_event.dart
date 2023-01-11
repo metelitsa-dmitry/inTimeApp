@@ -29,7 +29,12 @@ class AddUpdateItemFormEvent with _$AddUpdateItemFormEvent {
   AddTextChipsDataFormEvent;
   const factory AddUpdateItemFormEvent.removeTextChip(TextChoiceChipData textChip) =
   RemoveTextChipsFormEvent;
-  const factory AddUpdateItemFormEvent.selectTextChip(TextChoiceChipData textChip) =
+  const factory AddUpdateItemFormEvent.selectTextChip(
+      {required TextChoiceChipData textChip,
+      required bool isSelected}) =
   SelectTextChipsFormEvent;
-
+  const factory AddUpdateItemFormEvent.notSelectTextChip(
+      {required TextChoiceChipData textChip,
+        required bool isSelected}) =
+  NotSelectTextChipsFormEvent;
 }

@@ -41,7 +41,10 @@ mixin _$AddUpdateItemFormEvent {
     required TResult Function() saveItemForm,
     required TResult Function(String labelTextChip) addTextChip,
     required TResult Function(TextChoiceChipData textChip) removeTextChip,
-    required TResult Function(TextChoiceChipData textChip) selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,7 +72,10 @@ mixin _$AddUpdateItemFormEvent {
     TResult? Function()? saveItemForm,
     TResult? Function(String labelTextChip)? addTextChip,
     TResult? Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult? Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,7 +103,10 @@ mixin _$AddUpdateItemFormEvent {
     TResult Function()? saveItemForm,
     TResult Function(String labelTextChip)? addTextChip,
     TResult Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -116,6 +125,8 @@ mixin _$AddUpdateItemFormEvent {
     required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
     required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
     required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -131,6 +142,7 @@ mixin _$AddUpdateItemFormEvent {
     TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -146,6 +158,7 @@ mixin _$AddUpdateItemFormEvent {
     TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -429,7 +442,10 @@ class _$ItemInitialFormEvent implements ItemInitialFormEvent {
     required TResult Function() saveItemForm,
     required TResult Function(String labelTextChip) addTextChip,
     required TResult Function(TextChoiceChipData textChip) removeTextChip,
-    required TResult Function(TextChoiceChipData textChip) selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
   }) {
     return initial(
         index,
@@ -472,7 +488,10 @@ class _$ItemInitialFormEvent implements ItemInitialFormEvent {
     TResult? Function()? saveItemForm,
     TResult? Function(String labelTextChip)? addTextChip,
     TResult? Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult? Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
   }) {
     return initial?.call(
         index,
@@ -515,7 +534,10 @@ class _$ItemInitialFormEvent implements ItemInitialFormEvent {
     TResult Function()? saveItemForm,
     TResult Function(String labelTextChip)? addTextChip,
     TResult Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -552,6 +574,8 @@ class _$ItemInitialFormEvent implements ItemInitialFormEvent {
     required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
     required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
     required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
   }) {
     return initial(this);
   }
@@ -570,6 +594,7 @@ class _$ItemInitialFormEvent implements ItemInitialFormEvent {
     TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
   }) {
     return initial?.call(this);
   }
@@ -588,6 +613,7 @@ class _$ItemInitialFormEvent implements ItemInitialFormEvent {
     TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -721,7 +747,10 @@ class _$ItemChangeIsTableFormEvent implements ItemChangeIsTableFormEvent {
     required TResult Function() saveItemForm,
     required TResult Function(String labelTextChip) addTextChip,
     required TResult Function(TextChoiceChipData textChip) removeTextChip,
-    required TResult Function(TextChoiceChipData textChip) selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
   }) {
     return changeIsTable(isTable);
   }
@@ -752,7 +781,10 @@ class _$ItemChangeIsTableFormEvent implements ItemChangeIsTableFormEvent {
     TResult? Function()? saveItemForm,
     TResult? Function(String labelTextChip)? addTextChip,
     TResult? Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult? Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
   }) {
     return changeIsTable?.call(isTable);
   }
@@ -783,7 +815,10 @@ class _$ItemChangeIsTableFormEvent implements ItemChangeIsTableFormEvent {
     TResult Function()? saveItemForm,
     TResult Function(String labelTextChip)? addTextChip,
     TResult Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
     required TResult orElse(),
   }) {
     if (changeIsTable != null) {
@@ -808,6 +843,8 @@ class _$ItemChangeIsTableFormEvent implements ItemChangeIsTableFormEvent {
     required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
     required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
     required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
   }) {
     return changeIsTable(this);
   }
@@ -826,6 +863,7 @@ class _$ItemChangeIsTableFormEvent implements ItemChangeIsTableFormEvent {
     TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
   }) {
     return changeIsTable?.call(this);
   }
@@ -844,6 +882,7 @@ class _$ItemChangeIsTableFormEvent implements ItemChangeIsTableFormEvent {
     TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
     required TResult orElse(),
   }) {
     if (changeIsTable != null) {
@@ -954,7 +993,10 @@ class _$ItemChangeIsVerseFormEvent implements ItemChangeIsVerseFormEvent {
     required TResult Function() saveItemForm,
     required TResult Function(String labelTextChip) addTextChip,
     required TResult Function(TextChoiceChipData textChip) removeTextChip,
-    required TResult Function(TextChoiceChipData textChip) selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
   }) {
     return changeIsVerse(isVerse);
   }
@@ -985,7 +1027,10 @@ class _$ItemChangeIsVerseFormEvent implements ItemChangeIsVerseFormEvent {
     TResult? Function()? saveItemForm,
     TResult? Function(String labelTextChip)? addTextChip,
     TResult? Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult? Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
   }) {
     return changeIsVerse?.call(isVerse);
   }
@@ -1016,7 +1061,10 @@ class _$ItemChangeIsVerseFormEvent implements ItemChangeIsVerseFormEvent {
     TResult Function()? saveItemForm,
     TResult Function(String labelTextChip)? addTextChip,
     TResult Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
     required TResult orElse(),
   }) {
     if (changeIsVerse != null) {
@@ -1041,6 +1089,8 @@ class _$ItemChangeIsVerseFormEvent implements ItemChangeIsVerseFormEvent {
     required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
     required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
     required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
   }) {
     return changeIsVerse(this);
   }
@@ -1059,6 +1109,7 @@ class _$ItemChangeIsVerseFormEvent implements ItemChangeIsVerseFormEvent {
     TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
   }) {
     return changeIsVerse?.call(this);
   }
@@ -1077,6 +1128,7 @@ class _$ItemChangeIsVerseFormEvent implements ItemChangeIsVerseFormEvent {
     TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
     required TResult orElse(),
   }) {
     if (changeIsVerse != null) {
@@ -1188,7 +1240,10 @@ class _$ItemChangeIsPictureFormEvent implements ItemChangeIsPictureFormEvent {
     required TResult Function() saveItemForm,
     required TResult Function(String labelTextChip) addTextChip,
     required TResult Function(TextChoiceChipData textChip) removeTextChip,
-    required TResult Function(TextChoiceChipData textChip) selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
   }) {
     return changeIsPicture(isPicture);
   }
@@ -1219,7 +1274,10 @@ class _$ItemChangeIsPictureFormEvent implements ItemChangeIsPictureFormEvent {
     TResult? Function()? saveItemForm,
     TResult? Function(String labelTextChip)? addTextChip,
     TResult? Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult? Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
   }) {
     return changeIsPicture?.call(isPicture);
   }
@@ -1250,7 +1308,10 @@ class _$ItemChangeIsPictureFormEvent implements ItemChangeIsPictureFormEvent {
     TResult Function()? saveItemForm,
     TResult Function(String labelTextChip)? addTextChip,
     TResult Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
     required TResult orElse(),
   }) {
     if (changeIsPicture != null) {
@@ -1275,6 +1336,8 @@ class _$ItemChangeIsPictureFormEvent implements ItemChangeIsPictureFormEvent {
     required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
     required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
     required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
   }) {
     return changeIsPicture(this);
   }
@@ -1293,6 +1356,7 @@ class _$ItemChangeIsPictureFormEvent implements ItemChangeIsPictureFormEvent {
     TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
   }) {
     return changeIsPicture?.call(this);
   }
@@ -1311,6 +1375,7 @@ class _$ItemChangeIsPictureFormEvent implements ItemChangeIsPictureFormEvent {
     TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
     required TResult orElse(),
   }) {
     if (changeIsPicture != null) {
@@ -1420,7 +1485,10 @@ class _$ItemChangeTitleFormEvent implements ItemChangeTitleFormEvent {
     required TResult Function() saveItemForm,
     required TResult Function(String labelTextChip) addTextChip,
     required TResult Function(TextChoiceChipData textChip) removeTextChip,
-    required TResult Function(TextChoiceChipData textChip) selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
   }) {
     return changeTitle(text);
   }
@@ -1451,7 +1519,10 @@ class _$ItemChangeTitleFormEvent implements ItemChangeTitleFormEvent {
     TResult? Function()? saveItemForm,
     TResult? Function(String labelTextChip)? addTextChip,
     TResult? Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult? Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
   }) {
     return changeTitle?.call(text);
   }
@@ -1482,7 +1553,10 @@ class _$ItemChangeTitleFormEvent implements ItemChangeTitleFormEvent {
     TResult Function()? saveItemForm,
     TResult Function(String labelTextChip)? addTextChip,
     TResult Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
     required TResult orElse(),
   }) {
     if (changeTitle != null) {
@@ -1507,6 +1581,8 @@ class _$ItemChangeTitleFormEvent implements ItemChangeTitleFormEvent {
     required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
     required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
     required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
   }) {
     return changeTitle(this);
   }
@@ -1525,6 +1601,7 @@ class _$ItemChangeTitleFormEvent implements ItemChangeTitleFormEvent {
     TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
   }) {
     return changeTitle?.call(this);
   }
@@ -1543,6 +1620,7 @@ class _$ItemChangeTitleFormEvent implements ItemChangeTitleFormEvent {
     TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
     required TResult orElse(),
   }) {
     if (changeTitle != null) {
@@ -1652,7 +1730,10 @@ class _$AddNumberChipsFormEvent implements AddNumberChipsFormEvent {
     required TResult Function() saveItemForm,
     required TResult Function(String labelTextChip) addTextChip,
     required TResult Function(TextChoiceChipData textChip) removeTextChip,
-    required TResult Function(TextChoiceChipData textChip) selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
   }) {
     return addNumberChips(numberChip);
   }
@@ -1683,7 +1764,10 @@ class _$AddNumberChipsFormEvent implements AddNumberChipsFormEvent {
     TResult? Function()? saveItemForm,
     TResult? Function(String labelTextChip)? addTextChip,
     TResult? Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult? Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
   }) {
     return addNumberChips?.call(numberChip);
   }
@@ -1714,7 +1798,10 @@ class _$AddNumberChipsFormEvent implements AddNumberChipsFormEvent {
     TResult Function()? saveItemForm,
     TResult Function(String labelTextChip)? addTextChip,
     TResult Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
     required TResult orElse(),
   }) {
     if (addNumberChips != null) {
@@ -1739,6 +1826,8 @@ class _$AddNumberChipsFormEvent implements AddNumberChipsFormEvent {
     required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
     required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
     required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
   }) {
     return addNumberChips(this);
   }
@@ -1757,6 +1846,7 @@ class _$AddNumberChipsFormEvent implements AddNumberChipsFormEvent {
     TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
   }) {
     return addNumberChips?.call(this);
   }
@@ -1775,6 +1865,7 @@ class _$AddNumberChipsFormEvent implements AddNumberChipsFormEvent {
     TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
     required TResult orElse(),
   }) {
     if (addNumberChips != null) {
@@ -1886,7 +1977,10 @@ class _$RemoveNumberChipsFormEvent implements RemoveNumberChipsFormEvent {
     required TResult Function() saveItemForm,
     required TResult Function(String labelTextChip) addTextChip,
     required TResult Function(TextChoiceChipData textChip) removeTextChip,
-    required TResult Function(TextChoiceChipData textChip) selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
   }) {
     return removeNumberChips(numberChip);
   }
@@ -1917,7 +2011,10 @@ class _$RemoveNumberChipsFormEvent implements RemoveNumberChipsFormEvent {
     TResult? Function()? saveItemForm,
     TResult? Function(String labelTextChip)? addTextChip,
     TResult? Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult? Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
   }) {
     return removeNumberChips?.call(numberChip);
   }
@@ -1948,7 +2045,10 @@ class _$RemoveNumberChipsFormEvent implements RemoveNumberChipsFormEvent {
     TResult Function()? saveItemForm,
     TResult Function(String labelTextChip)? addTextChip,
     TResult Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
     required TResult orElse(),
   }) {
     if (removeNumberChips != null) {
@@ -1973,6 +2073,8 @@ class _$RemoveNumberChipsFormEvent implements RemoveNumberChipsFormEvent {
     required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
     required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
     required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
   }) {
     return removeNumberChips(this);
   }
@@ -1991,6 +2093,7 @@ class _$RemoveNumberChipsFormEvent implements RemoveNumberChipsFormEvent {
     TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
   }) {
     return removeNumberChips?.call(this);
   }
@@ -2009,6 +2112,7 @@ class _$RemoveNumberChipsFormEvent implements RemoveNumberChipsFormEvent {
     TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
     required TResult orElse(),
   }) {
     if (removeNumberChips != null) {
@@ -2089,7 +2193,10 @@ class _$SaveItemFormEvent implements SaveItemFormEvent {
     required TResult Function() saveItemForm,
     required TResult Function(String labelTextChip) addTextChip,
     required TResult Function(TextChoiceChipData textChip) removeTextChip,
-    required TResult Function(TextChoiceChipData textChip) selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
   }) {
     return saveItemForm();
   }
@@ -2120,7 +2227,10 @@ class _$SaveItemFormEvent implements SaveItemFormEvent {
     TResult? Function()? saveItemForm,
     TResult? Function(String labelTextChip)? addTextChip,
     TResult? Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult? Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
   }) {
     return saveItemForm?.call();
   }
@@ -2151,7 +2261,10 @@ class _$SaveItemFormEvent implements SaveItemFormEvent {
     TResult Function()? saveItemForm,
     TResult Function(String labelTextChip)? addTextChip,
     TResult Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
     required TResult orElse(),
   }) {
     if (saveItemForm != null) {
@@ -2176,6 +2289,8 @@ class _$SaveItemFormEvent implements SaveItemFormEvent {
     required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
     required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
     required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
   }) {
     return saveItemForm(this);
   }
@@ -2194,6 +2309,7 @@ class _$SaveItemFormEvent implements SaveItemFormEvent {
     TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
   }) {
     return saveItemForm?.call(this);
   }
@@ -2212,6 +2328,7 @@ class _$SaveItemFormEvent implements SaveItemFormEvent {
     TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
     required TResult orElse(),
   }) {
     if (saveItemForm != null) {
@@ -2316,7 +2433,10 @@ class _$AddTextChipsDataFormEvent implements AddTextChipsDataFormEvent {
     required TResult Function() saveItemForm,
     required TResult Function(String labelTextChip) addTextChip,
     required TResult Function(TextChoiceChipData textChip) removeTextChip,
-    required TResult Function(TextChoiceChipData textChip) selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
   }) {
     return addTextChip(labelTextChip);
   }
@@ -2347,7 +2467,10 @@ class _$AddTextChipsDataFormEvent implements AddTextChipsDataFormEvent {
     TResult? Function()? saveItemForm,
     TResult? Function(String labelTextChip)? addTextChip,
     TResult? Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult? Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
   }) {
     return addTextChip?.call(labelTextChip);
   }
@@ -2378,7 +2501,10 @@ class _$AddTextChipsDataFormEvent implements AddTextChipsDataFormEvent {
     TResult Function()? saveItemForm,
     TResult Function(String labelTextChip)? addTextChip,
     TResult Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
     required TResult orElse(),
   }) {
     if (addTextChip != null) {
@@ -2403,6 +2529,8 @@ class _$AddTextChipsDataFormEvent implements AddTextChipsDataFormEvent {
     required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
     required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
     required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
   }) {
     return addTextChip(this);
   }
@@ -2421,6 +2549,7 @@ class _$AddTextChipsDataFormEvent implements AddTextChipsDataFormEvent {
     TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
   }) {
     return addTextChip?.call(this);
   }
@@ -2439,6 +2568,7 @@ class _$AddTextChipsDataFormEvent implements AddTextChipsDataFormEvent {
     TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
     required TResult orElse(),
   }) {
     if (addTextChip != null) {
@@ -2559,7 +2689,10 @@ class _$RemoveTextChipsFormEvent implements RemoveTextChipsFormEvent {
     required TResult Function() saveItemForm,
     required TResult Function(String labelTextChip) addTextChip,
     required TResult Function(TextChoiceChipData textChip) removeTextChip,
-    required TResult Function(TextChoiceChipData textChip) selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
   }) {
     return removeTextChip(textChip);
   }
@@ -2590,7 +2723,10 @@ class _$RemoveTextChipsFormEvent implements RemoveTextChipsFormEvent {
     TResult? Function()? saveItemForm,
     TResult? Function(String labelTextChip)? addTextChip,
     TResult? Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult? Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
   }) {
     return removeTextChip?.call(textChip);
   }
@@ -2621,7 +2757,10 @@ class _$RemoveTextChipsFormEvent implements RemoveTextChipsFormEvent {
     TResult Function()? saveItemForm,
     TResult Function(String labelTextChip)? addTextChip,
     TResult Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
     required TResult orElse(),
   }) {
     if (removeTextChip != null) {
@@ -2646,6 +2785,8 @@ class _$RemoveTextChipsFormEvent implements RemoveTextChipsFormEvent {
     required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
     required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
     required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
   }) {
     return removeTextChip(this);
   }
@@ -2664,6 +2805,7 @@ class _$RemoveTextChipsFormEvent implements RemoveTextChipsFormEvent {
     TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
   }) {
     return removeTextChip?.call(this);
   }
@@ -2682,6 +2824,7 @@ class _$RemoveTextChipsFormEvent implements RemoveTextChipsFormEvent {
     TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
     required TResult orElse(),
   }) {
     if (removeTextChip != null) {
@@ -2707,7 +2850,7 @@ abstract class _$$SelectTextChipsFormEventCopyWith<$Res> {
           $Res Function(_$SelectTextChipsFormEvent) then) =
       __$$SelectTextChipsFormEventCopyWithImpl<$Res>;
   @useResult
-  $Res call({TextChoiceChipData textChip});
+  $Res call({TextChoiceChipData textChip, bool isSelected});
 
   $TextChoiceChipDataCopyWith<$Res> get textChip;
 }
@@ -2725,12 +2868,17 @@ class __$$SelectTextChipsFormEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? textChip = null,
+    Object? isSelected = null,
   }) {
     return _then(_$SelectTextChipsFormEvent(
-      null == textChip
+      textChip: null == textChip
           ? _value.textChip
           : textChip // ignore: cast_nullable_to_non_nullable
               as TextChoiceChipData,
+      isSelected: null == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -2746,14 +2894,17 @@ class __$$SelectTextChipsFormEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SelectTextChipsFormEvent implements SelectTextChipsFormEvent {
-  const _$SelectTextChipsFormEvent(this.textChip);
+  const _$SelectTextChipsFormEvent(
+      {required this.textChip, required this.isSelected});
 
   @override
   final TextChoiceChipData textChip;
+  @override
+  final bool isSelected;
 
   @override
   String toString() {
-    return 'AddUpdateItemFormEvent.selectTextChip(textChip: $textChip)';
+    return 'AddUpdateItemFormEvent.selectTextChip(textChip: $textChip, isSelected: $isSelected)';
   }
 
   @override
@@ -2762,11 +2913,13 @@ class _$SelectTextChipsFormEvent implements SelectTextChipsFormEvent {
         (other.runtimeType == runtimeType &&
             other is _$SelectTextChipsFormEvent &&
             (identical(other.textChip, textChip) ||
-                other.textChip == textChip));
+                other.textChip == textChip) &&
+            (identical(other.isSelected, isSelected) ||
+                other.isSelected == isSelected));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, textChip);
+  int get hashCode => Object.hash(runtimeType, textChip, isSelected);
 
   @JsonKey(ignore: true)
   @override
@@ -2802,9 +2955,12 @@ class _$SelectTextChipsFormEvent implements SelectTextChipsFormEvent {
     required TResult Function() saveItemForm,
     required TResult Function(String labelTextChip) addTextChip,
     required TResult Function(TextChoiceChipData textChip) removeTextChip,
-    required TResult Function(TextChoiceChipData textChip) selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
   }) {
-    return selectTextChip(textChip);
+    return selectTextChip(textChip, isSelected);
   }
 
   @override
@@ -2833,9 +2989,12 @@ class _$SelectTextChipsFormEvent implements SelectTextChipsFormEvent {
     TResult? Function()? saveItemForm,
     TResult? Function(String labelTextChip)? addTextChip,
     TResult? Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult? Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
   }) {
-    return selectTextChip?.call(textChip);
+    return selectTextChip?.call(textChip, isSelected);
   }
 
   @override
@@ -2864,11 +3023,14 @@ class _$SelectTextChipsFormEvent implements SelectTextChipsFormEvent {
     TResult Function()? saveItemForm,
     TResult Function(String labelTextChip)? addTextChip,
     TResult Function(TextChoiceChipData textChip)? removeTextChip,
-    TResult Function(TextChoiceChipData textChip)? selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
     required TResult orElse(),
   }) {
     if (selectTextChip != null) {
-      return selectTextChip(textChip);
+      return selectTextChip(textChip, isSelected);
     }
     return orElse();
   }
@@ -2889,6 +3051,8 @@ class _$SelectTextChipsFormEvent implements SelectTextChipsFormEvent {
     required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
     required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
     required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
   }) {
     return selectTextChip(this);
   }
@@ -2907,6 +3071,7 @@ class _$SelectTextChipsFormEvent implements SelectTextChipsFormEvent {
     TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
   }) {
     return selectTextChip?.call(this);
   }
@@ -2925,6 +3090,7 @@ class _$SelectTextChipsFormEvent implements SelectTextChipsFormEvent {
     TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
     TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
     TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
     required TResult orElse(),
   }) {
     if (selectTextChip != null) {
@@ -2935,12 +3101,283 @@ class _$SelectTextChipsFormEvent implements SelectTextChipsFormEvent {
 }
 
 abstract class SelectTextChipsFormEvent implements AddUpdateItemFormEvent {
-  const factory SelectTextChipsFormEvent(final TextChoiceChipData textChip) =
-      _$SelectTextChipsFormEvent;
+  const factory SelectTextChipsFormEvent(
+      {required final TextChoiceChipData textChip,
+      required final bool isSelected}) = _$SelectTextChipsFormEvent;
 
   TextChoiceChipData get textChip;
+  bool get isSelected;
   @JsonKey(ignore: true)
   _$$SelectTextChipsFormEventCopyWith<_$SelectTextChipsFormEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NotSelectTextChipsFormEventCopyWith<$Res> {
+  factory _$$NotSelectTextChipsFormEventCopyWith(
+          _$NotSelectTextChipsFormEvent value,
+          $Res Function(_$NotSelectTextChipsFormEvent) then) =
+      __$$NotSelectTextChipsFormEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TextChoiceChipData textChip, bool isSelected});
+
+  $TextChoiceChipDataCopyWith<$Res> get textChip;
+}
+
+/// @nodoc
+class __$$NotSelectTextChipsFormEventCopyWithImpl<$Res>
+    extends _$AddUpdateItemFormEventCopyWithImpl<$Res,
+        _$NotSelectTextChipsFormEvent>
+    implements _$$NotSelectTextChipsFormEventCopyWith<$Res> {
+  __$$NotSelectTextChipsFormEventCopyWithImpl(
+      _$NotSelectTextChipsFormEvent _value,
+      $Res Function(_$NotSelectTextChipsFormEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? textChip = null,
+    Object? isSelected = null,
+  }) {
+    return _then(_$NotSelectTextChipsFormEvent(
+      textChip: null == textChip
+          ? _value.textChip
+          : textChip // ignore: cast_nullable_to_non_nullable
+              as TextChoiceChipData,
+      isSelected: null == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TextChoiceChipDataCopyWith<$Res> get textChip {
+    return $TextChoiceChipDataCopyWith<$Res>(_value.textChip, (value) {
+      return _then(_value.copyWith(textChip: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$NotSelectTextChipsFormEvent implements NotSelectTextChipsFormEvent {
+  const _$NotSelectTextChipsFormEvent(
+      {required this.textChip, required this.isSelected});
+
+  @override
+  final TextChoiceChipData textChip;
+  @override
+  final bool isSelected;
+
+  @override
+  String toString() {
+    return 'AddUpdateItemFormEvent.notSelectTextChip(textChip: $textChip, isSelected: $isSelected)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NotSelectTextChipsFormEvent &&
+            (identical(other.textChip, textChip) ||
+                other.textChip == textChip) &&
+            (identical(other.isSelected, isSelected) ||
+                other.isSelected == isSelected));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, textChip, isSelected);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NotSelectTextChipsFormEventCopyWith<_$NotSelectTextChipsFormEvent>
+      get copyWith => __$$NotSelectTextChipsFormEventCopyWithImpl<
+          _$NotSelectTextChipsFormEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            int? index,
+            TimeSetEntity? timeSet,
+            String? titleItem,
+            List<String>? chipsItem,
+            int? durationHourOfItemSet,
+            int? durationMinutesOfItemSet,
+            int? durationSecondsOfItemSet,
+            DateTime? startItemOfSet,
+            bool? isPicture,
+            bool? isVerse,
+            bool? isTable,
+            List<TextChoiceChipData>? listTextChipsData)
+        initial,
+    required TResult Function(bool isTable) changeIsTable,
+    required TResult Function(bool isVerse) changeIsVerse,
+    required TResult Function(bool isPicture) changeIsPicture,
+    required TResult Function(String text) changeTitle,
+    required TResult Function(String numberChip) addNumberChips,
+    required TResult Function(String numberChip) removeNumberChips,
+    required TResult Function() saveItemForm,
+    required TResult Function(String labelTextChip) addTextChip,
+    required TResult Function(TextChoiceChipData textChip) removeTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        selectTextChip,
+    required TResult Function(TextChoiceChipData textChip, bool isSelected)
+        notSelectTextChip,
+  }) {
+    return notSelectTextChip(textChip, isSelected);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            int? index,
+            TimeSetEntity? timeSet,
+            String? titleItem,
+            List<String>? chipsItem,
+            int? durationHourOfItemSet,
+            int? durationMinutesOfItemSet,
+            int? durationSecondsOfItemSet,
+            DateTime? startItemOfSet,
+            bool? isPicture,
+            bool? isVerse,
+            bool? isTable,
+            List<TextChoiceChipData>? listTextChipsData)?
+        initial,
+    TResult? Function(bool isTable)? changeIsTable,
+    TResult? Function(bool isVerse)? changeIsVerse,
+    TResult? Function(bool isPicture)? changeIsPicture,
+    TResult? Function(String text)? changeTitle,
+    TResult? Function(String numberChip)? addNumberChips,
+    TResult? Function(String numberChip)? removeNumberChips,
+    TResult? Function()? saveItemForm,
+    TResult? Function(String labelTextChip)? addTextChip,
+    TResult? Function(TextChoiceChipData textChip)? removeTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult? Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
+  }) {
+    return notSelectTextChip?.call(textChip, isSelected);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            int? index,
+            TimeSetEntity? timeSet,
+            String? titleItem,
+            List<String>? chipsItem,
+            int? durationHourOfItemSet,
+            int? durationMinutesOfItemSet,
+            int? durationSecondsOfItemSet,
+            DateTime? startItemOfSet,
+            bool? isPicture,
+            bool? isVerse,
+            bool? isTable,
+            List<TextChoiceChipData>? listTextChipsData)?
+        initial,
+    TResult Function(bool isTable)? changeIsTable,
+    TResult Function(bool isVerse)? changeIsVerse,
+    TResult Function(bool isPicture)? changeIsPicture,
+    TResult Function(String text)? changeTitle,
+    TResult Function(String numberChip)? addNumberChips,
+    TResult Function(String numberChip)? removeNumberChips,
+    TResult Function()? saveItemForm,
+    TResult Function(String labelTextChip)? addTextChip,
+    TResult Function(TextChoiceChipData textChip)? removeTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        selectTextChip,
+    TResult Function(TextChoiceChipData textChip, bool isSelected)?
+        notSelectTextChip,
+    required TResult orElse(),
+  }) {
+    if (notSelectTextChip != null) {
+      return notSelectTextChip(textChip, isSelected);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ItemInitialFormEvent value) initial,
+    required TResult Function(ItemChangeIsTableFormEvent value) changeIsTable,
+    required TResult Function(ItemChangeIsVerseFormEvent value) changeIsVerse,
+    required TResult Function(ItemChangeIsPictureFormEvent value)
+        changeIsPicture,
+    required TResult Function(ItemChangeTitleFormEvent value) changeTitle,
+    required TResult Function(AddNumberChipsFormEvent value) addNumberChips,
+    required TResult Function(RemoveNumberChipsFormEvent value)
+        removeNumberChips,
+    required TResult Function(SaveItemFormEvent value) saveItemForm,
+    required TResult Function(AddTextChipsDataFormEvent value) addTextChip,
+    required TResult Function(RemoveTextChipsFormEvent value) removeTextChip,
+    required TResult Function(SelectTextChipsFormEvent value) selectTextChip,
+    required TResult Function(NotSelectTextChipsFormEvent value)
+        notSelectTextChip,
+  }) {
+    return notSelectTextChip(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ItemInitialFormEvent value)? initial,
+    TResult? Function(ItemChangeIsTableFormEvent value)? changeIsTable,
+    TResult? Function(ItemChangeIsVerseFormEvent value)? changeIsVerse,
+    TResult? Function(ItemChangeIsPictureFormEvent value)? changeIsPicture,
+    TResult? Function(ItemChangeTitleFormEvent value)? changeTitle,
+    TResult? Function(AddNumberChipsFormEvent value)? addNumberChips,
+    TResult? Function(RemoveNumberChipsFormEvent value)? removeNumberChips,
+    TResult? Function(SaveItemFormEvent value)? saveItemForm,
+    TResult? Function(AddTextChipsDataFormEvent value)? addTextChip,
+    TResult? Function(RemoveTextChipsFormEvent value)? removeTextChip,
+    TResult? Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult? Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
+  }) {
+    return notSelectTextChip?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ItemInitialFormEvent value)? initial,
+    TResult Function(ItemChangeIsTableFormEvent value)? changeIsTable,
+    TResult Function(ItemChangeIsVerseFormEvent value)? changeIsVerse,
+    TResult Function(ItemChangeIsPictureFormEvent value)? changeIsPicture,
+    TResult Function(ItemChangeTitleFormEvent value)? changeTitle,
+    TResult Function(AddNumberChipsFormEvent value)? addNumberChips,
+    TResult Function(RemoveNumberChipsFormEvent value)? removeNumberChips,
+    TResult Function(SaveItemFormEvent value)? saveItemForm,
+    TResult Function(AddTextChipsDataFormEvent value)? addTextChip,
+    TResult Function(RemoveTextChipsFormEvent value)? removeTextChip,
+    TResult Function(SelectTextChipsFormEvent value)? selectTextChip,
+    TResult Function(NotSelectTextChipsFormEvent value)? notSelectTextChip,
+    required TResult orElse(),
+  }) {
+    if (notSelectTextChip != null) {
+      return notSelectTextChip(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotSelectTextChipsFormEvent implements AddUpdateItemFormEvent {
+  const factory NotSelectTextChipsFormEvent(
+      {required final TextChoiceChipData textChip,
+      required final bool isSelected}) = _$NotSelectTextChipsFormEvent;
+
+  TextChoiceChipData get textChip;
+  bool get isSelected;
+  @JsonKey(ignore: true)
+  _$$NotSelectTextChipsFormEventCopyWith<_$NotSelectTextChipsFormEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 
