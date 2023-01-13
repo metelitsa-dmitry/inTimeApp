@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:in_time/time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update_item/item_form_bloc.dart';
 import '../../../../domain/entities/item_of_set_entity.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TextInputFieldWidget extends StatefulWidget {
   const TextInputFieldWidget({
@@ -31,9 +32,9 @@ class _TextInputFieldWidgetState extends State<TextInputFieldWidget> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Описание:',
-            style: TextStyle(fontSize: 16),
+          Text(
+            AppLocalizations.of(context).description,
+            style: const TextStyle(fontSize: 16),
           ),
           const Divider(
             height: 8.0,

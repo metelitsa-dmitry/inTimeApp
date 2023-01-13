@@ -1,0 +1,25 @@
+{
+    "language":"English",
+    "@language":{
+        "description":"current language"
+    },
+    "loading":"Loading...",
+    "showDialogCleanListItemsTitle":"Clean the list",
+    "showDialogCleanListItemsText":"Clear the entire list?",
+    "add":"Add",
+    "delete":"Delete",
+    "fabAddSingleItem":"Add Single Item",
+    "fabAddMultipleItems":"Add multiple items",
+    "dlgAddMultipleItemsTitle":"Add multiple items",
+    "dlgAddMultipleItemsHowMany":"How many to add?",
+    "dlgAddMultipleItemsStartNumber":"Start number",
+    "dlgSaveItemAs":"Save As...",
+    "dlgTextChips":"Add...",
+    "editing_item":"Editing item",
+    "quote":"Quote: ",
+    "illustration":"Illustration: ",
+    "table":"Table: ",
+    "cancel":"Cancel",
+    "ok":"Ok",
+    "description":"Description:"
+}

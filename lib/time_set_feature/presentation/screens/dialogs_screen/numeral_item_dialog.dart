@@ -2,14 +2,15 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../domain/entities/result_add_dialog.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class NumeralItemDialog extends StatefulWidget {
-  const NumeralItemDialog({Key? key}) : super(key: key);
+class BodyMultipleItemDialog extends StatefulWidget {
+  const BodyMultipleItemDialog({Key? key}) : super(key: key);
   @override
-  State<NumeralItemDialog> createState() => _NumeralItemDialogState();
+  State<BodyMultipleItemDialog> createState() => _BodyMultipleItemDialogState();
 }
 
-class _NumeralItemDialogState extends State<NumeralItemDialog> {
+class _BodyMultipleItemDialogState extends State<BodyMultipleItemDialog> {
   final _controllerCounter = TextEditingController();
   final _controllerStartNumber = TextEditingController();
   var resultDialog = ResultAddDialog(counter: 20, startNumber: 1);
@@ -27,12 +28,12 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
     _controllerStartNumber.text = resultDialog.startNumber.toString();
 
     return AlertDialog(
-      // title: const Text('Добавить несколько'),
+      title: Text(AppLocalizations.of(context).dlgAddMultipleItemsTitle),
       content: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Сколько пунктов добавить?'),
+            Text(AppLocalizations.of(context).dlgAddMultipleItemsHowMany),
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[300],
@@ -91,7 +92,7 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
             const Divider(
               height: 16.0,
             ),
-            Text('Начальный номер пункта'),
+            Text(AppLocalizations.of(context).dlgAddMultipleItemsStartNumber),
             Container(
               decoration: BoxDecoration(
                 color: Colors.grey[300],
@@ -157,16 +158,17 @@ class _NumeralItemDialogState extends State<NumeralItemDialog> {
       actions: <Widget>[
         MaterialButton(
           elevation: 5.0,
-          child: Text("Ok"),
+          child: Text(AppLocalizations.of(context).ok),
           onPressed: () {
             Navigator.of(context).pop(resultDialog);
           },
         ),
         MaterialButton(
           elevation: 5.0,
-          child: Text('Cancel'),
+          child: Text(AppLocalizations.of(context).cancel),
           onPressed: () {
-            Navigator.of(context).pop();
+            resultDialog = ResultAddDialog(counter: 0, startNumber: 0);
+            Navigator.of(context).pop(resultDialog);
           },
         ),
       ],

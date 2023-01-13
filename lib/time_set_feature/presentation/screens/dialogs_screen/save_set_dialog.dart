@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DialogSaveTimeSetAs extends StatefulWidget {
   const DialogSaveTimeSetAs({Key? key}) : super(key: key);
@@ -13,20 +13,20 @@ class _DialogSaveTimeSetAsState extends State<DialogSaveTimeSetAs> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Сохранить'),
+      title: Text(AppLocalizations.of(context).dlgSaveItemAs),
       content: TextField(
         controller: _controller,
       ),
       actions: <Widget>[
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text('Cancel'),
+          child: Text(AppLocalizations.of(context).cancel),
         ),
         TextButton(
           onPressed: () {
             Navigator.pop(context, _controller.text);
           },
-          child: const Text('Ok'),
+          child: Text(AppLocalizations.of(context).ok),
         ),
       ],
     );

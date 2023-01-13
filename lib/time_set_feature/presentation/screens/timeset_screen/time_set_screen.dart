@@ -6,6 +6,7 @@ import '../dialogs_screen/save_set_dialog.dart';
 import 'bloc_time_set/bloc_time_set_bloc.dart';
 import 'widgets/drawer_time_set_widget.dart';
 import 'widgets/fab_menu.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TimeSetScreen extends StatefulWidget {
   const TimeSetScreen({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _TimeSetScreenState extends State<TimeSetScreen> {
       appBar: AppBar(
         title: state.when(
             initial: () => const Text(''),
-            loading: () => const Text('Loading...'),
+            loading: () => Text(AppLocalizations.of(context).loading),
             loadedTimeSet: (timeSet) => Text(timeSet.title))
         // return const SizedBox.shrink();
         ,
@@ -60,7 +61,7 @@ List<Widget> listOfActionButtons(BuildContext context) {
     ),
     IconButton(
       onPressed: () async {
-        final isDelete = await showDialogDeleteAll(context) ?? false;
+        final isDelete = await showDialogCleanListItems(context) ?? false;
         if (isDelete) {
           blocTimeSet.add(const CleanListItemOfSetEvent());
         }
@@ -78,22 +79,22 @@ Future<String> showDialogSaveTimeSetAs(BuildContext context) async {
   );
 }
 
-Future<bool?> showDialogDeleteAll(BuildContext context) {
+Future<bool?> showDialogCleanListItems(BuildContext context) {
   return showDialog(
     context: context,
     builder: (BuildContext context) => AlertDialog(
-      title: const Text('Удалить'),
-      content: const Text('Вы хотите удалить?'),
+      title: Text(AppLocalizations.of(context).showDialogCleanListItemsTitle),
+      content: Text(AppLocalizations.of(context).showDialogCleanListItemsText),
       actions: <Widget>[
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text('Отмена'),
+          child: Text(AppLocalizations.of(context).cancel),
         ),
         TextButton(
           onPressed: () {
             Navigator.of(context).pop(true);
           },
-          child: const Text('Ok'),
+          child: Text(AppLocalizations.of(context).ok),
         ),
       ],
     ),

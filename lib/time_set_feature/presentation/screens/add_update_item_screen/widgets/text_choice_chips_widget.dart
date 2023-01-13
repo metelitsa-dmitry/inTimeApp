@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update_item/item_form_bloc.dart';
 import '../../../../domain/entities/item_of_set_entity.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TextChoiceChipsWidget extends StatefulWidget {
    const TextChoiceChipsWidget({Key? key}) : super(key: key);
@@ -40,7 +40,7 @@ class _TextChoiceChipsWidgetState extends State<TextChoiceChipsWidget> {
                       decoration: InputDecoration(
                         isDense: true,
                         isCollapsed: true,
-                        hintText: 'Добавить...' ,
+                        hintText: AppLocalizations.of(context).dlgTextChips ,
                         border: InputBorder.none,
                       ),
                       onSubmitted: (value) {
@@ -78,9 +78,6 @@ class WrapTextChoiceChips extends StatelessWidget {
     final state = context.watch<AddUpdateItemFormBloc>().state;
     final textChoiceChips = state.listTextChipsData ?? [];
     final itemChips = state.chipsItem ?? [];
-    // return ValueListenableBuilder(
-    //   valueListenable: sl<DataBase<TextChoiceChipDataDto>>().box.listenable(),
-    //   builder: (context, _, child) {
         return Wrap(
           alignment: WrapAlignment.start,
           spacing: 4.0,
@@ -111,6 +108,4 @@ class WrapTextChoiceChips extends StatelessWidget {
               .toList(),
         );
       }
-  // ,);
-  //}
 }

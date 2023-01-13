@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart';
 import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
 import '../../../../domain/entities/time_set_entity.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ItemWidget extends StatelessWidget {
   const ItemWidget({
@@ -86,30 +87,30 @@ class MyPopupMenuButton extends StatelessWidget {
               PopupMenuItem(
                 value: 1,
                 child: Row(
-                  children: const [
-                    Icon(Icons.arrow_upward),
-                    SizedBox(width: 8),
-                    Text('local.add'),
+                  children: [
+                    const Icon(Icons.arrow_upward),
+                    const SizedBox(width: 8),
+                    Text(AppLocalizations.of(context).add),
                   ],
                 ),
               ),
               PopupMenuItem(
                 value: 2,
                 child: Row(
-                  children: const [
-                    Icon(Icons.arrow_downward),
-                    SizedBox(width: 8),
-                    Text('local.add'),
+                  children: [
+                    const Icon(Icons.arrow_downward),
+                    const SizedBox(width: 8),
+                    Text(AppLocalizations.of(context).add),
                   ],
                 ),
               ),
               PopupMenuItem(
                 value: 3,
                 child: Row(
-                  children: const [
-                    Icon(Icons.delete_forever),
-                    SizedBox(width: 8),
-                    Text('{local.delete} '),
+                  children: [
+                    const Icon(Icons.delete_forever),
+                    const SizedBox(width: 8),
+                    Text(AppLocalizations.of(context).delete),
                   ],
                 ),
               ),

@@ -7,6 +7,7 @@ import 'widgets/add_update_item_widget.dart';
 import 'widgets/list_switchers_widget.dart';
 import 'widgets/text_input_field_widget.dart';
 import 'widgets/wrap_number_chips_widget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddUpdateItemBody extends StatelessWidget {
   const AddUpdateItemBody({Key? key, required this.itemOfSet,
@@ -19,7 +20,7 @@ class AddUpdateItemBody extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: Text('AppLocalizations.of(context)!.editing_item'),
+            title: Text(AppLocalizations.of(context).editing_item),
           ),
           body: SingleChildScrollView(
               child: Column(

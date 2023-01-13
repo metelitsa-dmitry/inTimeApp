@@ -1,0 +1,25 @@
+{
+      "language":"Українська",
+      "@language":{
+          "description":"поточна мова"
+      },
+      "loading":"Завантаження...",
+      "showDialogCleanListItemsTitle":"Очистити список",
+      "showDialogCleanListItemsText": "Очистити весь список?",
+      "add": "Додати",
+      "delete": "Видалити",
+      "fabAddSingleItem":"Додати один елемент",
+      "fabAddMultipleItems":"Додати кілька елементів",
+      "dlgAddMultipleItemsTitle":"Додати кілька елементів",
+      "dlgAddMultipleItemsHowMany": "Скільки додати?",
+      "dlgAddMultipleItemsStartNumber":"Стартовий номер",
+      "dlgSaveItemAs":"Зберегти як...",
+      "dlgTextChips":"Додати...",
+      "editing_item":"Редагування елемента",
+      "quote":"Цитата: ",
+      "illustration":"Ілюстрація: ",
+      "table":"Таблиця: ",
+      "cancel": "Скасувати",
+      "ok":"Ok",
+      "description": "Опис:"
+ }

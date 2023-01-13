@@ -1,0 +1,25 @@
+{
+    "language":"日本語",
+    "@language":{
+        "description":"現在の言語"
+    },
+    "loading":"読み込み中...",
+    "showDialogCleanListItemsTitle":"リストを消去",
+    "showDialogCleanListItemsText":"リスト全体をクリアしますか?",
+    "add":"追加",
+    "delete":"削除",
+    "fabAddSingleItem":"単一アイテムを追加",
+    "fabAddMultipleItems":"複数のアイテムを追加",
+    "dlgAddMultipleItemsTitle":"複数のアイテムを追加",
+    "dlgAddMultipleItemsHowMany":"いくつ追加しますか?",
+    "dlgAddMultipleItemsStartNumber":"開始番号",
+    "dlgSaveItemAs":"名前を付けて保存...",
+    "dlgTextChips":"追加...",
+    "editing_item":"編集項目",
+    "quote":"引用: ",
+    "illustration":"イラスト: ",
+    "table":"テーブル: ",
+    "cancel":"キャンセルl",
+    "ok":"Ok",
+    "description":"説明:"
+}

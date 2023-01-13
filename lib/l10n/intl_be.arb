@@ -1,0 +1,25 @@
+{
+    "language":"Беларуская",
+    "@language":{
+        "description":"бягучая мова"
+    },
+    "loading":"Загрузка...",
+    "showDialogCleanListItemsTitle":"Ачысціць спіс",
+    "showDialogCleanListItemsText":"Ачысціць увесь спіс?",
+    "add":"Дадаць",
+    "delete":"Выдаліць",
+    "fabAddSingleItem":"Дадаць асобны элемент",
+    "fabAddMultipleItems":"Дадаць некалькі элементаў",
+    "dlgAddMultipleItemsTitle":"Дадаць некалькі элементаў",
+    "dlgAddMultipleItemsHowMany":"Колькі дадаць?",
+    "dlgAddMultipleItemsStartNumber":"Стартавы нумар",
+    "dlgSaveItemAs":"Захаваць як...",
+    "dlgTextChips":"Дадаць...",
+    "editing_item":"Рэдагаванне элемента",
+    "quote":"Цытата:",
+    "illustration":"Ілюстрацыя:",
+    "table":"Табліца:",
+    "cancel":"Адмена",
+    "ok":"Добра",
+    "description":"Апісанне:"
+}

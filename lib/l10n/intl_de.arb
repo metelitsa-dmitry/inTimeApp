@@ -1,0 +1,25 @@
+{
+    "@language": "Deutsch",
+         "@language":{
+             "description":"aktuelle Sprache"
+         },
+         "loading":"Laden...",
+         "showDialogCleanListItemsTitle":"Liste löschen",
+         "showDialogCleanListItemsText":"Gesamte Liste löschen?",
+         "add": "Hinzufügen",
+         "delete":"Löschen",
+         "fabAddSingleItem":"Einzelnen Artikel hinzufügen",
+         "fabAddMultipleItems":"Mehrere Artikel hinzufügen",
+         "dlgAddMultipleItemsTitle":"Mehrere Artikel hinzufügen",
+         "dlgAddMultipleItemsHowMany":"Wie viele sollen hinzugefügt werden?",
+         "dlgAddMultipleItemsStartNumber":"Startnummer",
+         "dlgSaveItemAs":"Speichern unter...",
+         "dlgTextChips":"Hinzufügen...",
+         "editing_item":"Element bearbeiten",
+         "quote":"Zitat: ",
+         "illustration":"Illustration: ",
+         "table":"Tabelle: ",
+         "cancel":"Abbrechen",
+         "OK":"OK",
+         "description":"Beschreibung:"
+}

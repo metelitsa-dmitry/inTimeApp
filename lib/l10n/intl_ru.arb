@@ -1,0 +1,25 @@
+{
+    "language":"Русский",
+    "@language":{
+        "description":"русский"
+    },
+    "loading":"Загружается...",
+    "showDialogCleanListItemsTitle":"Очистить список",
+    "showDialogCleanListItemsText":"Очистить весь список?",
+    "add":"Добавить",
+    "delete":"Удалить",
+    "fabAddSingleItem":"Добавить один",
+    "fabAddMultipleItems":"Добавить несколько",
+    "dlgAddMultipleItemsTitle":"Добавить несколько пунктов",
+    "dlgAddMultipleItemsHowMany":"Сколько добавить?",
+    "dlgAddMultipleItemsStartNumber":"Начальный номер пункта",
+    "dlgSaveItemAs":"Сохранить как...",
+    "dlgTextChips":"Добавить...",
+    "editing_item":"Редактирование",
+    "quote":"Цитата: ",
+    "illustration":"Иллюстрация: ",
+    "table":"Рамка/таблица: ",
+    "cancel":"Отмена",
+    "ok":"Ок",
+    "description":"Описание:"
+}

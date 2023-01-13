@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update_item/item_form_bloc.dart';
 import '../../../../../di/di.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class AddTextChipsDialog extends StatelessWidget {
@@ -36,16 +37,15 @@ class _AlertDialogBodyState extends State<AlertDialogBody> {
 
   @override
   Widget build(BuildContext context) {
-    //final bloc = context.read<AddUpdateItemFormBloc>();
     return AlertDialog(
-      title: const Text('Добавить тэг'),
+      title: Text(AppLocalizations.of(context).dlgTextChips),
       content: TextField(
         controller: _controller,
       ),
       actions: <Widget>[
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text('Cancel'),
+          child: Text(AppLocalizations.of(context).cancel),
         ),
         TextButton(
           onPressed: () {
@@ -56,7 +56,7 @@ class _AlertDialogBodyState extends State<AlertDialogBody> {
 
             Navigator.pop(context, _controller.text);
           },
-          child: const Text('Ok'),
+          child: Text(AppLocalizations.of(context).ok),
         ),
       ],
     );

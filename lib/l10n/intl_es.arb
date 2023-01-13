@@ -1,0 +1,25 @@
+{
+    "language":"España",
+         "@language":{
+             "description":"idioma actual"
+         },
+         "loading":"Cargando...",
+         "showDialogCleanListItemsTitle":"Limpiar la lista",
+         "showDialogCleanListItemsText":"¿Borrar toda la lista?",
+         "add":"Agregar",
+         "delete":"Eliminar",
+         "fabAddSingleItem":"Agregar elemento único",
+         "fabAddMultipleItems":"Agregar varios artículos",
+         "dlgAddMultipleItemsTitle":"Agregar varios elementos",
+         "dlgAddMultipleItemsHowMany":"¿Cuántos agregar?",
+         "dlgAddMultipleItemsStartNumber":"Número de inicio",
+         "dlgSaveItemAs":"Guardar como...",
+         "dlgTextChips":"Agregar...",
+         "editing_item":"Editando elemento",
+         "quote":"Cita: ",
+         "illustration":"Ilustracion: ",
+         "table":"Tabla: ",
+         "cancel":"Cancelar",
+         "ok":"bien",
+         "description":"Descripción:"
+}

@@ -7,6 +7,7 @@ import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/blo
 import '../../../../../di/di.dart';
 import '../../../../domain/data_source/data_base_domain.dart';
 import '../bloc_list_time_sets/bloc_list_time_sets_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DrawerTimeSetScreen extends StatefulWidget {
   const DrawerTimeSetScreen({Key? key}) : super(key: key);
@@ -36,7 +37,7 @@ class DrawerScreenBody extends StatelessWidget {
           return child!;
         },
         child: state.when(
-          initial: () => const Text('Загрузите'),
+          initial: () => Text(AppLocalizations.of(context).loading),
           loading: () => const Center(child: CircularProgressIndicator()),
           loaded: (listTimeSets) {
             return ListView.builder(
