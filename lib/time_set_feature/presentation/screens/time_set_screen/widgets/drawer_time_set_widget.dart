@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:in_time/time_set_feature/data/models/time_set_dto.dart';
 import 'package:in_time/time_set_feature/domain/entities/time_set_entity.dart';
-import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/time_set_screen/bloc_time_set/bloc_time_set_bloc.dart';
 import '../../../../../di/di.dart';
 import '../../../../domain/data_source/data_base_domain.dart';
 import '../bloc_list_time_sets/bloc_list_time_sets_bloc.dart';

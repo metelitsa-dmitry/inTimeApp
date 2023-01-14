@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:in_time/time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update_item/item_form_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/add_update_item_screen/bloc_item_form/item_form_bloc.dart';
 import '../../../../domain/entities/item_of_set_entity.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

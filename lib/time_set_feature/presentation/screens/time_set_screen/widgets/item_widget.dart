@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:in_time/time_set_feature/domain/entities/item_of_set_entity.dart';
-import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/time_set_screen/bloc_time_set/bloc_time_set_bloc.dart';
 import '../../../../domain/entities/time_set_entity.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

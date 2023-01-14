@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:in_time/time_set_feature/domain/entities/result_add_dialog.dart';
-import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/time_set_screen/bloc_time_set/bloc_time_set_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../dialogs_screen/numeral_item_dialog.dart';
 

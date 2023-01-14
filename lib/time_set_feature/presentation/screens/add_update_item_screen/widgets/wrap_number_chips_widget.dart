@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../bloc_add_update_item/item_form_bloc.dart';
+import '../bloc_item_form/item_form_bloc.dart';
 
 
 class WrapNumberChipsWidget extends StatelessWidget {

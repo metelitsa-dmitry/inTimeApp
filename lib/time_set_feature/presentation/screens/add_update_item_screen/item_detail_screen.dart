@@ -6,7 +6,7 @@ import '../../../../di/di.dart';
 import '../../../domain/entities/time_set_entity.dart';
 import 'add_update_item_screen.dart';
 import 'bloc_add_update/add_update_item_bloc.dart';
-import 'bloc_add_update_item/item_form_bloc.dart';
+import 'bloc_item_form/item_form_bloc.dart';
 
 class ItemDetailScreen extends StatelessWidget {
   const ItemDetailScreen(

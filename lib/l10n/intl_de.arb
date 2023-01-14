@@ -6,7 +6,7 @@
          "loading":"Laden...",
          "showDialogCleanListItemsTitle":"Liste löschen",
          "showDialogCleanListItemsText":"Gesamte Liste löschen?",
-         "add": "Hinzufügen",
+         "add":"Hinzufügen",
          "delete":"Löschen",
          "fabAddSingleItem":"Einzelnen Artikel hinzufügen",
          "fabAddMultipleItems":"Mehrere Artikel hinzufügen",

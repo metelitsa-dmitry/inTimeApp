@@ -7,8 +7,8 @@ import 'package:in_time/time_set_feature/domain/usecases/get_time_set_use_case.d
 import 'package:in_time/time_set_feature/domain/usecases/text_chips_use_cases/add_text_chips_use_case.dart';
 import 'package:in_time/time_set_feature/domain/usecases/text_chips_use_cases/delete_text_chip_use_case.dart';
 import 'package:in_time/time_set_feature/domain/usecases/text_chips_use_cases/get_text-chips_use_case.dart';
-import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_time_set/bloc_time_set_bloc.dart';
-import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/bloc_fab_visibility/bloc_fab_visibility_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/time_set_screen/bloc_time_set/bloc_time_set_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/time_set_screen/bloc_fab_visibility/bloc_fab_visibility_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../time_set_feature/data/data_sources/data_base_hive.dart';
 import '../time_set_feature/data/data_sources/session_local_repository.dart';
@@ -25,8 +25,8 @@ import '../time_set_feature/domain/usecases/get_last_session_use_case.dart';
 import '../time_set_feature/domain/usecases/recalculate_item_of_set_use_case.dart';
 import '../time_set_feature/domain/usecases/save_last_session_use_case.dart';
 import '../time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update/add_update_item_bloc.dart';
-import '../time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update_item/item_form_bloc.dart';
-import '../time_set_feature/presentation/screens/timeset_screen/bloc_list_time_sets/bloc_list_time_sets_bloc.dart';
+import '../time_set_feature/presentation/screens/add_update_item_screen/bloc_item_form/item_form_bloc.dart';
+import '../time_set_feature/presentation/screens/time_set_screen/bloc_list_time_sets/bloc_list_time_sets_bloc.dart';
 
 final sl = GetIt.instance;
 

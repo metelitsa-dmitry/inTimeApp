@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:in_time/time_set_feature/presentation/screens/timeset_screen/widgets/time_setup_panel.dart';
+import 'package:in_time/time_set_feature/presentation/screens/time_set_screen/widgets/time_setup_panel.dart';
 import '../../../../domain/entities/time_set_entity.dart';
 import '../bloc_fab_visibility/bloc_fab_visibility_bloc.dart';
 import 'list_of_items.dart';
