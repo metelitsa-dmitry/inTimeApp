@@ -1,12 +1,14 @@
-import '../repositories/session_repository.dart';
+
+import '../../data/data_sources/local_value_data_source.dart';
 
 class GetLastSessionUseCase{
-  final SessionRepository _sessionRepository;
+  final LocalValueDataSource<String> _localValueDataSource;
+  final id = 'last_session';
 
-  GetLastSessionUseCase(this._sessionRepository);
+  GetLastSessionUseCase(this._localValueDataSource);
 
-  Future<String?> call() async{
-    final lastSession = await _sessionRepository.getLastSession();
+  Future<String?> call() {
+    final lastSession = _localValueDataSource.getValue(id);
     return  lastSession;
   }
 }

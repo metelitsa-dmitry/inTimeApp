@@ -8,6 +8,7 @@ import 'package:in_time/time_set_feature/data/models/item_of_set_dto.dart';
 import 'package:in_time/time_set_feature/data/models/number_chips_data_dto.dart';
 import 'package:in_time/time_set_feature/data/models/text_chips_data_dto.dart';
 import 'package:in_time/time_set_feature/data/models/time_set_dto.dart';
+import 'package:in_time/time_set_feature/presentation/screens/setting_screen/bloc_settings/bloc_settings_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/time_set_screen/bloc_list_time_sets/bloc_list_time_sets_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/time_set_screen/bloc_time_set/bloc_time_set_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/time_set_screen/bloc_fab_visibility/bloc_fab_visibility_bloc.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'inTimeApp',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -58,8 +59,7 @@ class MyApp extends StatelessWidget {
           BlocProvider(
               create: (context) => sl<ListTimeSetsBloc>()..add(const Loaded())),
           BlocProvider(create: (context) => sl<FabVisibilityBloc>()),
-          //BlocProvider(create: (context) => sl<AddUpdateItemFormBloc>()),
-          // BlocProvider(create: (context) => sl<AddUpdateItemBloc>()),
+          BlocProvider(create: (context) => sl<SettingsBloc>()),
         ],
         child: const TimeSetScreen(),
       ),

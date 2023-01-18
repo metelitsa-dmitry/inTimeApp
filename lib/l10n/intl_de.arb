@@ -1,5 +1,5 @@
 {
-    "@language": "Deutsch",
+    "language": "Deutsch",
          "@language":{
              "description":"aktuelle Sprache"
          },
@@ -20,6 +20,6 @@
          "illustration":"Illustration: ",
          "table":"Tabelle: ",
          "cancel":"Abbrechen",
-         "OK":"OK",
+         "ok":"Ok",
          "description":"Beschreibung:"
 }

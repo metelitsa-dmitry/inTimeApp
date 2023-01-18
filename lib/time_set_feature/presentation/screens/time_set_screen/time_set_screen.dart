@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/setting_screen/bloc_settings/bloc_settings_bloc.dart';
+import 'package:in_time/time_set_feature/presentation/screens/setting_screen/setting_screen.dart';
 import 'package:in_time/time_set_feature/presentation/screens/time_set_screen/bloc_fab_visibility/bloc_fab_visibility_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/time_set_screen/widgets/time_set_body.dart';
 import '../dialogs_screen/save_set_dialog.dart';
@@ -29,7 +31,7 @@ class _TimeSetScreenState extends State<TimeSetScreen> {
             loadedTimeSet: (timeSet) => Text(timeSet.title))
         // return const SizedBox.shrink();
         ,
-        actions: listOfActionButtons(context),
+        actions: _listOfActionButtons(context),
       ),
       drawer: const DrawerTimeSetScreen(),
       body: state.when(
@@ -46,7 +48,7 @@ class _TimeSetScreenState extends State<TimeSetScreen> {
   }
 }
 
-List<Widget> listOfActionButtons(BuildContext context) {
+List<Widget> _listOfActionButtons(BuildContext context) {
   final blocTimeSet = context.read<TimeSetBloc>();
   return [
     IconButton(
@@ -56,7 +58,14 @@ List<Widget> listOfActionButtons(BuildContext context) {
         },
         icon: const Icon(Icons.save)),
     IconButton(
-      onPressed: () {},
+      onPressed: () {
+        final blocSettings = context.read<SettingsBloc>();
+        Navigator.push(context,
+            MaterialPageRoute(builder:
+                (_) => BlocProvider.value(
+                    value: blocSettings,
+                child: const SettingScreen())));
+      },
       icon: const Icon(Icons.settings),
     ),
     IconButton(

@@ -43,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Einzelnen Artikel hinzufügen"),
         "illustration": MessageLookupByLibrary.simpleMessage("Illustration: "),
         "loading": MessageLookupByLibrary.simpleMessage("Laden..."),
+        "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "quote": MessageLookupByLibrary.simpleMessage("Zitat: "),
         "showDialogCleanListItemsText":
             MessageLookupByLibrary.simpleMessage("Gesamte Liste löschen?"),

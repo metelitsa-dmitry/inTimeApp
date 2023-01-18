@@ -1,11 +1,12 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../domain/entities/result_add_dialog.dart';
+import '../../../../domain/entities/result_add_dialog.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BodyMultipleItemDialog extends StatefulWidget {
   const BodyMultipleItemDialog({Key? key}) : super(key: key);
+
   @override
   State<BodyMultipleItemDialog> createState() => _BodyMultipleItemDialogState();
 }
@@ -13,6 +14,7 @@ class BodyMultipleItemDialog extends StatefulWidget {
 class _BodyMultipleItemDialogState extends State<BodyMultipleItemDialog> {
   final _controllerCounter = TextEditingController();
   final _controllerStartNumber = TextEditingController();
+  final defaultNumberOfItem = 10;
   var resultDialog = ResultAddDialog(counter: 20, startNumber: 1);
 
   @override
@@ -24,7 +26,7 @@ class _BodyMultipleItemDialogState extends State<BodyMultipleItemDialog> {
 
   @override
   Widget build(BuildContext context) {
-    _controllerCounter.text = resultDialog.counter.toString();
+    _controllerCounter.text = defaultNumberOfItem.toString();
     _controllerStartNumber.text = resultDialog.startNumber.toString();
 
     return AlertDialog(

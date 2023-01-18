@@ -1,11 +1,13 @@
-import '../repositories/session_repository.dart';
+
+import '../../data/data_sources/local_value_data_source.dart';
 
 class SaveLastSessionUseCase{
-  final SessionRepository _sessionRepository;
+  final LocalValueDataSource<String> _localValueDataSource;
+  final id = 'last_session';
 
-  SaveLastSessionUseCase(this._sessionRepository);
+  SaveLastSessionUseCase(this._localValueDataSource);
 
   Future<void> call(String nameSession) async{
-    await _sessionRepository.saveSession(nameSession);
+    await _localValueDataSource.saveValue(id, nameSession);
   }
 }

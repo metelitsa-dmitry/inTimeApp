@@ -40,15 +40,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Дадаць некалькі элементаў"),
         "fabAddSingleItem":
             MessageLookupByLibrary.simpleMessage("Дадаць асобны элемент"),
-        "illustration": MessageLookupByLibrary.simpleMessage("Ілюстрацыя:"),
-        "language": MessageLookupByLibrary.simpleMessage("Беларуская"),
+        "illustration": MessageLookupByLibrary.simpleMessage("Ілюстрацыя: "),
         "loading": MessageLookupByLibrary.simpleMessage("Загрузка..."),
         "ok": MessageLookupByLibrary.simpleMessage("Добра"),
-        "quote": MessageLookupByLibrary.simpleMessage("Цытата:"),
+        "quote": MessageLookupByLibrary.simpleMessage("Цытата: "),
         "showDialogCleanListItemsText":
             MessageLookupByLibrary.simpleMessage("Ачысціць увесь спіс?"),
         "showDialogCleanListItemsTitle":
             MessageLookupByLibrary.simpleMessage("Ачысціць спіс"),
-        "table": MessageLookupByLibrary.simpleMessage("Табліца:")
+        "table": MessageLookupByLibrary.simpleMessage("Табліца: ")
       };
 }

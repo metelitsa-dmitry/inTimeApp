@@ -16,9 +16,9 @@
     "dlgSaveItemAs":"Захаваць як...",
     "dlgTextChips":"Дадаць...",
     "editing_item":"Рэдагаванне элемента",
-    "quote":"Цытата:",
-    "illustration":"Ілюстрацыя:",
-    "table":"Табліца:",
+    "quote":"Цытата: ",
+    "illustration":"Ілюстрацыя: ",
+    "table":"Табліца: ",
     "cancel":"Адмена",
     "ok":"Добра",
     "description":"Апісанне:"
