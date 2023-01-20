@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/setting_screen/bloc_settings/bloc_settings_bloc.dart';
 
+
 part 'widgets/default_number_of_items.dart';
 
 part 'widgets/default_duration_of_set.dart';
@@ -37,11 +38,11 @@ class _SettingScreenState extends State<SettingScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
-                    children: [
-                      _DefaultNumbersOfItems(numberItems: defaultNumberItems),
-                      const Divider(thickness: 2),
+                    children: const [
+                      _DefaultNumbersOfItems(),
+                      Divider(thickness: 2),
                       DefaultDurationOfSet(),
-                      const Divider(thickness: 2),
+                      Divider(thickness: 2),
                     ],
                   ),
                 ),
@@ -51,3 +52,5 @@ class _SettingScreenState extends State<SettingScreen> {
       );
   }
 }
+
+

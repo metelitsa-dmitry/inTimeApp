@@ -27,9 +27,11 @@ import '../time_set_feature/domain/usecases/recalculate_item_of_set_use_case.dar
 import '../time_set_feature/domain/usecases/save_last_session_use_case.dart';
 import '../time_set_feature/domain/usecases/settings_use_cases/get_default_duration_time_set.dart';
 import '../time_set_feature/domain/usecases/settings_use_cases/get_default_number_items.dart';
+import '../time_set_feature/domain/usecases/settings_use_cases/save_default_duration_time_set.dart';
 import '../time_set_feature/domain/usecases/settings_use_cases/save_default_number_items.dart';
 import '../time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update/add_update_item_bloc.dart';
 import '../time_set_feature/presentation/screens/add_update_item_screen/bloc_item_form/item_form_bloc.dart';
+import '../time_set_feature/presentation/screens/dialogs_screen/dlg_numeral_items/bloc_add_numeral_items/bloc_add_numeral_items_bloc.dart';
 import '../time_set_feature/presentation/screens/setting_screen/bloc_settings/bloc_settings_bloc.dart';
 import '../time_set_feature/presentation/screens/time_set_screen/bloc_list_time_sets/bloc_list_time_sets_bloc.dart';
 
@@ -37,12 +39,13 @@ final sl = GetIt.instance;
 
 init() async {
   ///Bloc
-  sl.registerFactory(() => TimeSetBloc(sl(), sl(), sl(), sl(), sl(), sl(), sl()));
+  sl.registerFactory(() => TimeSetBloc(sl(), sl(), sl(), sl(), sl(), sl(), sl(), sl()));
   sl.registerFactory(() => ListTimeSetsBloc(sl(), sl()));
   sl.registerFactory(() => FabVisibilityBloc());
   sl.registerFactory(() => AddUpdateItemBloc(sl()));
   sl.registerFactory(() => AddUpdateItemFormBloc(sl(), sl(), sl(), sl()));
-  sl.registerFactory(() => SettingsBloc(sl()));
+  sl.registerFactory(() => SettingsBloc(sl(), sl(), sl(), sl()));
+  sl.registerFactory(() => AddNumeralItemsBloc(sl()));
 
   ///UseCases
   sl.registerLazySingleton(() => GetAllTimeSetsUseCase(sl()));
@@ -56,10 +59,10 @@ init() async {
   sl.registerLazySingleton(() => GetAllTextChipsUseCase(sl()));
   sl.registerLazySingleton(() => AddTextChipsUseCase(sl()));
   sl.registerLazySingleton(() => DeleteTextChipUseCase(sl()));
+  sl.registerLazySingleton(() => GetDefaultNumberItemsUseCase(sl()));
   sl.registerLazySingleton(() => SaveDefaultNumberItems(sl()));
   sl.registerLazySingleton(() => GetDefaultDurationTimeSetUseCase(sl()));
-  sl.registerLazySingleton(() => GetDefaultNumberItemsUseCase(sl()));
-
+  sl.registerLazySingleton(() => SaveDefaultDurationTimeSetUseCase(sl()));
 
   ///Repository
   sl.registerLazySingleton<TimeSetRepository<TimeSetDto>>(

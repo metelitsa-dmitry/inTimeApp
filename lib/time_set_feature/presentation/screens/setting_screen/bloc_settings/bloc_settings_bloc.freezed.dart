@@ -19,32 +19,51 @@ mixin _$SettingsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() increaseCount,
+    required TResult Function() decreaseCount,
+    required TResult Function(TimeOfDay newDefaultDurationTimeSet)
+        changeDuration,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? increaseCount,
+    TResult? Function()? decreaseCount,
+    TResult? Function(TimeOfDay newDefaultDurationTimeSet)? changeDuration,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? increaseCount,
+    TResult Function()? decreaseCount,
+    TResult Function(TimeOfDay newDefaultDurationTimeSet)? changeDuration,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialize value) initialize,
+    required TResult Function(_IncreaseCountEvent value) increaseCount,
+    required TResult Function(_DecreaseCountEvent value) decreaseCount,
+    required TResult Function(_ChangeDurationEvent value) changeDuration,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_IncreaseCountEvent value)? increaseCount,
+    TResult? Function(_DecreaseCountEvent value)? decreaseCount,
+    TResult? Function(_ChangeDurationEvent value)? changeDuration,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialize value)? initialize,
+    TResult Function(_IncreaseCountEvent value)? increaseCount,
+    TResult Function(_DecreaseCountEvent value)? decreaseCount,
+    TResult Function(_ChangeDurationEvent value)? changeDuration,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +126,10 @@ class _$_Initialize implements _Initialize {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialize,
+    required TResult Function() increaseCount,
+    required TResult Function() decreaseCount,
+    required TResult Function(TimeOfDay newDefaultDurationTimeSet)
+        changeDuration,
   }) {
     return initialize();
   }
@@ -115,6 +138,9 @@ class _$_Initialize implements _Initialize {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialize,
+    TResult? Function()? increaseCount,
+    TResult? Function()? decreaseCount,
+    TResult? Function(TimeOfDay newDefaultDurationTimeSet)? changeDuration,
   }) {
     return initialize?.call();
   }
@@ -123,6 +149,9 @@ class _$_Initialize implements _Initialize {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialize,
+    TResult Function()? increaseCount,
+    TResult Function()? decreaseCount,
+    TResult Function(TimeOfDay newDefaultDurationTimeSet)? changeDuration,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -135,6 +164,9 @@ class _$_Initialize implements _Initialize {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialize value) initialize,
+    required TResult Function(_IncreaseCountEvent value) increaseCount,
+    required TResult Function(_DecreaseCountEvent value) decreaseCount,
+    required TResult Function(_ChangeDurationEvent value) changeDuration,
   }) {
     return initialize(this);
   }
@@ -143,6 +175,9 @@ class _$_Initialize implements _Initialize {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_IncreaseCountEvent value)? increaseCount,
+    TResult? Function(_DecreaseCountEvent value)? decreaseCount,
+    TResult? Function(_ChangeDurationEvent value)? changeDuration,
   }) {
     return initialize?.call(this);
   }
@@ -151,6 +186,9 @@ class _$_Initialize implements _Initialize {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialize value)? initialize,
+    TResult Function(_IncreaseCountEvent value)? increaseCount,
+    TResult Function(_DecreaseCountEvent value)? decreaseCount,
+    TResult Function(_ChangeDurationEvent value)? changeDuration,
     required TResult orElse(),
   }) {
     if (initialize != null) {
@@ -162,6 +200,387 @@ class _$_Initialize implements _Initialize {
 
 abstract class _Initialize implements SettingsEvent {
   const factory _Initialize() = _$_Initialize;
+}
+
+/// @nodoc
+abstract class _$$_IncreaseCountEventCopyWith<$Res> {
+  factory _$$_IncreaseCountEventCopyWith(_$_IncreaseCountEvent value,
+          $Res Function(_$_IncreaseCountEvent) then) =
+      __$$_IncreaseCountEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_IncreaseCountEventCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$_IncreaseCountEvent>
+    implements _$$_IncreaseCountEventCopyWith<$Res> {
+  __$$_IncreaseCountEventCopyWithImpl(
+      _$_IncreaseCountEvent _value, $Res Function(_$_IncreaseCountEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_IncreaseCountEvent implements _IncreaseCountEvent {
+  const _$_IncreaseCountEvent();
+
+  @override
+  String toString() {
+    return 'SettingsEvent.increaseCount()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_IncreaseCountEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() increaseCount,
+    required TResult Function() decreaseCount,
+    required TResult Function(TimeOfDay newDefaultDurationTimeSet)
+        changeDuration,
+  }) {
+    return increaseCount();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function()? increaseCount,
+    TResult? Function()? decreaseCount,
+    TResult? Function(TimeOfDay newDefaultDurationTimeSet)? changeDuration,
+  }) {
+    return increaseCount?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? increaseCount,
+    TResult Function()? decreaseCount,
+    TResult Function(TimeOfDay newDefaultDurationTimeSet)? changeDuration,
+    required TResult orElse(),
+  }) {
+    if (increaseCount != null) {
+      return increaseCount();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_IncreaseCountEvent value) increaseCount,
+    required TResult Function(_DecreaseCountEvent value) decreaseCount,
+    required TResult Function(_ChangeDurationEvent value) changeDuration,
+  }) {
+    return increaseCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_IncreaseCountEvent value)? increaseCount,
+    TResult? Function(_DecreaseCountEvent value)? decreaseCount,
+    TResult? Function(_ChangeDurationEvent value)? changeDuration,
+  }) {
+    return increaseCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_IncreaseCountEvent value)? increaseCount,
+    TResult Function(_DecreaseCountEvent value)? decreaseCount,
+    TResult Function(_ChangeDurationEvent value)? changeDuration,
+    required TResult orElse(),
+  }) {
+    if (increaseCount != null) {
+      return increaseCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IncreaseCountEvent implements SettingsEvent {
+  const factory _IncreaseCountEvent() = _$_IncreaseCountEvent;
+}
+
+/// @nodoc
+abstract class _$$_DecreaseCountEventCopyWith<$Res> {
+  factory _$$_DecreaseCountEventCopyWith(_$_DecreaseCountEvent value,
+          $Res Function(_$_DecreaseCountEvent) then) =
+      __$$_DecreaseCountEventCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_DecreaseCountEventCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$_DecreaseCountEvent>
+    implements _$$_DecreaseCountEventCopyWith<$Res> {
+  __$$_DecreaseCountEventCopyWithImpl(
+      _$_DecreaseCountEvent _value, $Res Function(_$_DecreaseCountEvent) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_DecreaseCountEvent implements _DecreaseCountEvent {
+  const _$_DecreaseCountEvent();
+
+  @override
+  String toString() {
+    return 'SettingsEvent.decreaseCount()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_DecreaseCountEvent);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() increaseCount,
+    required TResult Function() decreaseCount,
+    required TResult Function(TimeOfDay newDefaultDurationTimeSet)
+        changeDuration,
+  }) {
+    return decreaseCount();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function()? increaseCount,
+    TResult? Function()? decreaseCount,
+    TResult? Function(TimeOfDay newDefaultDurationTimeSet)? changeDuration,
+  }) {
+    return decreaseCount?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? increaseCount,
+    TResult Function()? decreaseCount,
+    TResult Function(TimeOfDay newDefaultDurationTimeSet)? changeDuration,
+    required TResult orElse(),
+  }) {
+    if (decreaseCount != null) {
+      return decreaseCount();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_IncreaseCountEvent value) increaseCount,
+    required TResult Function(_DecreaseCountEvent value) decreaseCount,
+    required TResult Function(_ChangeDurationEvent value) changeDuration,
+  }) {
+    return decreaseCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_IncreaseCountEvent value)? increaseCount,
+    TResult? Function(_DecreaseCountEvent value)? decreaseCount,
+    TResult? Function(_ChangeDurationEvent value)? changeDuration,
+  }) {
+    return decreaseCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_IncreaseCountEvent value)? increaseCount,
+    TResult Function(_DecreaseCountEvent value)? decreaseCount,
+    TResult Function(_ChangeDurationEvent value)? changeDuration,
+    required TResult orElse(),
+  }) {
+    if (decreaseCount != null) {
+      return decreaseCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DecreaseCountEvent implements SettingsEvent {
+  const factory _DecreaseCountEvent() = _$_DecreaseCountEvent;
+}
+
+/// @nodoc
+abstract class _$$_ChangeDurationEventCopyWith<$Res> {
+  factory _$$_ChangeDurationEventCopyWith(_$_ChangeDurationEvent value,
+          $Res Function(_$_ChangeDurationEvent) then) =
+      __$$_ChangeDurationEventCopyWithImpl<$Res>;
+  @useResult
+  $Res call({TimeOfDay newDefaultDurationTimeSet});
+}
+
+/// @nodoc
+class __$$_ChangeDurationEventCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$_ChangeDurationEvent>
+    implements _$$_ChangeDurationEventCopyWith<$Res> {
+  __$$_ChangeDurationEventCopyWithImpl(_$_ChangeDurationEvent _value,
+      $Res Function(_$_ChangeDurationEvent) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newDefaultDurationTimeSet = null,
+  }) {
+    return _then(_$_ChangeDurationEvent(
+      newDefaultDurationTimeSet: null == newDefaultDurationTimeSet
+          ? _value.newDefaultDurationTimeSet
+          : newDefaultDurationTimeSet // ignore: cast_nullable_to_non_nullable
+              as TimeOfDay,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ChangeDurationEvent implements _ChangeDurationEvent {
+  const _$_ChangeDurationEvent({required this.newDefaultDurationTimeSet});
+
+  @override
+  final TimeOfDay newDefaultDurationTimeSet;
+
+  @override
+  String toString() {
+    return 'SettingsEvent.changeDuration(newDefaultDurationTimeSet: $newDefaultDurationTimeSet)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ChangeDurationEvent &&
+            (identical(other.newDefaultDurationTimeSet,
+                    newDefaultDurationTimeSet) ||
+                other.newDefaultDurationTimeSet == newDefaultDurationTimeSet));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, newDefaultDurationTimeSet);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ChangeDurationEventCopyWith<_$_ChangeDurationEvent> get copyWith =>
+      __$$_ChangeDurationEventCopyWithImpl<_$_ChangeDurationEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialize,
+    required TResult Function() increaseCount,
+    required TResult Function() decreaseCount,
+    required TResult Function(TimeOfDay newDefaultDurationTimeSet)
+        changeDuration,
+  }) {
+    return changeDuration(newDefaultDurationTimeSet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialize,
+    TResult? Function()? increaseCount,
+    TResult? Function()? decreaseCount,
+    TResult? Function(TimeOfDay newDefaultDurationTimeSet)? changeDuration,
+  }) {
+    return changeDuration?.call(newDefaultDurationTimeSet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialize,
+    TResult Function()? increaseCount,
+    TResult Function()? decreaseCount,
+    TResult Function(TimeOfDay newDefaultDurationTimeSet)? changeDuration,
+    required TResult orElse(),
+  }) {
+    if (changeDuration != null) {
+      return changeDuration(newDefaultDurationTimeSet);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialize value) initialize,
+    required TResult Function(_IncreaseCountEvent value) increaseCount,
+    required TResult Function(_DecreaseCountEvent value) decreaseCount,
+    required TResult Function(_ChangeDurationEvent value) changeDuration,
+  }) {
+    return changeDuration(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialize value)? initialize,
+    TResult? Function(_IncreaseCountEvent value)? increaseCount,
+    TResult? Function(_DecreaseCountEvent value)? decreaseCount,
+    TResult? Function(_ChangeDurationEvent value)? changeDuration,
+  }) {
+    return changeDuration?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialize value)? initialize,
+    TResult Function(_IncreaseCountEvent value)? increaseCount,
+    TResult Function(_DecreaseCountEvent value)? decreaseCount,
+    TResult Function(_ChangeDurationEvent value)? changeDuration,
+    required TResult orElse(),
+  }) {
+    if (changeDuration != null) {
+      return changeDuration(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeDurationEvent implements SettingsEvent {
+  const factory _ChangeDurationEvent(
+          {required final TimeOfDay newDefaultDurationTimeSet}) =
+      _$_ChangeDurationEvent;
+
+  TimeOfDay get newDefaultDurationTimeSet;
+  @JsonKey(ignore: true)
+  _$$_ChangeDurationEventCopyWith<_$_ChangeDurationEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

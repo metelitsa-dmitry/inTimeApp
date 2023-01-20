@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:in_time/core/constants.dart';
@@ -7,6 +8,7 @@ import 'package:in_time/time_set_feature/domain/entities/number_chips_data.dart'
 import 'package:in_time/time_set_feature/domain/usecases/add_time_set_use_case.dart';
 import 'package:in_time/time_set_feature/domain/usecases/get_last_session_use_case.dart';
 import 'package:in_time/time_set_feature/domain/usecases/save_last_session_use_case.dart';
+import 'package:in_time/time_set_feature/domain/usecases/settings_use_cases/save_default_duration_time_set.dart';
 import 'package:in_time/time_set_feature/domain/usecases/settings_use_cases/save_default_number_items.dart';
 
 import '../../../../domain/entities/time_set_entity.dart';
@@ -26,6 +28,7 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
   final GetLastSessionUseCase _getLastSessionUseCase;
   final SaveLastSessionUseCase _saveLastSession;
   final SaveDefaultNumberItems _saveDefaultNumberItems;
+  final SaveDefaultDurationTimeSetUseCase _saveDefaultDurationTimeSet;
 
   String lastSession = 'New';
   final _timeCalculator = TimeCalculator();
@@ -37,7 +40,8 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
       this._recalculateItemOfSet,
       this._getLastSessionUseCase,
       this._saveLastSession,
-      this._saveDefaultNumberItems
+      this._saveDefaultNumberItems,
+      this._saveDefaultDurationTimeSet
   )
       : super(const TimeSetState.initial()) {
     on<TimeSetInitialEvent>((event, emit) async {
@@ -54,6 +58,7 @@ class TimeSetBloc extends Bloc<TimeSetEvent, TimeSetState> {
         _addTimeSetUseCase(timeSet.title, timeSet);
         _saveLastSession(timeSet.title);
         _saveDefaultNumberItems(constDefaultNumberItems);
+        _saveDefaultDurationTimeSet(const TimeOfDay(hour: 1, minute: 0));
       }
       lastSession = await _getLastSessionUseCase() ?? 'New';
       final currentTimeSet =
