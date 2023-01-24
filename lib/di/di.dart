@@ -29,6 +29,11 @@ import '../time_set_feature/domain/usecases/settings_use_cases/get_default_durat
 import '../time_set_feature/domain/usecases/settings_use_cases/get_default_number_items.dart';
 import '../time_set_feature/domain/usecases/settings_use_cases/save_default_duration_time_set.dart';
 import '../time_set_feature/domain/usecases/settings_use_cases/save_default_number_items.dart';
+import '../time_set_feature/domain/usecases/theme_data_use_case/get_design_type_use_case.dart';
+import '../time_set_feature/domain/usecases/theme_data_use_case/get_theme_data_use_case.dart';
+import '../time_set_feature/domain/usecases/theme_data_use_case/save_design_type_use_case.dart';
+import '../time_set_feature/domain/usecases/theme_data_use_case/save_theme_data_use_case.dart';
+import '../time_set_feature/presentation/bloc_theme_changer/bloc_theme_changer_bloc.dart';
 import '../time_set_feature/presentation/screens/add_update_item_screen/bloc_add_update/add_update_item_bloc.dart';
 import '../time_set_feature/presentation/screens/add_update_item_screen/bloc_item_form/item_form_bloc.dart';
 import '../time_set_feature/presentation/screens/dialogs_screen/dlg_numeral_items/bloc_add_numeral_items/bloc_add_numeral_items_bloc.dart';
@@ -46,6 +51,7 @@ init() async {
   sl.registerFactory(() => AddUpdateItemFormBloc(sl(), sl(), sl(), sl()));
   sl.registerFactory(() => SettingsBloc(sl(), sl(), sl(), sl()));
   sl.registerFactory(() => AddNumeralItemsBloc(sl()));
+  sl.registerFactory(() => ThemeChangerBloc(sl(), sl(), sl(), sl() ));
 
   ///UseCases
   sl.registerLazySingleton(() => GetAllTimeSetsUseCase(sl()));
@@ -63,6 +69,10 @@ init() async {
   sl.registerLazySingleton(() => SaveDefaultNumberItems(sl()));
   sl.registerLazySingleton(() => GetDefaultDurationTimeSetUseCase(sl()));
   sl.registerLazySingleton(() => SaveDefaultDurationTimeSetUseCase(sl()));
+  sl.registerLazySingleton(() => GetThemeDataUseCase(sl()));
+  sl.registerLazySingleton(() => SaveThemeDataUseCase(sl()));
+  sl.registerLazySingleton(() => GetDesignTypeUseCase(sl()));
+  sl.registerLazySingleton(() => SaveDesignTypeUseCase(sl()));
 
   ///Repository
   sl.registerLazySingleton<TimeSetRepository<TimeSetDto>>(

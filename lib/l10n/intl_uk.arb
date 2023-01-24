@@ -21,5 +21,8 @@
       "table":"Таблиця: ",
       "cancel": "Скасувати",
       "ok":"Ok",
-      "description": "Опис:"
+      "description": "Опис:",
+      "settings":"Налаштування",
+      "lightTheme": "Світла тема",
+      "darkTheme" : "Темна тема"
  }

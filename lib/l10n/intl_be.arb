@@ -21,5 +21,8 @@
     "table":"Табліца: ",
     "cancel":"Адмена",
     "ok":"Добра",
-    "description":"Апісанне:"
+    "description":"Апісанне:",
+    "settings":"Налады",
+    "lightTheme": "Светлая тэма",
+    "darkTheme" : "Цёмная тэма"
 }

@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "add": MessageLookupByLibrary.simpleMessage("添加"),
         "cancel": MessageLookupByLibrary.simpleMessage("取消"),
+        "darkTheme": MessageLookupByLibrary.simpleMessage("深色主题"),
         "delete": MessageLookupByLibrary.simpleMessage("删除"),
         "description": MessageLookupByLibrary.simpleMessage("说明："),
         "dlgAddMultipleItemsHowMany":
@@ -39,9 +40,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "fabAddSingleItem": MessageLookupByLibrary.simpleMessage("添加单个项目"),
         "illustration": MessageLookupByLibrary.simpleMessage("插图："),
         "language": MessageLookupByLibrary.simpleMessage("中文"),
+        "lightTheme": MessageLookupByLibrary.simpleMessage("浅色主题"),
         "loading": MessageLookupByLibrary.simpleMessage("加载中..."),
         "ok": MessageLookupByLibrary.simpleMessage("好"),
         "quote": MessageLookupByLibrary.simpleMessage("引用："),
+        "settings": MessageLookupByLibrary.simpleMessage("设置"),
         "showDialogCleanListItemsText":
             MessageLookupByLibrary.simpleMessage("清除整个列表？"),
         "showDialogCleanListItemsTitle":

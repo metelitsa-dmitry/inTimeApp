@@ -21,5 +21,8 @@
          "table":"Tabla: ",
          "cancel":"Cancelar",
          "ok":"bien",
-         "description":"Descripción:"
+         "description":"Descripción:",
+     "settings":"Ajustes",
+     "lightTheme": "Tema ligero",
+     "darkTheme" : "Tema oscuro"
 }

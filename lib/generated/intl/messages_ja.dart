@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "add": MessageLookupByLibrary.simpleMessage("追加"),
         "cancel": MessageLookupByLibrary.simpleMessage("キャンセルl"),
+        "darkTheme": MessageLookupByLibrary.simpleMessage("暗いテーマ"),
         "delete": MessageLookupByLibrary.simpleMessage("削除"),
         "description": MessageLookupByLibrary.simpleMessage("説明:"),
         "dlgAddMultipleItemsHowMany":
@@ -40,9 +41,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "fabAddSingleItem": MessageLookupByLibrary.simpleMessage("単一アイテムを追加"),
         "illustration": MessageLookupByLibrary.simpleMessage("イラスト: "),
         "language": MessageLookupByLibrary.simpleMessage("日本語"),
+        "lightTheme": MessageLookupByLibrary.simpleMessage("ライトテーマ"),
         "loading": MessageLookupByLibrary.simpleMessage("読み込み中..."),
         "ok": MessageLookupByLibrary.simpleMessage("Ok"),
         "quote": MessageLookupByLibrary.simpleMessage("引用: "),
+        "settings": MessageLookupByLibrary.simpleMessage("設定"),
         "showDialogCleanListItemsText":
             MessageLookupByLibrary.simpleMessage("リスト全体をクリアしますか?"),
         "showDialogCleanListItemsTitle":

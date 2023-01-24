@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "add": MessageLookupByLibrary.simpleMessage("Agregar"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancelar"),
+        "darkTheme": MessageLookupByLibrary.simpleMessage("Tema oscuro"),
         "delete": MessageLookupByLibrary.simpleMessage("Eliminar"),
         "description": MessageLookupByLibrary.simpleMessage("Descripción:"),
         "dlgAddMultipleItemsHowMany":
@@ -43,9 +44,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Agregar elemento único"),
         "illustration": MessageLookupByLibrary.simpleMessage("Ilustracion: "),
         "language": MessageLookupByLibrary.simpleMessage("España"),
+        "lightTheme": MessageLookupByLibrary.simpleMessage("Tema ligero"),
         "loading": MessageLookupByLibrary.simpleMessage("Cargando..."),
         "ok": MessageLookupByLibrary.simpleMessage("bien"),
         "quote": MessageLookupByLibrary.simpleMessage("Cita: "),
+        "settings": MessageLookupByLibrary.simpleMessage("Ajustes"),
         "showDialogCleanListItemsText":
             MessageLookupByLibrary.simpleMessage("¿Borrar toda la lista?"),
         "showDialogCleanListItemsTitle":

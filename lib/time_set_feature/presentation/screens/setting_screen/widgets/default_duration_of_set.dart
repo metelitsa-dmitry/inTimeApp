@@ -1,7 +1,7 @@
 part of '../setting_screen.dart';
 
-class DefaultDurationOfSet extends StatelessWidget {
-  const DefaultDurationOfSet({Key? key}) : super(key: key);
+class _DefaultDurationOfSet extends StatelessWidget {
+  const _DefaultDurationOfSet({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,13 +12,13 @@ class DefaultDurationOfSet extends StatelessWidget {
     final defaultDurationSetMinute = bloc.state
             .mapOrNull(loaded: (state) => state.defaultDurationSetMinute) ??
         0;
-    final _controllerDuration = TextEditingController(
+    final controllerDuration = TextEditingController(
         text:
             '${defaultDurationSetHour.toString().padLeft(2, '0')}:${defaultDurationSetMinute.toString().padLeft(2, '0')}');
     return Column(
       children: [
         const SizedBox(height: 16),
-        Text('Продолжительность по умолчанию: '),
+        const Text('Default duration of set: '),
         const SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +40,7 @@ class DefaultDurationOfSet extends StatelessWidget {
                   SizedBox(
                     width: 90.0,
                     child: TextField(
-                      controller: _controllerDuration,
+                      controller: controllerDuration,
                       readOnly: true,
                       // keyboardType: TextInputType.number,
                       // maxLines: 1,

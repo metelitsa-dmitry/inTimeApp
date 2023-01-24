@@ -21,5 +21,8 @@
     "table":"表格：",
     "cancel":"取消",
     "ok":"好",
-    "description":"说明："
+    "description":"说明：",
+    "settings":"设置",
+    "lightTheme": "浅色主题",
+    "darkTheme" : "深色主题"
 }

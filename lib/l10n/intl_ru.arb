@@ -21,5 +21,8 @@
     "table":"Рамка/таблица: ",
     "cancel":"Отмена",
     "ok":"Ок",
-    "description":"Описание:"
+    "description":"Описание:",
+    "settings":"Свойства",
+    "lightTheme": "Светлая тема",
+    "darkTheme" : "Темная тема"
 }

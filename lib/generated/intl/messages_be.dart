@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "add": MessageLookupByLibrary.simpleMessage("Дадаць"),
         "cancel": MessageLookupByLibrary.simpleMessage("Адмена"),
+        "darkTheme": MessageLookupByLibrary.simpleMessage("Цёмная тэма"),
         "delete": MessageLookupByLibrary.simpleMessage("Выдаліць"),
         "description": MessageLookupByLibrary.simpleMessage("Апісанне:"),
         "dlgAddMultipleItemsHowMany":
@@ -41,9 +42,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "fabAddSingleItem":
             MessageLookupByLibrary.simpleMessage("Дадаць асобны элемент"),
         "illustration": MessageLookupByLibrary.simpleMessage("Ілюстрацыя: "),
+        "language": MessageLookupByLibrary.simpleMessage("Беларуская"),
+        "lightTheme": MessageLookupByLibrary.simpleMessage("Светлая тэма"),
         "loading": MessageLookupByLibrary.simpleMessage("Загрузка..."),
         "ok": MessageLookupByLibrary.simpleMessage("Добра"),
         "quote": MessageLookupByLibrary.simpleMessage("Цытата: "),
+        "settings": MessageLookupByLibrary.simpleMessage("Налады"),
         "showDialogCleanListItemsText":
             MessageLookupByLibrary.simpleMessage("Ачысціць увесь спіс?"),
         "showDialogCleanListItemsTitle":

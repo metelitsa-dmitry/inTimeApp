@@ -21,5 +21,8 @@
     "table":"Table: ",
     "cancel":"Cancel",
     "ok":"Ok",
-    "description":"Description:"
+    "description":"Description:",
+    "settings":"Settings",
+    "lightTheme": "Light Theme",
+    "darkTheme" : "Dark Theme"
 }
