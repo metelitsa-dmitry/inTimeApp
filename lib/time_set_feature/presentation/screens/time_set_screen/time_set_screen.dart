@@ -28,9 +28,7 @@ class _TimeSetScreenState extends State<TimeSetScreen> {
         title: state.when(
             initial: () => const Text(''),
             loading: () => Text(AppLocalizations.of(context).loading),
-            loadedTimeSet: (timeSet) => Text(timeSet.title))
-        // return const SizedBox.shrink();
-        ,
+            loadedTimeSet: (timeSet) => Text(timeSet.title)),
         actions: _listOfActionButtons(context),
       ),
       drawer: const DrawerTimeSetScreen(),
@@ -50,6 +48,7 @@ class _TimeSetScreenState extends State<TimeSetScreen> {
 
 List<Widget> _listOfActionButtons(BuildContext context) {
   final blocTimeSet = context.read<TimeSetBloc>();
+  final blocSettings = context.read<SettingsBloc>();
   return [
     IconButton(
         onPressed: () async {
@@ -59,7 +58,7 @@ List<Widget> _listOfActionButtons(BuildContext context) {
         icon: const Icon(Icons.save)),
     IconButton(
       onPressed: () {
-        final blocSettings = context.read<SettingsBloc>();
+
         Navigator.push(context,
             MaterialPageRoute(builder:
                 (_) => BlocProvider.value(

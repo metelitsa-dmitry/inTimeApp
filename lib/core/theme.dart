@@ -1,12 +1,20 @@
 
 import 'package:flutter/material.dart';
 
+import 'constants.dart';
+
 class CustomTheme {
   static ThemeData get lightTheme {
     return ThemeData(
-      useMaterial3: false,
-        primaryColor: Colors.blueGrey,
-        scaffoldBackgroundColor: Colors.white70,
+      // colorScheme: ColorScheme.fromSwatch(
+      //   primarySwatch: Colors.blueGrey,
+      //   backgroundColor: const Color(0xFF4A6572),
+      //   accentColor: Colors.orange
+      // ),
+     // primarySwatch: Colors.blueGrey,
+      appBarTheme: const AppBarTheme(backgroundColor: appBarBackgroundColor),
+      scaffoldBackgroundColor: listBackgroundColor,
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: fabBackgroundColor),
         //fontFamily: 'Montserrat',
         // buttonTheme: ButtonThemeData(
         //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),

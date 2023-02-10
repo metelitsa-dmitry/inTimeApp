@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:in_time/core/theme.dart';
 import 'package:in_time/time_set_feature/presentation/bloc_theme_changer/bloc_theme_changer_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/setting_screen/bloc_settings/bloc_settings_bloc.dart';
 import 'package:in_time/time_set_feature/presentation/screens/time_set_screen/bloc_fab_visibility/bloc_fab_visibility_bloc.dart';
@@ -22,7 +23,7 @@ class HomeScreen extends StatelessWidget {
     final themeChangerState = context.watch<ThemeChangerBloc>().state;
     return MaterialApp(
       title: 'inTimeApp',
-      theme: themeChangerState.when(initial: () => ThemeData.light(), changed: (newTheme) => newTheme),
+      theme: themeChangerState.when(initial: () => CustomTheme.lightTheme, changed: (newTheme) => newTheme),
       supportedLocales: L10n.all,
       localizationsDelegates: const [
         AppLocalizations.delegate,

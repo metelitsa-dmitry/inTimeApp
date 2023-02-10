@@ -26,7 +26,7 @@ class ListOfItemWidgets extends StatelessWidget {
             child: Dismissible(
                 key: UniqueKey(),
                 background: Container(
-                  color: Colors.red,
+                  color: const Color(0xFFF57F17),
                 ),
                 onDismissed: (direction) {
                   blocTimeSet.add(RemoveItemOfSetEvent(id: index));

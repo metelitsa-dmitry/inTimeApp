@@ -23,9 +23,9 @@ class ItemWidget extends StatelessWidget {
         margin: const EdgeInsets.only(left: 5.0, right: 5.0, bottom: 5.0),
         // padding:
         //     const EdgeInsets.only(left: 5.0, right: 5.0, top: 5.0, bottom: 5.0),
-        decoration: BoxDecoration(
-          color: Colors.blueGrey[200],
-          borderRadius: const BorderRadius.all(
+        decoration: const BoxDecoration(
+          color: Color(0xFF90A4AE),
+          borderRadius: BorderRadius.all(
             Radius.circular(5.0),
           ),
         ),
@@ -35,12 +35,13 @@ class ItemWidget extends StatelessWidget {
             children: [
               Wrap(
                 alignment: WrapAlignment.start,
+                crossAxisAlignment: WrapCrossAlignment.center,
                 children: itemChips
                     .map((value) => InputChip(
                           label: Text(value),
-                          labelStyle:
-                              const TextStyle(fontSize: 16, color: Colors.black),
-                          disabledColor: Colors.white,
+                         // labelStyle:
+                            //  const TextStyle(fontSize: 16, color: Colors.black),
+                         // disabledColor: Colors.white,
                         ))
                     .toList(),
               ),
@@ -67,8 +68,6 @@ class MyPopupMenuButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final blocTimeSet = context.read<TimeSetBloc>();
-
-        // final local = AppLocalizations.of(context)!;
     return PopupMenuButton(
         onSelected: (value) {
           switch (value) {
@@ -142,7 +141,9 @@ class StartTime extends StatelessWidget {
         ),
         Text(
           '$durationHour:$durationMinutes:$durationSeconds',
-          style: const TextStyle(fontSize: 14, color: Colors.black38),
+          style: const TextStyle(fontSize: 14,
+              //color: Colors.black38
+          ),
         ),
       ],
     );

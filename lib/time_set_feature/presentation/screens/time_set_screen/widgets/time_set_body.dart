@@ -32,9 +32,11 @@ class TimeSetBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           const SliverAppBar(
-            expandedHeight: 56.0,
+            backgroundColor: Color(0xFFECEFF1),
+            automaticallyImplyLeading: false,
+            //expandedHeight: 50.0,
             flexibleSpace: TimeSetupPanel(),
-            backgroundColor: Colors.white,
+           // backgroundColor: Colors.white,
             floating: true,
             snap: true,
           ),

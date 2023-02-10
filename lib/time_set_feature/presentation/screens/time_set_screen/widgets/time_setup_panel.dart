@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/constants.dart';
 import '../bloc_time_set/bloc_time_set_bloc.dart';
 
 class TimeSetupPanel extends StatelessWidget {
@@ -10,13 +11,20 @@ class TimeSetupPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16.0, bottom: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: const [StartTimeSet(), DurationTimeSet(), FinishTimeSet()],
+    return Container(
+      decoration: const BoxDecoration(
+          color: colorTimePanel,
+        border: Border.symmetric(),
+        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8.0), bottomRight: Radius.circular(8.0) )
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [StartTimeSet(), DurationTimeSet(), FinishTimeSet()],
+        ),
       ),
     );
   }
@@ -31,8 +39,9 @@ class StartTimeSet extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.watch<TimeSetBloc>().state;
     final blocTimeSet = context.watch<TimeSetBloc>();
-    return Flexible(
-      flex: 1,
+    return FittedBox(
+      fit: BoxFit.contain,
+      //flex: 1,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
         child: GestureDetector(
@@ -40,18 +49,24 @@ class StartTimeSet extends StatelessWidget {
             children: [
               const Icon(Icons.hourglass_top),
               state.when(
-                initial: () => const Text('--:--'),
-                loading: () => const CircularProgressIndicator(),
-                loadedTimeSet: (timeSet) {
-                  final startTime = TimeOfDay.fromDateTime(timeSet.startTimeSet).format(context);
-                  return Text(
-                    startTime,
-                    style: const TextStyle(
-                      fontSize: 16,
-                    ),
-                  );
-                }
-              ),
+                  initial: () => const Text('--:--'),
+                  loading: () => const CircularProgressIndicator(),
+                  loadedTimeSet: (timeSet) {
+                    final startTime =
+                        TimeOfDay.fromDateTime(timeSet.startTimeSet)
+                            .format(context);
+                    return FittedBox(
+                      fit: BoxFit.contain,
+                      child: Text(
+                        startTime,
+                        style: const TextStyle(
+                          fontSize: fontSizeTextTimePanel,
+                          fontWeight: fontWeightTextTimePanel,
+                          color: colorFontTimePanel,
+                        ),
+                      ),
+                    );
+                  }),
             ],
           ),
           onTap: () async {
@@ -78,8 +93,9 @@ class DurationTimeSet extends StatelessWidget {
     final blocTimeSet = context.watch<TimeSetBloc>();
     final state = blocTimeSet.state;
 
-    return Flexible(
-      flex: 1,
+    return FittedBox(
+      fit: BoxFit.contain,
+      //flex: 1,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(4.0, 0.0, 4.0, 0.0),
         child: GestureDetector(
@@ -88,24 +104,35 @@ class DurationTimeSet extends StatelessWidget {
             children: [
               const Icon(Icons.hourglass_empty),
               state.when(
-                initial: () => const Text('--:--'),
-                loading: () => const CircularProgressIndicator(),
-                loadedTimeSet: (timeSet) {
-                  final hours = timeSet.durationHourTimeSet.toString().padLeft(2, '0');
-                  final minutes = timeSet.durationMinutesTimeSet.toString().padLeft(2,'0');
-                  return Text(
-                  '$hours:$minutes',
-                  style: const TextStyle(
-                    fontSize: 16,
-                  ),
-                );}
-              ),
+                  initial: () => const Text('--:--'),
+                  loading: () => const CircularProgressIndicator(),
+                  loadedTimeSet: (timeSet) {
+                    final hours =
+                        timeSet.durationHourTimeSet.toString().padLeft(2, '0');
+                    final minutes = timeSet.durationMinutesTimeSet
+                        .toString()
+                        .padLeft(2, '0');
+                    return FittedBox(
+                      fit: BoxFit.contain,
+                      child: Text(
+                        '$hours:$minutes',
+                        style: const TextStyle(
+                          fontSize: fontSizeTextTimePanel,
+                          fontWeight: fontWeightTextTimePanel,
+                          color: colorFontTimePanel,
+                        ),
+                      ),
+                    );
+                  }),
             ],
           ),
           onTap: () async {
             final currentTimeSet =
                 state.whenOrNull(loadedTimeSet: (timeSet) => timeSet);
-            final currentDuration = DateTime(0, 0, 0,
+            final currentDuration = DateTime(
+                0,
+                0,
+                0,
                 currentTimeSet!.durationHourTimeSet,
                 currentTimeSet.durationMinutesTimeSet);
 
@@ -129,8 +156,9 @@ class FinishTimeSet extends StatelessWidget {
     final state = context.watch<TimeSetBloc>().state;
     final blocTimeSet = context.watch<TimeSetBloc>();
 
-    return Flexible(
-      flex: 1,
+    return FittedBox(
+      fit: BoxFit.contain,
+      //flex: 1,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(4.0, 0.0, 8.0, 0.0),
         child: GestureDetector(
@@ -139,18 +167,21 @@ class FinishTimeSet extends StatelessWidget {
             children: [
               const Icon(Icons.hourglass_bottom),
               state.when(
-                initial: () => const Text('--:--'),
-                loading: () => const CircularProgressIndicator(),
-                loadedTimeSet: (timeSet) {
-                  final finishTime = TimeOfDay.fromDateTime(timeSet.finishTimeSet).format(context);
-                  return Text(
-                    finishTime,
-                    style: const TextStyle(
-                      fontSize: 16,
-                    ),
-                  );
-                }
-              ),
+                  initial: () => const Text('--:--'),
+                  loading: () => const CircularProgressIndicator(),
+                  loadedTimeSet: (timeSet) {
+                    final finishTime =
+                        TimeOfDay.fromDateTime(timeSet.finishTimeSet)
+                            .format(context);
+                    return Text(
+                      finishTime,
+                      style: const TextStyle(
+                        fontSize: fontSizeTextTimePanel,
+                        fontWeight: fontWeightTextTimePanel,
+                        color: colorFontTimePanel,
+                      ),
+                    );
+                  }),
             ],
           ),
           onTap: () async {
